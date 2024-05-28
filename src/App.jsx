@@ -1,7 +1,7 @@
 function App() {
     return (
         <div>
-            <h1>Most visited wikimedia articles</h1>
+            <h2>Most visited wikimedia articles</h2>
         </div>
     );
 }
