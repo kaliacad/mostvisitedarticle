@@ -1,1 +1,1 @@
-# Most visited articles (Wikimeidia)
+# Most visited articles (Wikimedia)
