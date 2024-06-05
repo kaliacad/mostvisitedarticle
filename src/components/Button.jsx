@@ -1,13 +1,25 @@
 import PropTypes from 'prop-types';
 
-export default function Button({ text }) {
-    if (text) return <button>{text}</button>;
-    else {
-        text = "You have to add a prop 'text'";
-        return <button>{text}</button>;
+const defaultEvent = () => {
+    alert('You need an event on this button');
+};
+export default function Button({ text, event }) {
+    const text2 = "You have to add a prop 'text'";
+    if (event) {
+        return <button onClick={defaultEvent()}>{text || text2}</button>;
+    } else {
+        if (text) return <button onClick={event || defaultEvent}>{text}</button>;
+        else {
+            return <button onClick={event || defaultEvent}>{text2}</button>;
+        }
     }
+    // if (event) return <button onClick={event}>{text}</button>;
+    // else {
+    //     return <button onClick={defaultEvent}>{text}</button>;
+    // }
 }
 
 Button.propTypes = {
     text: PropTypes.string.isRequired,
+    event: PropTypes.string.isRequired,
 };
