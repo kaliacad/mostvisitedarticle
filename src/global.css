@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins','Montserrat', sans-serif;
+
 }
 
 /* CSS Resets */
@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	font-family: 'Poppins','Montserrat', sans-serif;
 	line-height: 1;
 }
 ol, ul {
