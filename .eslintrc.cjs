@@ -15,6 +15,7 @@ module.exports = {
     'react/jsx-no-target-blank': 'off',
     "no-unused-vars": "error",
     "no-console": "error",
+    "react/prop-types": "off",
     "prefer-const": ["error", { "ignoreReadBeforeAssign": true }],
     'react-refresh/only-export-components': [
       'warn',
