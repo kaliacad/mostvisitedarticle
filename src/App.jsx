@@ -1,3 +1,4 @@
+import Navigation from './components/nav';
 import SetDate from './components/setdate/setdate';
 import MostArticleByProject from './components/MostArticleByProject';
 import Button from './components/Button.jsx';
@@ -8,6 +9,7 @@ function App() {
     };
     return (
         <div>
+            <Navigation />;
             <h2>Most visited wikimedia articles</h2>
             <SetDate />
             <MostArticleByProject project='fr.wikipedia' />
@@ -15,6 +17,11 @@ function App() {
             <WikiAfricaTopArticles />
         </div>
     );
+
+
+
+     
+
 }
 
 export default App;

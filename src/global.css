@@ -131,6 +131,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 button {
     background-color: rgba(51, 51, 51, 0.05);
     border-radius: 8px;
@@ -177,4 +178,24 @@ button {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+#navbar{
+	background-color: rgb(62, 146, 146);
+	color: white;
+	padding: 2rem;
+	border-bottom: 1Opx solid rgb(228, 228, 23);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+#navbar ul{
+	display: flex;
+	flex-direction: row;
+	gap: 4rem;
+}
+ #navbar img{
+	width: 20px;
+	
+ }
 
