@@ -4,7 +4,7 @@ export default function SetDate() {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     return (
-        <div className='setInterval'>
+        <div className='setdate'>
             <h6>Choisir un intervalle</h6>
             <div>
                 <span className='label' htmlFor='startDate'>
