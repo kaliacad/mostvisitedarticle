@@ -13,10 +13,6 @@ export default function Button({ text, event }) {
             return <button onClick={event || defaultEvent}>{text2}</button>;
         }
     }
-    // if (event) return <button onClick={event}>{text}</button>;
-    // else {
-    //     return <button onClick={defaultEvent}>{text}</button>;
-    // }
 }
 
 Button.propTypes = {
