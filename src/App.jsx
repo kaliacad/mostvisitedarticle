@@ -5,7 +5,6 @@ import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 import Metadata from './components/metadata/metadata.jsx';
 import { Footer } from './components/footer.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
-
 import NavBar from './components/NavBar.jsx';
 import ExportDropdownButton from './components/DropdownExport.jsx';
 import { Menu } from './components/Menu';
