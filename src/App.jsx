@@ -2,7 +2,6 @@ import SetDate from './components/setdate/setdate';
 import MostArticleByProject from './components/MostArticleByProject';
 import Button from './components/Button.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
-import { Footer } from './components/footer.jsx';
 function App() {
     const handleClick = () => {
         alert('Button clicked!');
@@ -14,7 +13,6 @@ function App() {
             <MostArticleByProject project='fr.wikipedia' />
             <Button text='submit' event={handleClick}></Button>
             <WikiAfricaTopArticles />
-            <Footer />
         </div>
     );
 }
