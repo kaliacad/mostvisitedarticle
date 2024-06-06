@@ -9,6 +9,7 @@ Where:
 - itemsPerPage an number of data per page to be determined
 - handlePageChange is a function to update the array of currentItems (items of the current page)  :    
 
+Testez la fonctionnalité avec la route "/exemple_pagination"
 */
 
 const Pagination = ({ items, itemsPerPage, onPageChange }) => {
