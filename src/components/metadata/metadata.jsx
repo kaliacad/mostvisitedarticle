@@ -7,7 +7,7 @@ export default function Metadata() {
             <meta charset='UTF-8' />
             <meta
                 name='description'
-                content="Cette application nous permet d'afficher les articles wikipedia les plus lu selon un certain nombre de filtres selon les pays selon les dates "
+                content="'ette application nous permet d'afficher les articles wikipedia les plus  u selon un certain nombre de filtres ,selon les pays ,selon les dates  ..."
             />
             {/* description */}
             <meta name='keybord' content='Emingi, Wikipedia, les articles les plus visités' /> {/* CEO */}
