@@ -189,7 +189,14 @@ button {
         }
     }
 }
-
+.WikiAfricaTopArticles {
+    display: flex;
+    justify-content: left;
+    padding: 0 5%;
+    gap: 1%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
 @keyframes spin {
     0% {
         transform: rotate(0deg);
