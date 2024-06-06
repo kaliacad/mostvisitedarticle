@@ -1,6 +1,6 @@
 import './articlecard.css';
 import getPageURL from '../helpers/getPageUrl';
-import fetchImageFromArticle from '../api/fectchImages';
+import fetchImageFromArticle from '../api/fetchImageFromArticle';
 import { useEffect, useState } from 'react';
 const ArticleCard = ({ article, project, views_ceil, rank }) => {
     const [url, setUrl] = useState(null);
