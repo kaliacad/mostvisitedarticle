@@ -188,14 +188,16 @@ button {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	width: 100vw;
 }
-#navbar ul{
-	display: flex;
-	flex-direction: row;
-	gap: 4rem;
+#app_title{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	font-style: oblique;
+	color: rgb(236, 226, 226);
 }
- #navbar img{
-	width: 20px;
-	
+ #nav_icone img{
+	padding: 0 10px;
  }
 
