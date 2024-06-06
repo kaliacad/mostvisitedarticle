@@ -1,5 +1,3 @@
-// PLACEHOLDER DATA
-
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 
@@ -21,18 +19,29 @@ export default function ResultListArticles() {
     }, []);
     return (
         <div>
-            <div>
-                {data
-                    ? data.map((article) => (
-                          <div key={article.rank} style={{ display: 'flex', alignItems: 'center', padding: 10, borderBottom: '1px solid #ccc' }}>
-                              <span style={{ fontWeight: 'bold', marginRight: 10 }}>{article.rank}</span>
-                              <span style={{ flex: 1 }}>{article.article}</span>
-                              <span>{article.project}</span>
-                              <span style={{ fontSize: 14, color: '#666' }}>{article.views_ceil} views</span>
-                          </div>
-                      ))
-                    : null}
-            </div>
+            <h1 style={{ textAlign: 'center' }}>Articles List</h1>
+            <table style={{ border: '1px solid black', width: '100%' }}>
+                <thead>
+                    <tr>
+                        <th style={{ border: '1px solid black' }}>Rank</th>
+                        <th style={{ border: '1px solid black' }}>Articles</th>
+                        <th style={{ border: '1px solid black' }}>Project</th>
+                        <th style={{ border: '1px solid black' }}>Views</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data
+                        ? data.map((article) => (
+                              <tr key={article.rank}>
+                                  <td style={{ border: '1px solid black', textAlign: 'center' }}>{article.rank}</td>
+                                  <td style={{ border: '1px solid black' }}>{article.article}</td>
+                                  <td style={{ border: '1px solid black' }}>{article.project}</td>
+                                  <td style={{ border: '1px solid black' }}>{article.views_ceil} views</td>
+                              </tr>
+                          ))
+                        : null}
+                </tbody>
+            </table>
         </div>
     );
 }
