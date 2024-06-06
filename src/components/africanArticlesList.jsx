@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import countriesFr from '../helpers/countriesFr';
 
-const africanCountries = countriesFr.Afrique;
+const africanCountries = countriesFr.afrique;
 
 const WikiAfricaTopArticles = () => {
     const [data, setData] = useState([]);
