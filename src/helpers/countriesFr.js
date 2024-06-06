@@ -1,5 +1,5 @@
 const countriesFr = {
-    Afrique: [
+    afrique: [
         { code: 'DZ', name: 'Algérie' },
         { code: 'AO', name: 'Angola' },
         { code: 'BJ', name: 'Bénin' },
@@ -55,7 +55,7 @@ const countriesFr = {
         { code: 'ZM', name: 'Zambie' },
         { code: 'ZW', name: 'Zimbabwe' },
     ],
-    Amérique: [
+    amerique: [
         { code: 'AG', name: 'Antigua-et-Barbuda' },
         { code: 'AR', name: 'Argentine' },
         { code: 'BS', name: 'Bahamas' },
@@ -92,7 +92,7 @@ const countriesFr = {
         { code: 'UY', name: 'Uruguay' },
         { code: 'VE', name: 'Venezuela' },
     ],
-    Asie: [
+    asie: [
         { code: 'AF', name: 'Afghanistan' },
         { code: 'AM', name: 'Arménie' },
         { code: 'AZ', name: 'Azerbaïdjan' },
@@ -142,7 +142,7 @@ const countriesFr = {
         { code: 'VN', name: 'Vietnam' },
         { code: 'YE', name: 'Yémen' },
     ],
-    Europe: [
+    europe: [
         { code: 'AL', name: 'Albanie' },
         { code: 'AD', name: 'Andorre' },
         { code: 'AT', name: 'Autriche' },
@@ -188,7 +188,7 @@ const countriesFr = {
         { code: 'UA', name: 'Ukraine' },
         { code: 'GB', name: 'Royaume-Uni' },
     ],
-    Océanie: [
+    oceanie: [
         { code: 'AU', name: 'Australie' },
         { code: 'FJ', name: 'Fidji' },
         { code: 'KI', name: 'Kiribati' },
