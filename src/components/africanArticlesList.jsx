@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import countriesFr from '../helpers/countriesFr';
 import ArticleCard from './ArticleCard';
+import Loading from './loading';
+
 const africanCountries = countriesFr.afrique;
 
 const WikiAfricaTopArticles = () => {
@@ -26,7 +28,7 @@ const WikiAfricaTopArticles = () => {
         fetchDataForAllCountries();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
