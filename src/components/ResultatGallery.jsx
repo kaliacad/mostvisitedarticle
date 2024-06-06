@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import ArticleCard from './ArticleCard';
+// import TopVisited from '../components/TopVisited'
 
 export default function ResultatGallery() {
     const [data, setData] = useState([]);
@@ -29,14 +30,18 @@ export default function ResultatGallery() {
     // <ResulatGallery rank={rank} article={article} views={views} />
 
     return (
-        <div style={{ margin: '2rem' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', gap: '5rem' }}>
-                {data
-                    ? data.map((art, i) => (
-                          <ArticleCard key={i} article={art.article} rank={art.rank} views_ceil={art.views_ceil} project={art.project} />
-                      ))
-                    : null}
+        <>
+            <div style={{ margin: '2rem' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', gap: '5rem' }}>
+                    {data
+                        ? data.map((art, i) => (
+                              <ArticleCard key={i} article={art.article} rank={art.rank} views_ceil={art.views_ceil} project={art.project} />
+                          ))
+                        : null}
+                </div>
             </div>
-        </div>
+
+            {/* <TopVisited /> */}
+        </>
     );
 }
