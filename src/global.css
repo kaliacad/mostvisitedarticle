@@ -198,3 +198,21 @@ button {
         transform: rotate(360deg);
     }
 }
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+}
+
+.footer-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
