@@ -8,16 +8,24 @@ import NavBar from './components/NavBar.jsx';
 import ExportDropdownButton from './components/DropdownExport.jsx';
 import { Menu } from './components/Menu';
 import { datab } from '../data';
+import { useState } from 'react';
+import ResultListArticles from './components/ResultListArticles.jsx';
 function App() {
     const titre = 'Pays';
     const handleClick = () => {
         alert('Button clicked!');
     };
+    const [showArticles, setShowArticles] = useState(false);
+
+    const handleClicked = () => {
+        setShowArticles(!showArticles);
+    };
     return (
         <div>
             <NavBar />
             <ExportDropdownButton />
-            <ResultatGallery />
+            <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+            {showArticles ? <ResultListArticles /> : <ResultatGallery />}
             <SetDate />
             <Menu data={datab} title={titre} />
             <MostArticleByProject project='fr.wikipedia' />

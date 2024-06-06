@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+[build]
+  command = "CI='' npm run build"
+  publish = "/build"
+  base ="/"
+=======
+>>>>>>> upstream/develop
 
 [[redirects]]
   from = "/*"
