@@ -37,6 +37,7 @@ const WikiAfricaTopArticles = () => {
             {data.map((countryData, index) => {
                 if (!Array.isArray(countryData)) {
                     const CountryItems = countryData.items;
+
                     return (
                         <div key={index}>
                             <h2>{africanCountries[index].name}</h2>

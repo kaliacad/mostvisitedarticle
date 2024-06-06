@@ -7,16 +7,16 @@
 }
 
 .pays {
-	width: 400px;
-	height: 35px;
-	outline: 0;
+    width: 400px;
+    height: 35px;
+    outline: 0;
 
-	/* background-color: blue; */
+    /* background-color: blue; */
 }
 
 .country {
-	font-size: 1.5em;
-	margin: 20px;
+    font-size: 1.5em;
+    margin: 20px;
 }
 
 /* CSS Resets */
@@ -327,6 +327,7 @@ button {
     padding: 10px 0;
     border-top: 1px solid #ccc;
     bottom: 0;
+    padding: 1px;
 }
 
 .footer-link {
