@@ -327,6 +327,7 @@ button {
     padding: 10px 0;
     border-top: 1px solid #ccc;
     bottom: 0;
+    padding: 1px;
 }
 
 .footer-link {
