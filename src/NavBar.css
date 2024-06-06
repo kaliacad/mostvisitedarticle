@@ -1,0 +1,76 @@
+/* NavBar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 80%;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    min-width: 200px;
+    width: 30%;
+    border-radius: 100px;
+    border: 2px solid #333;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.search-input {
+    width: 100%;
+    padding: 5px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+.navbar-help {
+    position: relative;
+}
+
+.help-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.help-menu {
+    position: absolute;
+    width: 250%;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.help-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.help-menu a:hover {
+    background-color: #ddd;
+}

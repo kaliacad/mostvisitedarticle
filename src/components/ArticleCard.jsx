@@ -1,15 +1,30 @@
 import './articlecard.css';
-const ArticleCard = () => {
+import getPageURL from '../helpers/getPageUrl';
+const ArticleCard = ({ article, project, views_ceil, rank }) => {
+    // props { article, rank, views_ceil, project }
+
     return (
         <div className='article-card'>
             <img src='https://cdn-icons-png.flaticon.com/256/4598/4598489.png' alt='nom article' className='article-image' />
             <div className='article-content'>
-                <h3 className='article-title'>Titre de l&apos;article</h3>
-                <p className='article-description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore illo, odio rem, nostrum sint aliquid cumque quod ratione
-                    quibusdam ducimus culpa, laudantium aut quis numquam tenetur iusto? Enim, odio cum!
-                </p>
-                <a href='https://fr.wikipedia.org/wiki/Goma' className='article-link'>
+                <h3 className='article-title'>
+                    <a href={getPageURL(article, project)} target='_blank'>
+                        {article}
+                    </a>
+                </h3>
+                <div className='article-description'>
+                    <p>
+                        <span>Project</span> : <span>{project}</span>
+                    </p>
+                    <p>
+                        <span>Rank</span> : <span>{rank}</span>
+                    </p>
+                    <p>
+                        <span>Views : </span> : <span>{views_ceil}</span>
+                    </p>
+                </div>
+
+                <a href={getPageURL(article, project)} className='article-link'>
                     Lire l&apos;article
                 </a>
             </div>

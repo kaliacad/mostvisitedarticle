@@ -5,6 +5,8 @@ import './global.css';
 import Loading from './components/loading.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MostVisitedArtiliclesByCountryAndDate from './pages/MostVisitedArtiliclesByCountryAndDate/MostVisitedArtiliclesByCountryAndDate'
+import ExemplePagination from './pages/exemplePagination.jsx';
+import TopAfrica from './pages/topAfrica.jsx';
 
 const router = createBrowserRouter([
     {
@@ -16,8 +18,13 @@ const router = createBrowserRouter([
         element: <Loading />,
     },
     {
-        path: '/top_visited_articles_country_day',
-        element: <MostVisitedArtiliclesByCountryAndDate />,
+
+        path: '/exemple_pagination',
+        element: <ExemplePagination />,
+    },
+    {
+        path: '/top_africa',
+        element: <TopAfrica />,
     },
 ]);
 
