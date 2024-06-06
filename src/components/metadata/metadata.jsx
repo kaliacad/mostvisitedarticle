@@ -5,7 +5,7 @@ export default function Metadata() {
         <Helmet>
             <title>Emi</title>
             <meta charset='UTF-8' />
-            <meta name='description' content='Soyez creatif' />
+            <meta name='description' content='Cette application nous permet d'afficher les articles wikipedia les plus lu selon un certain nombre de filtres, selon les pays, selon les dates ...' />
             {/* description */}
             <meta name='keybord' content='Emingi, Wikipedia, les articles les plus visités' /> {/* CEO */}
             <meta name='author' content='Kali Academy' /> {/* author */}
