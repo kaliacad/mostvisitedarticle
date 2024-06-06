@@ -16,6 +16,7 @@
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
         "axios": "^1.7.2",
+        "country-list-js": "^3.1.8",
         "file-saver": "^2.0.5",
         "html2canvas": "^1.4.1",
         "jspdf": "^2.5.1",
