@@ -6,6 +6,19 @@
     box-sizing: border-box;
 }
 
+.pays {
+	width: 400px;
+	height: 35px;
+	outline: 0;
+
+	/* background-color: blue; */
+}
+
+.country {
+	font-size: 1.5em;
+	margin: 20px;
+}
+
 /* CSS Resets */
 
 html,
@@ -234,6 +247,71 @@ button {
     }
 }
 
+/* SEARCH BUTTON STYLE */
+.search-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid #a2a9b1;
+    border-radius: 2px;
+    background-color: #fff;
+    padding: 2px;
+    margin: 20px;
+    height: 30px;
+    width: max-content;
+}
+
+.search-btn input[type='search'] {
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-btn-icon {
+    background-color: #f8f9fa;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-left: 1px solid #a2a9b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search-btn-icon:hover {
+    background-color: #e9ecef;
+}
+
+.search-btn-icon:active {
+    background-color: #c8ccd1;
+}
+
+/* COUNTRY PICK LIST SELECT */
+.select-box {
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #a2a9b1;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.select-box:focus {
+    border-color: #36c;
+    outline: none;
+    box-shadow: 0 0 3px #719ece;
+}
+/* AFRICAN COUNTRY ARTICLE STYLE */
+.african {
+    margin: 20px;
+}
+.african-article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 @keyframes spin {
     0% {
         transform: rotate(0deg);
