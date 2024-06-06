@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 export default function Metadata() {
     return (
         <Helmet>
-            <title>Emingi</title>
+            <title>Emi</title>
             <meta charset='UTF-8' />
             <meta name='description' content='Soyez creatif' />
             {/* description */}
