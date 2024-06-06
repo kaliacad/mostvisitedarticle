@@ -9,6 +9,7 @@ export default function SetDate() {
         startDate: date.toISOString().split('T')[0],
         endDate: today.toISOString().split('T')[0],
     });
+
     const handleChange = (e) => {
         setIntervalDate({ ...intervalDate, [e.target.name]: e.target.value });
     };
