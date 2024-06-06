@@ -4,20 +4,24 @@ import Button from './components/Button.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 import { Footer } from './components/footer.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
+import ExportDropdownButton from './components/DropdownExport.jsx';
 function App() {
     const handleClick = () => {
         alert('Button clicked!');
     };
     return (
-        <div>
-            <h2>Most visited wikimedia articles</h2>
-            <ResultatGallery />
-            <SetDate />
-            <MostArticleByProject project='fr.wikipedia' />
-            <Button text='submit' event={handleClick}></Button>
-            <WikiAfricaTopArticles />
-            <Footer />
-        </div>
+        <>
+            <ExportDropdownButton htmlId='results' fileName='results' />
+            <div id='results'>
+                <h2>Most visited wikimedia articles</h2>
+                <ResultatGallery />
+                <SetDate />
+                <MostArticleByProject project='fr.wikipedia' />
+                <Button text='submit' event={handleClick}></Button>
+                <WikiAfricaTopArticles />
+                <Footer />
+            </div>
+        </>
     );
 }
 
