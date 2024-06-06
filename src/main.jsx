@@ -4,6 +4,7 @@ import App from './App.jsx';
 import './global.css';
 import Loading from './components/loading.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ExemplePagination from './pages/exemplePagination.jsx';
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     {
         path: '/loading',
         element: <Loading />,
+    },
+    {
+        path: '/exemple_pagination',
+        element: <ExemplePagination />,
     },
 ]);
 
