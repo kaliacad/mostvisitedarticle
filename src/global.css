@@ -6,6 +6,19 @@
     box-sizing: border-box;
 }
 
+.pays {
+	width: 400px;
+	height: 35px;
+	outline: 0;
+
+	/* background-color: blue; */
+}
+
+.country {
+	font-size: 1.5em;
+	margin: 20px;
+}
+
 /* CSS Resets */
 
 html,
