@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import countriesFr from '../helpers/countriesFr';
+import ArticleCard from './ArticleCard';
 
 const africanCountries = countriesFr.Afrique;
 
@@ -37,18 +38,27 @@ const WikiAfricaTopArticles = () => {
             {data.map((countryData, index) => {
                 if (!Array.isArray(countryData)) {
                     const CountryItems = countryData.items;
+
                     return (
                         <div key={index}>
                             <h2>{africanCountries[index].name}</h2>
                             <br />
                             <ul>
-                                {CountryItems.map((item) => {
+                                {CountryItems.map((item, p) => {
                                     const countryArticles = item.articles;
-                                    return countryArticles.map((article, i) => (
-                                        <li key={i}>
-                                            {article.article} - {article.views_ceil} views
-                                        </li>
-                                    ));
+                                    return (
+                                        <div key={p} className='WikiAfricaTopArticles'>
+                                            {countryArticles.map((article, i) => (
+                                                <ArticleCard
+                                                    key={i}
+                                                    article={article.article}
+                                                    project={article.project}
+                                                    views_ceil={article.views_ceil}
+                                                    rank={article.rank}
+                                                />
+                                            ))}{' '}
+                                        </div>
+                                    );
                                 })}
                             </ul>
                             <br />
