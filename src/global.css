@@ -185,27 +185,47 @@ button {
     height: 60px;
     animation: spin 2s linear infinite;
 }
+.setdate > div {
+    display: flex;
+    div {
+        input {
+            background-color: rgb(247, 247, 247);
+            border: 1px solid rgb(204, 203, 203);
+            border-radius: 8px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+        }
+        select {
+            background-color: red;
+        }
+    }
+}
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .footer {
-	display: flex;
-	justify-content: space-around;
-	padding: 10px 0;
-	border-top: 1px solid #ccc;
-	bottom: 0;
-  }
-  
-  .footer-link {
-	color: #333;
-	text-decoration: none;
-	font-size: 1rem;
-  }
-  
-  .footer-link:hover {
-	text-decoration: underline;
-  }
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+}
 
+.footer-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
