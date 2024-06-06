@@ -1,0 +1,77 @@
+.flex_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topVisitedContainer {
+  margin: 5rem auto;
+  max-width: 90vw;
+  gap: 2rem;
+}
+
+.loading {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+.noArticleMessage {
+  padding: 2rem 1rem;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+
+.form {
+  width: 100%;
+  gap: 1rem;
+}
+label,
+select,
+option,
+input {
+  min-width: 300px !important;
+}
+ 
+select,
+input {
+  padding: 8px 6px;
+}
+
+.articlesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.articleItem {
+  display: flex;
+  gap: 3rem;
+}
+
+.views {
+  text-align: end !important;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.submitArticleBtn {
+  color: #fff;
+  background-color: #01051a;
+  font-size: 20px;
+  padding: 1rem 2rem;
+}
+
+table {
+  border: 1px solid #01051a;
+}
