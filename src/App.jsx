@@ -15,9 +15,7 @@ import TopVisited from './components/TopVisited.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
 function App() {
     const titre = 'Pays';
-    const handleClick = () => {
-        alert('Button clicked!');
-    };
+    const handleClick = () => {};
     const [showArticles, setShowArticles] = useState(false);
 
     const handleClicked = () => {
