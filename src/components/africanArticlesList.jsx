@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import countriesFr from '../helpers/countriesFr';
 import ArticleCard from './ArticleCard';
-
-const africanCountries = countriesFr.Afrique;
+const africanCountries = countriesFr.afrique;
 
 const WikiAfricaTopArticles = () => {
     const [data, setData] = useState([]);
@@ -31,7 +30,7 @@ const WikiAfricaTopArticles = () => {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div>
+        <div className='african'>
             <br />
             <h1>Top Wikimedia Articles in Africa</h1>
             <br />
@@ -43,22 +42,18 @@ const WikiAfricaTopArticles = () => {
                         <div key={index}>
                             <h2>{africanCountries[index].name}</h2>
                             <br />
-                            <ul>
-                                {CountryItems.map((item, p) => {
+                            <ul className='african-article'>
+                                {CountryItems.map((item) => {
                                     const countryArticles = item.articles;
-                                    return (
-                                        <div key={p} className='WikiAfricaTopArticles'>
-                                            {countryArticles.map((article, i) => (
-                                                <ArticleCard
-                                                    key={i}
-                                                    article={article.article}
-                                                    project={article.project}
-                                                    views_ceil={article.views_ceil}
-                                                    rank={article.rank}
-                                                />
-                                            ))}{' '}
-                                        </div>
-                                    );
+                                    return countryArticles.map((article, i) => (
+                                        <ArticleCard
+                                            key={i}
+                                            article={article.article}
+                                            rank={article.rank}
+                                            project={article.project}
+                                            views_ceil={article.views_ceil}
+                                        />
+                                    ));
                                 })}
                             </ul>
                             <br />
