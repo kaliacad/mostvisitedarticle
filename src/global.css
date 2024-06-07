@@ -339,3 +339,45 @@ button {
 .footer-link:hover {
     text-decoration: underline;
 }
+
+/*  Menu */
+
+.select_container {
+    display: flex;
+    flex-direction: column;
+    width: 12rem;
+    gap: .25rem;
+  }
+
+/* Styles for the select element */
+.select_container .select_options {
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    cursor: inherit;
+    z-index: 1;
+    outline: none;
+}
+
+.select_container .select_label {
+    color: #0e0d0d7e;
+    font-size: 0.8rem;
+}
+
+/* Country menu */
+ .country_select{
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    gap: .5rem;
+ }
+
+ .country_select .select_options {
+    border: solid 1px #cccccc67;
+    padding: 0.5rem;
+    border-radius: .25rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+ }
