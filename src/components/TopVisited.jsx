@@ -56,9 +56,7 @@ const TopVisited = () => {
 
             <div className='articles'>
                 {articles?.length > 0 ? (
-                    <ul
-                        className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'
-                    >
+                    <ul className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'>
                         {topVisitedArticles?.length > 0 &&
                             topVisitedArticles.map(({ article, project, rank, views_ceil }) => (
                                 <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
