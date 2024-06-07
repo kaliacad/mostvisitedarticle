@@ -1,11 +1,12 @@
 import './articlecard.css';
 import getPageURL from '../helpers/getPageUrl';
 import fetchImageFromArticle from '../api/fetchImageFromArticle';
+import fetchArticleEditor from '../api/fetchArticleEditor';
 import { useEffect, useState } from 'react';
 import Button from './Button';
-const ArticleCard = ({ article, project, views_ceil, rank }) => {
+const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
-
+    const [editors, setEditors] = useState(null);
     useEffect(() => {
         const fetchImages = async () => {
             try {
@@ -16,6 +17,16 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
             }
         };
 
+        const fetchEditors = async () => {
+            try {
+                const editor = await fetchArticleEditor(project, article);
+                setEditors(editor);
+            } catch (error) {
+                setEditors(null);
+            }
+        };
+
+        fetchEditors();
         fetchImages();
     }, []);
 
@@ -25,18 +36,24 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
             <div className='article-content'>
                 <h3 className='article-title'>
                     <a href={getPageURL(article, project)} target='_blank'>
-                        {article}
+                        {article?.includes('_') && (article = article.replace(/_/g, ' '))}
                     </a>
                 </h3>
-                <div className='article-description'>
+                <div className='article-description flex flex-col gap-2'>
                     <p>
-                        <span>Project</span> : <span>{project}</span>
+                        <span>Country:</span> <span>{country ? country : 'N/A'}</span>
                     </p>
                     <p>
-                        <span>Rank</span> : <span>{rank}</span>
+                        <span>Project: </span> <span>{project}</span>
                     </p>
                     <p>
-                        <span>Views : </span> : <span>{views_ceil}</span>
+                        <span>Rank: </span> <span>{rank}</span>
+                    </p>
+                    <p>
+                        <span>Views : </span> <span>{views_ceil}</span>
+                    </p>
+                    <p>
+                        <span>Editors : </span> <span>{editors ? editors : 'Not found'}</span>
                     </p>
                 </div>
 

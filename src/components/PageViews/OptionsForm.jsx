@@ -5,7 +5,7 @@ const OptionsForm = () => {
     const [[dateType, setDateType], [project, setProject], [article, setArticle], [platform, setPlatform], [agent, setAgent]] =
         useContext(PageViewsContext);
     return (
-        <div className='options-form'>
+        <div className='options-form w-1/5 p-4 border border-gray-300 rounded-md bg-white'>
             <h3>Options:</h3>
             <div className='form-group'>
                 <label htmlFor='project'>Project</label>
