@@ -16,7 +16,7 @@ export function Footer() {
             <a href='https://meta.wikimedia.org/w/index.php?title=Talk:Emi_Solution&action=edit&redlink=1' className='footer-link' target='_blank'>
                 <FontAwesomeIcon icon={faComment} /> Feedback
             </a>
-            <a href='https://github.com/kaliacad/' className='footer-link' target='_blank'>
+            <a href='https://github.com/kaliacad.org/' className='footer-link' target='_blank'>
                 <FontAwesomeIcon icon={faUsers} /> Developed by Kali Academy
             </a>
             <a href='https://kaliacademy.org/' className='footer-link' target='_blank'>
