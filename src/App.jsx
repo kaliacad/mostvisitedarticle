@@ -14,7 +14,6 @@ function App() {
     const titre = 'Pays';
     const handleClick = () => {};
     const [showArticles, setShowArticles] = useState(false);
-
     const handleClicked = () => {
         setShowArticles(!showArticles);
     };
@@ -37,5 +36,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
