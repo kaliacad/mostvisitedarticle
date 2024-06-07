@@ -1,4 +1,4 @@
-.article-card {
+/* .article-card {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -10,7 +10,7 @@
     transition:
         box-shadow 0.3s ease-in-out,
         transform 0.3s ease-in-out;
-}
+} */
 
 .article-card:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);

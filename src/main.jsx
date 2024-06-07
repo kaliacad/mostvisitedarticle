@@ -13,34 +13,32 @@ import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout />,
-        children: [
-            {
-                path: '/app',
-                element: <App />,
-            },
-            {
-                path: '/home',
-                element: <Home />,
-            },
-            {
-                path: '/page-views',
-                element: <PageViews />,
-            },
-            {
-                path: '/loading',
-                element: <Loading />,
-            },
-            {
-                path: '/exemple_pagination',
-                element: <ExemplePagination />,
-            },
-            {
-                path: '/top-africa',
-                element: <WikiAfricaTopArticles />,
-            },
-        ],
+        element: <App />,
+    },
+    {
+        path: '/home',
+        element: <Home />,
+    },
+    {
+        path: '/page-views',
+        element: <PageViews />,
+    },
+    {
+        path: '/loading',
+        element: <Loading />,
+    },
+    {
+        path: '/exemple_pagination',
+        element: <ExemplePagination />,
+    },
+    {
+        path: '/top-africa',
+        element: <WikiAfricaTopArticles />,
     },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <Layout>
+        <RouterProvider router={router} />
+    </Layout>,
+);
