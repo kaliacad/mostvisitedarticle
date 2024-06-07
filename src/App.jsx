@@ -4,38 +4,38 @@ import Button from './components/Button.jsx';
 import ExportDropdownButton from './components/DropdownExport.jsx';
 import { Menu } from './components/Menu';
 import { datab } from '../data';
-
-import { useState } from 'react';
-import ResultListArticles from './components/ResultListArticles.jsx';
-import TopVisited from './components/TopVisited.jsx';
-import ResultatGallery from './components/ResultatGallery.jsx';
-import ArticleCard from './components/ArticleCard.jsx';
+import Items from '../dataItem';
 import { ListItems } from './components/ListeItem';
-import Items from '../dataItem.js';
+import { useState } from 'react';
+import TopVisited from './components/TopVisited.jsx';
+import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
+import { Footer } from './components/footer.jsx';
 
 function App() {
     const titre = 'Pays';
     const handleClick = () => {};
     const [showArticles, setShowArticles] = useState(false);
-
     const handleClicked = () => {
         setShowArticles(!showArticles);
     };
     return (
         <div>
-            <ExportDropdownButton />
-            <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+            <div className='container mx-auto py-4'>
+                <div className='flex align-center justify-center py-8'>
+                    <ExportDropdownButton />
+                    <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+                </div>
 
-            {showArticles ? <ResultListArticles /> : <ResultatGallery />}
-            <ArticleCard />
-            <ListItems item={Items} />
-            <TopVisited />
-            <SetDate />
-            <Menu data={datab} title={titre} />
-            <MostArticleByProject project='fr.wikipedia' />
-            <Button text='submit' event={handleClick}></Button>
+                <TopVisited />
+                <SetDate />
+                <Menu data={datab} title={titre} />
+                <MostArticleByProject project='fr.wikipedia' />
+                <ListItems item={Items} />
+                <Button text='submit' event={handleClick}></Button>
+                <WikiAfricaTopArticles />
+            </div>
+            <Footer />
         </div>
     );
 }
-
 export default App;
