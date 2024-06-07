@@ -39,12 +39,14 @@ const TopVisited = () => {
                 setError('No articles found for the given parameters.');
             }
         } catch (error) {
-            setArticles([]);
-            if (error.code === 'ECONNABORTED') {
+            if (typeof error === 'string') {
+                setError(error);
+            } else if (error.code === 'ECONNABORTED') {
                 setError('Request timed out. Please try again.');
             } else {
                 setError(error.response ? error.response.data : error.message);
             }
+            setArticles([]);
         } finally {
             setLoading(false);
         }
