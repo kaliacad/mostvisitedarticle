@@ -388,10 +388,7 @@ button {
     gap: 0.5rem;
 }
 
- .countrySelect,
- .access,
- input,
- .country_select .select_options {
+
 .country_select .select_options {
     border: solid 1px #cccccc67;
     padding: 0.5rem;
@@ -404,4 +401,4 @@ button {
  .formBorder {
     border: solid 1px #cccccc67;
  }
-}
+
