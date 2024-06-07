@@ -19,7 +19,7 @@ function afficheSkeletton(nombre) {
     return skeletton;
 }
 
-const ArticleCardSkeletton = ({ nombre }) => {
+const ArticleCardSkeletton = ({ nombre = 1 }) => {
     return (
         <>
             <div className='articles-gallery'>{afficheSkeletton(nombre)}</div>

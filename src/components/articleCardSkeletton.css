@@ -1,10 +1,5 @@
 .articles-gallery {
-    gap: 20px;
-    display: flex;
-    padding: 3rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    width: 20rem;
   }
   
   .article-cardskeleton {
