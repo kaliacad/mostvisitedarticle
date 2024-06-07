@@ -4,7 +4,8 @@ import Button from './components/Button.jsx';
 import ExportDropdownButton from './components/DropdownExport.jsx';
 import { Menu } from './components/Menu';
 import { datab } from '../data';
-
+import Items from '../dataItem';
+import { ListItems } from './components/ListeItem';
 import { useState } from 'react';
 import TopVisited from './components/TopVisited.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
@@ -30,6 +31,7 @@ function App() {
                 <SetDate />
                 <Menu data={datab} title={titre} />
                 <MostArticleByProject project='fr.wikipedia' />
+                <ListItems item={Items} />
                 <Button text='submit' event={handleClick}></Button>
                 <WikiAfricaTopArticles />
             </div>
