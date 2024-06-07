@@ -2,6 +2,7 @@ import './articlecard.css';
 import getPageURL from '../helpers/getPageUrl';
 import fetchImageFromArticle from '../api/fetchImageFromArticle';
 import { useEffect, useState } from 'react';
+import Button from './Button';
 const ArticleCard = ({ article, project, views_ceil, rank }) => {
     const [url, setUrl] = useState(null);
 
@@ -39,9 +40,7 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
                     </p>
                 </div>
 
-                <a href={getPageURL(article, project)} className='article-link'>
-                    Lire l&apos;article
-                </a>
+                <Button event={() => (window.location.href = getPageURL(article, project))} text="Lire l'article" className='article-link' />
             </div>
         </div>
     );
