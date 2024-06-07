@@ -240,6 +240,7 @@ button {
             padding: 10px 20px;
             margin: 10px;
             font-family: 'Poppins', 'Montserrat', sans-serif;
+            outline: none;
         }
         select {
             background-color: red;
