@@ -28,7 +28,12 @@ const WikiAfricaTopArticles = () => {
         fetchDataForAllCountries();
     }, []);
 
-    if (loading) return <Loading />;
+    if (loading)
+        return (
+            <div style={{ display: 'flex', justifyItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Loading />
+            </div>
+        );
     if (error) return <p>Error: {error.message}</p>;
 
     return (
