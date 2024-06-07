@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ExemplePagination from './pages/exemplePagination.jsx';
 import TopAfrica from './pages/topAfrica.jsx';
 import Home from './pages/Home.jsx';
+import Metadata from './components/metadata/metadata.jsx';
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
+        <Metadata />
         <RouterProvider router={router} />
     </React.StrictMode>,
 );
