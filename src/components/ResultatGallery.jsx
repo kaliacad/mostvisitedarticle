@@ -5,8 +5,10 @@ import ArticleCard from './ArticleCard';
 
 export default function ResultatGallery() {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         async function laodAPI() {
+            setIsLoading(true);
             const d = await fetchTopArticles({
                 countryCode: 'CD',
                 access: 'all-access',
@@ -16,6 +18,7 @@ export default function ResultatGallery() {
             });
             const resp = await d.items[0].articles;
             setData(resp);
+            setIsLoading(false);
         }
         laodAPI();
     }, []);
@@ -32,12 +35,20 @@ export default function ResultatGallery() {
     return (
         <>
             <div style={{ margin: '2rem' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', gap: '5rem' }}>
-                    {data
-                        ? data.map((art, i) => (
-                              <ArticleCard key={i} article={art.article} rank={art.rank} views_ceil={art.views_ceil} project={art.project} />
-                          ))
-                        : null}
+                <div className='flex flex-wrap justify-center mx-auto  max-w-[50rem]'>
+                    {isLoading ? (
+                        <div className='loading-spinner'></div>
+                    ) : data ? (
+                        data.map((art, i) => (
+                            <div className='w-1/2 p-4' key={i}>
+                                <ArticleCard article={art.article} rank={art.rank} views_ceil={art.views_ceil} project={art.project} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className='flex items-center justify-center h-full w-full'>
+                            <p>No data Founds</p>
+                        </div>
+                    )}
                 </div>
             </div>
 
