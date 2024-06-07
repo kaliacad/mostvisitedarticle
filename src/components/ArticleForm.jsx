@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import country from 'country-list-js';
+import axios from 'axios';
 
 const ArticleForm = ({ onSubmit, loading }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -11,6 +12,43 @@ const ArticleForm = ({ onSubmit, loading }) => {
         month: '',
         day: '',
     });
+    const [locationError, setLocationError] = useState('');
+
+    useEffect(() => {
+        const fetchLocation = async (lat, lon) => {
+            try {
+                const response = await axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {
+                    params: {
+                        latitude: lat,
+                        longitude: lon,
+                        localityLanguage: 'en',
+                    },
+                });
+
+                const { countryCode } = response.data;
+                setForm((prevForm) => ({
+                    ...prevForm,
+                    country: countryCode,
+                }));
+            } catch (error) {
+                setLocationError('Error fetching location data.');
+            }
+        };
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    fetchLocation(latitude, longitude);
+                },
+                () => {
+                    setLocationError('Error getting geolocation.');
+                },
+            );
+        } else {
+            setLocationError('Geolocation is not supported by this browser.');
+        }
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -47,7 +85,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
     const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='form '>
+        <form onSubmit={handleSubmit} className='form'>
             <div className='formContent flex flex-col gap-[0.5rem] justify-between items-center formBorder py-3'>
                 <div className='text-start'>
                     <span className='date'>Fill all fields</span>
@@ -69,7 +107,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                                 <option value='undefined'>undefined</option>
                             )}
                         </select>
-                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                        {formErrors.country && <div className='error'>{formErrors.country}</div>}
                     </div>
 
                     <label htmlFor='year' className='flex flex-col'>
@@ -111,6 +149,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                     {loading ? 'Submitting' : 'submit'}
                 </button>
             </div>
+            {locationError && <div className='error'>{locationError}</div>}
         </form>
     );
 };

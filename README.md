@@ -9,3 +9,5 @@ View
 * https://deploy-preview-59--emingi.netlify.app/
 ![Vue en Galerie updated](assets/vuegallery.png)
 ![Vue en Liste create](assets/vue-en-liste.png)
+Docs:
+-[1:Images API](https://www.mediawiki.org/wiki/API:Images)
