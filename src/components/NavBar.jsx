@@ -13,10 +13,6 @@ const NavBar = () => {
     return (
         <nav className='navbar'>
             <div className='navbar-logo'>Most visited wikimedia articles</div>
-            <div className='navbar-search'>
-                <input type='text' className={`search-input`} placeholder='Search...' />
-                <button className='search-icon'>🔍</button>
-            </div>
             <div className='navbar-help'>
                 <button onClick={toggleHelpMenu} className='help-icon'>
                     Aide ▼
@@ -43,6 +39,10 @@ const NavBar = () => {
                         </a>
                     </div>
                 )}
+            </div>
+            <div className='navbar-search'>
+                <input type='text' className={`search-input`} placeholder='Search...' />
+                <button className='search-icon'>🔍</button>
             </div>
         </nav>
     );
