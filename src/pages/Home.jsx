@@ -14,7 +14,7 @@ export default function Home() {
             <header>
                 <NavBar />
             </header>
-            <main className="px-9 pt-10">
+            <main className='px-9 pt-10'>
                 {/* <CountryPickList
                     label={'Select a Country'}
                     continent={continent}
@@ -25,7 +25,7 @@ export default function Home() {
                     defaultCountry={'CD'}
                 /> */}
 
-                <TopVisited  />
+                <TopVisited />
             </main>
             <footer style={{ position: 'absolute', bottom: 0, width: '100vw' }}>
                 <Footer />
