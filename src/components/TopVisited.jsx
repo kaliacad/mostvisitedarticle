@@ -49,8 +49,6 @@ const TopVisited = () => {
 
     return (
         <div className='topVisitedContainer flex_center'>
-            <h2 className='text-center'>Top visited articles by country and date</h2>
-
             <ArticleForm onSubmit={handleSubmit} loading={loading} />
 
             {loading && <p className='loading'>Loading...</p>}
@@ -59,8 +57,7 @@ const TopVisited = () => {
             <div className='articles'>
                 {articles?.length > 0 ? (
                     <ul
-                        className='flex flex-wrap justify-center items-center'
-                        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', gap: '5rem' }}
+                        className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'
                     >
                         {topVisitedArticles?.length > 0 &&
                             topVisitedArticles.map(({ article, project, rank, views_ceil }) => (

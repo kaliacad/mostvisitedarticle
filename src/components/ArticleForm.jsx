@@ -47,53 +47,70 @@ const ArticleForm = ({ onSubmit, loading }) => {
     const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='flex_center form'>
-            <div className='select'>
-                <select name='country' value={form.country} onChange={handleChange} required>
-                    <option value='' disabled>
-                        Select country by ISO code
-                    </option>
-                    {countryData && countryData.length > 0 ? (
-                        countryData.map((countryCode) => (
-                            <option key={countryCode} value={countryCode}>
-                                {countryCode}
+        <form onSubmit={handleSubmit} className='form '>
+            <div className='formContent flex flex-col gap-[0.5rem] justify-between items-center formBorder py-3'>
+                <div className='text-start'>
+                    <span className='date'>Fill all fields</span>
+                </div>
+
+                <div className='inputs flex gap-[1rem]'>
+                    <div className='select'>
+                        <select className='countrySelect bg-white' name='country' value={form.country} onChange={handleChange} required>
+                            <option value='' disabled>
+                                Select country by ISO code
                             </option>
-                        ))
-                    ) : (
-                        <option value='undefined'>undefined</option>
-                    )}
-                </select>
-                {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                            {countryData && countryData.length > 0 ? (
+                                countryData.map((countryCode) => (
+                                    <option key={countryCode} value={countryCode}>
+                                        {countryCode}
+                                    </option>
+                                ))
+                            ) : (
+                                <option value='undefined'>undefined</option>
+                            )}
+                        </select>
+                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                    </div>
+
+                    <label htmlFor='year' className='flex flex-col'>
+                        <input
+                            type='text'
+                            name='year'
+                            value={form.year}
+                            placeholder='Year'
+                            className='border-solid border-1'
+                            onChange={handleChange}
+                        />
+                        {formErrors.year && <div className='error'>{formErrors.year}</div>}
+                    </label>
+
+                    <label htmlFor='month' className='flex flex-col'>
+                        <input type='text' name='month' value={form.month} onChange={handleChange} placeholder='Month' className='' />
+                        {formErrors.month && <div className='error'>{formErrors.month}</div>}
+                    </label>
+
+                    <label htmlFor='day' className='flex flex-col'>
+                        <input type='text' name='day' value={form.day} onChange={handleChange} placeholder='Day' className='' />
+                        {formErrors.day && <div className='error'>{formErrors.day}</div>}
+                    </label>
+
+                    <div className='w-[10rem]'>
+                        <select className='access bg-white' name='access' value={form.access} onChange={handleChange}>
+                            <option value='all-access'>all-access</option>
+                            <option value='desktop'>desktop</option>
+                            <option value='mobile-app'>mobile-app</option>
+                            <option value='mobile-web'>mobile-web</option>
+                        </select>
+                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                    </div>
+                </div>
+                <button
+                    type='submit'
+                    className='submitArticleBtn py-[0.5rem] bg-green-500 text-white px-6 text-[18px] capitalize font-600 max-w-[150px]'
+                >
+                    {loading ? 'Submitting' : 'submit'}
+                </button>
             </div>
-
-            <div className='select'>
-                <select name='access' value={form.access} onChange={handleChange}>
-                    <option value='all-access'>all-access</option>
-                    <option value='desktop'>desktop</option>
-                    <option value='mobile-app'>mobile-app</option>
-                    <option value='mobile-web'>mobile-web</option>
-                </select>
-                {formErrors.access && <div className='error'>{formErrors.access}</div>}
-            </div>
-
-            <label htmlFor='year' className='flex flex-col'>
-                <input type='text' name='year' value={form.year} placeholder='Year' className='' onChange={handleChange} />
-                {formErrors.year && <div className='error'>{formErrors.year}</div>}
-            </label>
-
-            <label htmlFor='month' className='flex flex-col'>
-                <input type='text' name='month' value={form.month} onChange={handleChange} placeholder='Month' className='' />
-                {formErrors.month && <div className='error'>{formErrors.month}</div>}
-            </label>
-
-            <label htmlFor='day' className='flex flex-col'>
-                <input type='text' name='day' value={form.day} onChange={handleChange} placeholder='Day' className='' />
-                {formErrors.day && <div className='error'>{formErrors.day}</div>}
-            </label>
-
-            <button type='submit' className='submitArticleBtn'>
-                {loading ? 'Submitting' : 'submit'}
-            </button>
         </form>
     );
 };
