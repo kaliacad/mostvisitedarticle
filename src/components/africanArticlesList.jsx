@@ -14,6 +14,7 @@ const WikiAfricaTopArticles = () => {
     useEffect(() => {
         const fetchDataForAllCountries = async () => {
             try {
+                setLoading(true);
                 const allData = await Promise.all(
                     africanCountries.map((country) => fetchTopArticles({ countryCode: country.code, month: '05', day: '01' })),
                 );
@@ -21,6 +22,8 @@ const WikiAfricaTopArticles = () => {
                 setLoading(false);
             } catch (error) {
                 setError(error);
+                setLoading(false);
+            } finally {
                 setLoading(false);
             }
         };
