@@ -13,6 +13,8 @@ import { useState } from 'react';
 import ResultListArticles from './components/ResultListArticles.jsx';
 import TopVisited from './components/TopVisited.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
+import ArticleCard from './components/ArticleCard.jsx';
+
 function App() {
     const titre = 'Pays';
     const handleClick = () => {
@@ -28,9 +30,10 @@ function App() {
             <NavBar />
             <ExportDropdownButton />
             <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+
             {showArticles ? <ResultListArticles /> : <ResultatGallery />}
-            {/* <h2>Most visited wikimedia articles</h2> */}
-            {/* <ResultatGallery /> */}
+            <ArticleCard />
+
             <TopVisited />
             <SetDate />
             <Menu data={datab} title={titre} />
