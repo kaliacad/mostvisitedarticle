@@ -38,7 +38,7 @@ export default function CountryPickList({ label, country, onChangeCountry, defau
                     onChange={handleChangeContinent}
                     defaultValue={defaultContinent}
                 />
-                
+
                 <Menu
                     label='Country'
                     className='country'
