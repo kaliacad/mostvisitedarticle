@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import '../NavBar.css'; // Nous allons ajouter des styles pour la transition
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faBug, faCode, faComment, faCopyright, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,21 @@ const NavBar = () => {
     const toggleHelpMenu = () => {
         setHelpMenuOpen(!helpMenuOpen);
     };
+
+    // Fonction pour fermer le menu d'aide lorsqu'on clique en dehors
+    const closeHelpMenu = (event) => {
+        if (helpMenuOpen && !event.target.closest('.navbar-help')) {
+            setHelpMenuOpen(false);
+        }
+    };
+
+    // Ajouter l'écouteur d'événement au montage et le supprimer au démontage
+    useEffect(() => {
+        document.addEventListener('click', closeHelpMenu);
+        return () => {
+            document.removeEventListener('click', closeHelpMenu);
+        };
+    }, [helpMenuOpen]);
 
     return (
         <nav className='navbar'>
