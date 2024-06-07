@@ -1,13 +1,33 @@
 import './articlecard.css';
-
+import getPageURL from '../helpers/getPageUrl';
+import fetchImageFromArticle from '../api/fetchImageFromArticle';
+import { useEffect, useState } from 'react';
+import Button from './Button';
 const ArticleCard = ({ article, project, views_ceil, rank }) => {
-    // props { article, rank, views_ceil, project }
+    const [url, setUrl] = useState(null);
+
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const link = await fetchImageFromArticle(project, article);
+                setUrl(link);
+            } catch (error) {
+                setUrl(null);
+            }
+        };
+
+        fetchImages();
+    }, []);
 
     return (
         <div className='article-card'>
-            <img src='https://cdn-icons-png.flaticon.com/256/4598/4598489.png' alt='nom article' className='article-image' />
+            <img src={url ? url : 'https://cdn-icons-png.flaticon.com/256/4598/4598489.png'} alt='nom article' className='article-image' />
             <div className='article-content'>
-                <h3 className='article-title'>{article}</h3>
+                <h3 className='article-title'>
+                    <a href={getPageURL(article, project)} target='_blank'>
+                        {article}
+                    </a>
+                </h3>
                 <div className='article-description'>
                     <p>
                         <span>Project</span> : <span>{project}</span>
@@ -20,9 +40,7 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
                     </p>
                 </div>
 
-                <a href='https://fr.wikipedia.org/wiki/Goma' className='article-link'>
-                    Lire l&apos;article
-                </a>
+                <Button event={() => (window.location.href = getPageURL(article, project))} text="Lire l'article" className='article-link' />
             </div>
         </div>
     );

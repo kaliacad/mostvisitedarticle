@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
-import countriesFr from '../helpers/countriesFr';
+import countriesFr from '../helpers/countriesIsoCodes';
+import ArticleCard from './ArticleCard';
+import Loading from './loading';
 
-const africanCountries = countriesFr.Afrique;
+const africanCountries = countriesFr.afrique;
 
 const WikiAfricaTopArticles = () => {
     const [data, setData] = useState([]);
@@ -26,28 +28,38 @@ const WikiAfricaTopArticles = () => {
         fetchDataForAllCountries();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading)
+        return (
+            <div style={{ display: 'flex', justifyItems: 'center', justifyContent: 'center', width: '100%' }}>
+                <Loading />
+            </div>
+        );
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div>
+        <div className='african'>
             <br />
             <h1>Top Wikimedia Articles in Africa</h1>
             <br />
             {data.map((countryData, index) => {
                 if (!Array.isArray(countryData)) {
                     const CountryItems = countryData.items;
+
                     return (
                         <div key={index}>
                             <h2>{africanCountries[index].name}</h2>
                             <br />
-                            <ul>
+                            <ul className='african-article'>
                                 {CountryItems.map((item) => {
                                     const countryArticles = item.articles;
                                     return countryArticles.map((article, i) => (
-                                        <li key={i}>
-                                            {article.article} - {article.views_ceil} views
-                                        </li>
+                                        <ArticleCard
+                                            key={i}
+                                            article={article.article}
+                                            rank={article.rank}
+                                            project={article.project}
+                                            views_ceil={article.views_ceil}
+                                        />
                                     ));
                                 })}
                             </ul>
