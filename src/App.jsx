@@ -9,7 +9,6 @@ import { useState } from 'react';
 import ResultListArticles from './components/ResultListArticles.jsx';
 import TopVisited from './components/TopVisited.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
-import ArticleCard from './components/ArticleCard.jsx';
 
 function App() {
     const titre = 'Pays';
@@ -21,17 +20,23 @@ function App() {
     };
     return (
         <div>
-            <ExportDropdownButton />
-            <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+            <NavBar />
+            <div className='container mx-auto py-4'>
+                <div className='flex align-center justify-center'>
+                    <ExportDropdownButton />
+                    <button onClick={handleClicked}>Toggle Articles/Gallery</button>
+                </div>
 
-            {showArticles ? <ResultListArticles /> : <ResultatGallery />}
-            <ArticleCard />
+                <div className='bg-slate-100 py-8 my-8 px-4 rounded-md'>{showArticles ? <ResultListArticles /> : <ResultatGallery />}</div>
 
-            <TopVisited />
-            <SetDate />
-            <Menu data={datab} title={titre} />
-            <MostArticleByProject project='fr.wikipedia' />
-            <Button text='submit' event={handleClick}></Button>
+                <TopVisited />
+                <SetDate />
+                <Menu data={datab} title={titre} />
+                <MostArticleByProject project='fr.wikipedia' />
+                <Button text='submit' event={handleClick}></Button>
+                <WikiAfricaTopArticles />
+            </div>
+            <Footer />
         </div>
     );
 }
