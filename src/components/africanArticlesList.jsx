@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
-import countriesFr from '../helpers/countriesFr';
+import countriesFr from '../helpers/countriesIsoCodes';
 import ArticleCard from './ArticleCard';
 import Loading from './loading';
 

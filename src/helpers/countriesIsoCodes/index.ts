@@ -1,4 +1,4 @@
-const countriesEn = {
+const countries = {
     Africa: [
         { code: 'DZ', name: 'Algeria' },
         { code: 'AO', name: 'Angola' },
@@ -206,4 +206,4 @@ const countriesEn = {
     ],
 };
 
-export default countriesEn;
+export default countries;

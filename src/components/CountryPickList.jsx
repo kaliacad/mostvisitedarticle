@@ -1,28 +1,53 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from 'react';
-import countriesFr from '../helpers/countriesFr';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useRef } from 'react';
+import countries from '../helpers/countriesIsoCodes';
+import { Menu } from './Menu';
 
-const countries = [...countriesFr.afrique, ...countriesFr.amerique, ...countriesFr.asie, ...countriesFr.europe, ...countriesFr.oceanie];
-const allCountries = countries.sort((a, b) => a.name.localeCompare(b.name));
+export default function CountryPickList({ label, country, onChangeCountry, defaultCountry, continent, onChangeContinent, defaultContinent }) {
+    const countryRef = useRef(null);
 
-export default function CountryPickList() {
-    const [filteredCountries, setFilteredItems] = useState(allCountries);
+    // Set the default country when the Component is mounted
+    useEffect(() => {
+        if (defaultCountry) {
+            onChangeCountry(defaultCountry);
+        }
+    }, [defaultCountry]);
 
-    const handleLetterClick = (event) => {
-        const letter = event.key.toUpperCase();
-        const filtered = allCountries.filter((item) => item.name.startsWith(letter));
-        setFilteredItems(filtered);
+    // Update the country when the continent changes
+    useEffect(() => {
+        onChangeCountry(countryRef.current.value);
+    }, [continent]);
+
+    const handleChangeCountry = (country) => {
+        onChangeCountry(country);
+    };
+
+    const handleChangeContinent = (continent) => {
+        onChangeContinent(continent);
     };
 
     return (
-        <select className='select-box' onKeyUp={handleLetterClick}>
-            {filteredCountries.map((country, index) => {
-                return (
-                    <option key={index} value={country.code}>
-                        {country.name}
-                    </option>
-                );
-            })}
-        </select>
+        <div className='country_select'>
+            <p className='label'>{label}</p>
+            <div className='select_options'>
+                <Menu
+                    label='Country'
+                    className='country'
+                    data={countries[continent ?? defaultContinent].map((el) => ({ value: el.code, label: el.name }))}
+                    value={country}
+                    onChange={handleChangeCountry}
+                    defaultValue={defaultCountry}
+                    ref={countryRef}
+                />
+                <Menu
+                    label='Continent'
+                    className='continent'
+                    data={Object.keys(countries).map((el) => ({ value: el, label: el }))}
+                    value={continent}
+                    onChange={handleChangeContinent}
+                    defaultValue={defaultContinent}
+                />
+            </div>
+        </div>
     );
 }
