@@ -64,9 +64,9 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     <p>
                         <span>Editors : </span> <span>{editors ? editors : 'Not found'}</span>
                     </p>
-                    {edits && (
+                    {edits != 'not found' && (
                         <p>
-                            <span>Edit</span> : <span>{edits}</span>
+                            <span>Edits</span> : <span>{edits}</span>
                         </p>
                     )}
                 </div>
