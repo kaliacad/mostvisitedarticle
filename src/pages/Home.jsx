@@ -3,6 +3,7 @@
 import NavBar from '../components/NavBar';
 import { Footer } from '../components/footer';
 import TopVisited from '../components/TopVisited';
+import ArticleCardSkeletton from '../components/ArticleCardSkeletton';
 // import ArticleForm from '../components/ArticleForm';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
                 <NavBar />
             </header>
             <main className='px-9 pt-24'>
+                <ArticleCardSkeletton />
                 {/* <CountryPickList
                     label={'Select a Country'}
                     continent={continent}

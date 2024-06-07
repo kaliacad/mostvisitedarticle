@@ -10,6 +10,7 @@ import { useState } from 'react';
 import TopVisited from './components/TopVisited.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 import { Footer } from './components/footer.jsx';
+import ArticleCardSkeletton from './components/ArticleCardSkeletton.jsx';
 
 function App() {
     const titre = 'Pays';
@@ -25,7 +26,7 @@ function App() {
                     <ExportDropdownButton />
                     <button onClick={handleClicked}>Toggle Articles/Gallery</button>
                 </div>
-
+                <ArticleCardSkeletton />
                 <TopVisited />
                 <SetDate />
                 <Menu data={datab} title={titre} />

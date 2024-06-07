@@ -22,10 +22,7 @@ const fetchImageFromArticle = async (project, title) => {
         if (!page.images || page.images.length === 0) {
             throw new Error('No images found');
         }
-        const jpgImage = page.images.find((image) => image.title.toLowerCase().endsWith('.jpg'));
-
-        const imageTitle = jpgImage ? jpgImage.title : page.images[0].title;
-        // const imageURL = `https://${project}.org/wiki/${encodeURIComponent(imageTitle)}`;
+        const imageTitle = page.images[0].title;
         const imageResponse = await axios.get(`https://${project}.org/w/api.php`, {
             params: {
                 action: 'query',
