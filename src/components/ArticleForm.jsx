@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import country from 'country-list-js';
 import CountryPickList from './CountryPickList';
 import axios from 'axios';
 

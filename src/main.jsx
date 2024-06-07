@@ -9,6 +9,7 @@ import Layout from './components/Layout.jsx';
 import Home from './pages/Home.jsx';
 import PageViews from './components/PageViews/PageViews.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     {
         path: '/top-africa',
         element: <WikiAfricaTopArticles />,
+    },
+    {
+        path: '*',
+        element: <NotFound />,
     },
 ]);
 
