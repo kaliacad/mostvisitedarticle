@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import country from 'country-list-js';
+import axios from 'axios';
 
 const ArticleForm = ({ onSubmit, loading }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -9,6 +10,43 @@ const ArticleForm = ({ onSubmit, loading }) => {
         date: '',
         access: 'all-access',
     });
+    const [locationError, setLocationError] = useState('');
+
+    useEffect(() => {
+        const fetchLocation = async (lat, lon) => {
+            try {
+                const response = await axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {
+                    params: {
+                        latitude: lat,
+                        longitude: lon,
+                        localityLanguage: 'en',
+                    },
+                });
+
+                const { countryCode } = response.data;
+                setForm((prevForm) => ({
+                    ...prevForm,
+                    country: countryCode,
+                }));
+            } catch (error) {
+                setLocationError('Error fetching location data.');
+            }
+        };
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    fetchLocation(latitude, longitude);
+                },
+                () => {
+                    setLocationError('Error getting geolocation.');
+                },
+            );
+        } else {
+            setLocationError('Geolocation is not supported by this browser.');
+        }
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -64,7 +102,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                                 <option value='undefined'>undefined</option>
                             )}
                         </select>
-                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                        {formErrors.country && <div className='error'>{formErrors.country}</div>}
                     </div>
 
                     <label htmlFor='fullDate'>
@@ -99,6 +137,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                     {loading ? 'Submitting' : 'submit'}
                 </button>
             </div>
+            {locationError && <div className='error'>{locationError}</div>}
         </form>
     );
 };
