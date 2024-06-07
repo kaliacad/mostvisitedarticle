@@ -10,11 +10,11 @@ export default function Home() {
     // const [continent, setContinent] = useState();
 
     return (
-        <>
-            <header>
+        <div className='min-h-screen relative'>
+            <header className='fixed top-0 w-full'>
                 <NavBar />
             </header>
-            <main className='px-9 pt-10'>
+            <main className='px-9 pt-24'>
                 {/* <CountryPickList
                     label={'Select a Country'}
                     continent={continent}
@@ -27,9 +27,9 @@ export default function Home() {
 
                 <TopVisited />
             </main>
-            <footer style={{ position: 'absolute', bottom: 0, width: '100vw' }}>
+            <footer className='relative w-full bottom-0'>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 }
