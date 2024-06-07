@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ArticleForm from './ArticleForm';
 import ArticleCard from './ArticleCard';
+import Loading from './loading';
 
 import fetchArticles from '../helpers/fetchdata';
 
@@ -43,8 +44,12 @@ const TopVisited = () => {
                 <ArticleForm onSubmit={handleSubmit} loading={loading} />
             </div>
 
-            {loading && <p className='loading'>Loading...</p>}
-            {error && <p className='error'>Error: {error}</p>}
+            {loading && (
+                <div className='flex items-center justify-center mt-[1rem]'>
+                    <Loading />
+                </div>
+            )}
+            {error && <p className='error text-center my-3'>Error: {error}</p>}
 
             <div className='articles'>
                 {articles?.length > 0 ? (
