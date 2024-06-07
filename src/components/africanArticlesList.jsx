@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
-import countriesFr from '../helpers/countriesFr';
+import countriesFr from '../helpers/countriesIsoCodes';
 import ArticleCard from './ArticleCard';
+import Loading from './loading';
+
 const africanCountries = countriesFr.afrique;
 
 const WikiAfricaTopArticles = () => {
@@ -26,7 +28,7 @@ const WikiAfricaTopArticles = () => {
         fetchDataForAllCountries();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
@@ -37,6 +39,7 @@ const WikiAfricaTopArticles = () => {
             {data.map((countryData, index) => {
                 if (!Array.isArray(countryData)) {
                     const CountryItems = countryData.items;
+
                     return (
                         <div key={index}>
                             <h2>{africanCountries[index].name}</h2>
