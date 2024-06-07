@@ -29,8 +29,7 @@ function App() {
             <ExportDropdownButton />
             <button onClick={handleClicked}>Toggle Articles/Gallery</button>
             {showArticles ? <ResultListArticles /> : <ResultatGallery />}
-            {/* <h2>Most visited wikimedia articles</h2> */}
-            {/* <ResultatGallery /> */}
+
             <TopVisited />
             <SetDate />
             <Menu data={datab} title={titre} />
