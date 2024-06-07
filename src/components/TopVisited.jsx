@@ -57,7 +57,7 @@ const TopVisited = () => {
                             ))}
                     </ul>
                 ) : (
-                    <p className='noArticleMessage text-center text-2xl font-bold'>Please, Fill the form to get your desired articles from country</p>
+                    <p className='noArticleMessage text-center text-2xl font-bold'></p>
                 )}
             </div>
         </div>
