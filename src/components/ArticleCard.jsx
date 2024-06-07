@@ -25,7 +25,7 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
             <div className='article-content'>
                 <h3 className='article-title'>
                     <a href={getPageURL(article, project)} target='_blank'>
-                        {article}
+                        {article?.includes('_') && (article = article.replace(/_/g, ' '))}
                     </a>
                 </h3>
                 <div className='article-description'>

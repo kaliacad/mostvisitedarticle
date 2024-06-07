@@ -13,9 +13,7 @@ import ArticleCard from './components/ArticleCard.jsx';
 
 function App() {
     const titre = 'Pays';
-    const handleClick = () => {
-        alert('Button clicked!');
-    };
+    const handleClick = () => {};
     const [showArticles, setShowArticles] = useState(false);
 
     const handleClicked = () => {
