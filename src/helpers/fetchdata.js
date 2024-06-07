@@ -7,11 +7,15 @@ const axiosInstance = axios.create({
 });
 
 const fetchMostVisitedArticlesData = async ({ country, access, year, month, day }) => {
-    const formattedMonth = month.padStart(2, '0');
-    const formattedDay = day.padStart(2, '0');
-    const apiUrl = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top-per-country/${country}/${access}/${year}/${formattedMonth}/${formattedDay}`;
+    try {
+        const formattedMonth = month.padStart(2, '0');
+        const formattedDay = day.padStart(2, '0');
+        const apiUrl = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top-per-country/${country}/${access}/${year}/${formattedMonth}/${formattedDay}`;
 
-    return await axiosInstance.get(apiUrl);
+        return await axiosInstance.get(apiUrl);
+    } catch (error) {
+        throw new Error('Aucune donnée trouvée pour les paramètres passées');
+    }
 };
 
 export default fetchMostVisitedArticlesData;
