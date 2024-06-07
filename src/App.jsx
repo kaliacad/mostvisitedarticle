@@ -9,6 +9,7 @@ import { useState } from 'react';
 import ResultListArticles from './components/ResultListArticles.jsx';
 import TopVisited from './components/TopVisited.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
+import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 
 function App() {
     const titre = 'Pays';
@@ -20,7 +21,6 @@ function App() {
     };
     return (
         <div>
-            <NavBar />
             <div className='container mx-auto py-4'>
                 <div className='flex align-center justify-center'>
                     <ExportDropdownButton />
@@ -36,7 +36,6 @@ function App() {
                 <Button text='submit' event={handleClick}></Button>
                 <WikiAfricaTopArticles />
             </div>
-            <Footer />
         </div>
     );
 }

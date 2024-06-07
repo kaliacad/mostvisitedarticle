@@ -48,7 +48,7 @@ const TopVisited = () => {
 
             <div className='articles'>
                 {articles?.length > 0 ? (
-                    <ul className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'>
+                    <ul className='flex flex-wrap items-center pt-[2rem]'>
                         {topVisitedArticles?.length > 0 &&
                             topVisitedArticles?.map(({ article, project, rank, views_ceil }) => (
                                 <div className='w-1/3 p-8 ' key={article}>

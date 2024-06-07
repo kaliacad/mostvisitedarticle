@@ -14,7 +14,7 @@ export default function Home() {
             <header className='fixed top-0 w-full'>
                 <NavBar />
             </header>
-            <main className='px-9 pt-10'>
+            <main className='px-9 pt-24'>
                 {/* <CountryPickList
                     label={'Select a Country'}
                     continent={continent}
