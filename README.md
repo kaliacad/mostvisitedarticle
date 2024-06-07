@@ -1,4 +1,4 @@
-```
+
 # Most visited articles (Wikimedia)
 
 This web application was developed as part of an intensive workshop with Wikimedia RDC. Its main objective is to filter the available data on Wikimedia and identify the most searched articles in a given country.
@@ -13,7 +13,7 @@ This web application was developed as part of an intensive workshop with Wikimed
 
 ### Prerequisites
 
-- Node.js and npm must be installed on your machine.
+- giNode.js and npm must be installed on your machine.
 
 ### Installation Steps
 
@@ -53,4 +53,4 @@ Contributions are welcome! If you wish to contribute to the improvement of this 
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-```
+
