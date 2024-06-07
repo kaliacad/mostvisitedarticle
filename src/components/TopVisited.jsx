@@ -9,7 +9,7 @@ const TopVisited = () => {
     const [articles, setArticles] = useState([]);
     const [error, setError] = useState(null);
 
-    const topVisitedArticles = articles.slice(0, 900);
+    const topVisitedArticles = articles?.slice(0, 900);
 
     const handleSubmit = async (formData) => {
         setLoading(true);
@@ -38,18 +38,22 @@ const TopVisited = () => {
     };
 
     return (
-        <div className='topVisitedContainer flex_center'>
-            <ArticleForm onSubmit={handleSubmit} loading={loading} />
+        <div className='container mx-auto flex_center'>
+            <div className='bg-slate-100 rounded-md py-10'>
+                <ArticleForm onSubmit={handleSubmit} loading={loading} />
+            </div>
 
             {loading && <p className='loading'>Loading...</p>}
             {error && <p className='error'>Error: {error}</p>}
 
             <div className='articles'>
                 {articles?.length > 0 ? (
-                    <ul className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'>
+                    <ul className='flex flex-wrap items-center pt-[2rem]'>
                         {topVisitedArticles?.length > 0 &&
-                            topVisitedArticles.map(({ article, project, rank, views_ceil }) => (
-                                <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
+                            topVisitedArticles?.map(({ article, project, rank, views_ceil }) => (
+                                <div className='w-1/3 p-8 ' key={article}>
+                                    <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
+                                </div>
                             ))}
                     </ul>
                 ) : (
