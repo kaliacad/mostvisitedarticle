@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import country from 'country-list-js';
+// import country from 'country-list-js';
+import CountryPickList from './CountryPickList';
 import axios from 'axios';
 
 const ArticleForm = ({ onSubmit, loading }) => {
@@ -47,6 +48,8 @@ const ArticleForm = ({ onSubmit, loading }) => {
             setLocationError('Geolocation is not supported by this browser.');
         }
     }, []);
+    const [country, setCountry] = useState('CD');
+    const [continent, setContinent] = useState('Africa');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -77,35 +80,28 @@ const ArticleForm = ({ onSubmit, loading }) => {
         }
     };
 
-    const countryData = Object.keys(country.all);
+    // const countryData = Object.keys(country.all);
 
     return (
         <form onSubmit={handleSubmit} className='w-full'>
-            <div className='flex flex-col  justify-between items-center w-full py-3'>
-                <div className='inputs w-[40vw] flex gap-7 py-4 justify-between'>
-                    <div className=' w-1/3'>
-                        <select
-                            className='countrySelect w-full border border-slate-300 rounded py-2 px-1 bg-white'
-                            name='country'
-                            value={form.country}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value='' disabled>
-                                Select country by ISO code
-                            </option>
-                            {countryData && countryData.length > 0 ? (
-                                countryData.map((countryCode) => (
-                                    <option key={countryCode} value={countryCode}>
-                                        {countryCode}
-                                    </option>
-                                ))
-                            ) : (
-                                <option value='undefined'>undefined</option>
-                            )}
-                        </select>
-                        {formErrors.country && <div className='error'>{formErrors.country}</div>}
-                    </div>
+            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
+                <div className='text-start'>
+                    <span className='date'>Fill all fields</span>
+                </div>
+
+                <div className='inputs flex gap-[1rem]'>
+                    <CountryPickList
+                        label={'Select a Country'}
+                        country={country}
+                        onChangeCountry={(country) => {
+                            setForm({ ...form, country });
+                            setCountry(country);
+                        }}
+                        defaultCountry={'CD'}
+                        continent={continent}
+                        onChangeContinent={(continent) => setContinent(continent)}
+                        defaultContinent='Africa'
+                    />
 
                     <label htmlFor=' w-1/3'>
                         <div className='flex flex-col w-full'>

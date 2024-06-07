@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ArticleForm from './ArticleForm';
 import ArticleCard from './ArticleCard';
 
@@ -36,16 +36,6 @@ const TopVisited = () => {
             setLoading(false);
         }
     };
-
-    useEffect(() => {
-        handleSubmit({
-            country: 'FR',
-            access: 'all-access',
-            year: '2024',
-            month: new Date().getMonth().toString(),
-            day: new Date().getDate().toString(),
-        });
-    }, []);
 
     return (
         <div className='container mx-auto flex_center'>
