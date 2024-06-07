@@ -64,9 +64,11 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     <p>
                         <span>Editors : </span> <span>{editors ? editors : 'Not found'}</span>
                     </p>
-                    <p>
-                        <span>Edit</span> : <span>{edits}</span>
-                    </p>
+                    {edits && (
+                        <p>
+                            <span>Edit</span> : <span>{edits}</span>
+                        </p>
+                    )}
                 </div>
 
                 <Button event={() => (window.location.href = getPageURL(article, project))} text="Lire l'article" className='article-link' />
