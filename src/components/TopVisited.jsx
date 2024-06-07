@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Papa from 'papaparse'; // Importer papaparse
 import ArticleForm from './ArticleForm';
 import ArticleCard from './ArticleCard';
 import fetchArticles from '../helpers/fetchdata';
+import Pagination from './Pagination';
 
 const TopVisited = () => {
     const [loading, setLoading] = useState(false);
@@ -10,9 +11,20 @@ const TopVisited = () => {
     const [error, setError] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const topVisitedArticles = articles.slice(0, 900);
+    const [paginatedItems, setPaginatedItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
 
-    const handleSubmit = async (formData) => {
+    const handlePageChange = (currentPage, paginatedItems) => {
+        setPaginatedItems(paginatedItems);
+    };
+    const handleCurrentPage = (page) => {
+        setCurrentPage(page);
+    };
+
+    // const paginatedItems = ;
+
+    const handleSubmit = useCallback(async (formData) => {
         setLoading(true);
         setError(null);
 
@@ -36,7 +48,7 @@ const TopVisited = () => {
         } finally {
             setLoading(false);
         }
-    };
+    });
 
     useEffect(() => {
         handleSubmit({
@@ -50,7 +62,7 @@ const TopVisited = () => {
 
     const exportToCSV = () => {
         const csv = Papa.unparse(
-            topVisitedArticles.map(({ article, project, rank, views_ceil }) => ({
+            articles.map(({ article, project, rank, views_ceil }) => ({
                 article,
                 project,
                 rank,
@@ -69,7 +81,7 @@ const TopVisited = () => {
     };
 
     const exportToJSON = () => {
-        const json = JSON.stringify(topVisitedArticles, null, 2);
+        const json = JSON.stringify(articles, null, 2);
         const blob = new Blob([json], { type: 'application/json;charset=utf-8;' });
         const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
@@ -139,12 +151,22 @@ const TopVisited = () => {
 
             <div className='articles'>
                 {articles?.length > 0 ? (
-                    <ul className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'>
-                        {topVisitedArticles?.length > 0 &&
-                            topVisitedArticles.map(({ article, project, rank, views_ceil }) => (
-                                <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
-                            ))}
-                    </ul>
+                    <div>
+                        <ul className='flex flex-wrap justify-evenly items-center gap-[5rem] pt-[2rem]'>
+                            {paginatedItems?.length > 0 &&
+                                paginatedItems.map(({ article, project, rank, views_ceil }) => (
+                                    <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
+                                ))}
+                        </ul>
+                        <Pagination
+                            onCurrentChange={handleCurrentPage}
+                            totalPages={Math.ceil(articles.length / itemsPerPage)}
+                            currentPage={currentPage}
+                            items={articles}
+                            itemsPerPage={itemsPerPage}
+                            onPageChange={handlePageChange}
+                        />
+                    </div>
                 ) : (
                     <p className='noArticleMessage text-center text-2xl font-bold'>Please, Fill the form to get your desired articles from country</p>
                 )}
