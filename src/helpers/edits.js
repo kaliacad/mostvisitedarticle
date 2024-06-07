@@ -9,7 +9,7 @@ async function getEditCount(articleTitle, project) {
             return editCount.reduce((acc, item) => acc + item.edits, 0);
         } else return 'not found';
     } catch (error) {
-        return `Erreur lors de la récupération du nombre d'éditions: ${error}`;
+        return `not found`;
     }
 }
 
