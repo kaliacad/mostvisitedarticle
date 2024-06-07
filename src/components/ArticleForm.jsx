@@ -6,10 +6,8 @@ const ArticleForm = ({ onSubmit, loading }) => {
     const [formErrors, setFormErrors] = useState({});
     const [form, setForm] = useState({
         country: '',
+        date: '',
         access: 'all-access',
-        year: '',
-        month: '',
-        day: '',
     });
 
     const handleChange = (event) => {
@@ -20,9 +18,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
     const validateForm = () => {
         const errors = {};
         if (!form.country) errors.country = 'Country is required';
-        if (!form.year) errors.year = 'Year is required';
-        if (!form.month) errors.month = 'Month is required';
-        if (!form.day) errors.day = 'Day is required';
+        if (!form.date) errors.date = 'La date est requise est requise';
         return errors;
     };
 
@@ -33,13 +29,12 @@ const ArticleForm = ({ onSubmit, loading }) => {
             setFormErrors(errors);
         } else {
             setFormErrors({});
-            onSubmit(form);
+            const [year, month, day] = form.date.split('-');
+            onSubmit({ ...form, year, month, day });
             setForm({
                 country: '',
                 access: 'all-access',
-                year: '',
-                month: '',
-                day: '',
+                date: '',
             });
         }
     };
@@ -47,13 +42,13 @@ const ArticleForm = ({ onSubmit, loading }) => {
     const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='form '>
-            <div className='formContent flex flex-col gap-[0.5rem] justify-between items-center formBorder py-3'>
+        <form onSubmit={handleSubmit} className='w-full'>
+            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
                 <div className='text-start'>
                     <span className='date'>Fill all fields</span>
                 </div>
 
-                <div className='inputs flex gap-[1rem]'>
+                <div className='inputs flex gap-7 justify-between'>
                     <div className='select'>
                         <select className='countrySelect bg-white' name='country' value={form.country} onChange={handleChange} required>
                             <option value='' disabled>
@@ -72,26 +67,19 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         {formErrors.access && <div className='error'>{formErrors.access}</div>}
                     </div>
 
-                    <label htmlFor='year' className='flex flex-col'>
-                        <input
-                            type='text'
-                            name='year'
-                            value={form.year}
-                            placeholder='Year'
-                            className='border-solid border-1'
-                            onChange={handleChange}
-                        />
-                        {formErrors.year && <div className='error'>{formErrors.year}</div>}
-                    </label>
-
-                    <label htmlFor='month' className='flex flex-col'>
-                        <input type='text' name='month' value={form.month} onChange={handleChange} placeholder='Month' className='' />
-                        {formErrors.month && <div className='error'>{formErrors.month}</div>}
-                    </label>
-
-                    <label htmlFor='day' className='flex flex-col'>
-                        <input type='text' name='day' value={form.day} onChange={handleChange} placeholder='Day' className='' />
-                        {formErrors.day && <div className='error'>{formErrors.day}</div>}
+                    <label htmlFor='fullDate'>
+                        <div className='flex flex-col'>
+                            <span>Sélectionner une date</span>
+                            <input
+                                id='fullDate'
+                                type='date'
+                                name='date'
+                                className='text-sm p-2 outline-none border px-8 rounded'
+                                value={form.date}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        {formErrors.date && <div className='text-red-500'>{formErrors.date}</div>}
                     </label>
 
                     <div className='w-[10rem]'>
