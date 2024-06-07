@@ -6,10 +6,15 @@ import Loading from './components/loading.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ExemplePagination from './pages/exemplePagination.jsx';
 import TopAfrica from './pages/topAfrica.jsx';
+import Home from './pages/Home.jsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
+        element: <Home />,
+    },
+    {
+        path: '/home',
         element: <App />,
     },
     {
