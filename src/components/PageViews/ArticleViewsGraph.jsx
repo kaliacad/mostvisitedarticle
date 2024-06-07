@@ -49,7 +49,7 @@ const ArticleViewsGraph = ({ article }) => {
     }, [article]);
 
     return (
-        <div className='graph'>
+        <div className='graph w-3/4 flex flex-col items-center'>
             <h2>Views for {decodeURIComponent(article.article)}</h2>
             {loading ? <Loading /> : viewData.labels ? <Line data={viewData} /> : <p>No data available.</p>}
         </div>

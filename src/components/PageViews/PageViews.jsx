@@ -11,7 +11,7 @@ export default function PageViews() {
     const [platform, setPlatform] = useState('all-access');
     const [agent, setAgent] = useState('user');
     return (
-        <div className='page-views'>
+        <div className='page-views flex flex-wrap justify-center gap-4 w-full p-4 mr-10'>
             <PageViewsContext.Provider
                 value={[
                     // [dates, setDates],
