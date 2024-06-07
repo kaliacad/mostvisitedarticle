@@ -31,6 +31,15 @@ export default function CountryPickList({ label, country, onChangeCountry, defau
             <p className='label'>{label}</p>
             <div className='select_options'>
                 <Menu
+                    label='Continent'
+                    className='continent'
+                    data={Object.keys(countries).map((el) => ({ value: el, label: el }))}
+                    value={continent}
+                    onChange={handleChangeContinent}
+                    defaultValue={defaultContinent}
+                />
+                
+                <Menu
                     label='Country'
                     className='country'
                     data={countries[continent ?? defaultContinent].map((el) => ({ value: el.code, label: el.name }))}
@@ -38,14 +47,6 @@ export default function CountryPickList({ label, country, onChangeCountry, defau
                     onChange={handleChangeCountry}
                     defaultValue={defaultCountry}
                     ref={countryRef}
-                />
-                <Menu
-                    label='Continent'
-                    className='continent'
-                    data={Object.keys(countries).map((el) => ({ value: el, label: el }))}
-                    value={continent}
-                    onChange={handleChangeContinent}
-                    defaultValue={defaultContinent}
                 />
             </div>
         </div>
