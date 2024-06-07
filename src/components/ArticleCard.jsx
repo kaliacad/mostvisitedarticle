@@ -4,6 +4,7 @@ import fetchImageFromArticle from '../api/fetchImageFromArticle';
 import fetchArticleEditor from '../api/fetchArticleEditor';
 import { useEffect, useState } from 'react';
 import Button from './Button';
+import getEditCount from '../helpers/edits';
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
     const [editors, setEditors] = useState(null);
@@ -29,6 +30,10 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
         fetchEditors();
         fetchImages();
     }, [article, project]);
+
+    const [edits, setEdits] = useState(null);
+
+    useEffect(() => getEditCount(article, project).then((count) => setEdits(count)), [article, project]);
 
     return (
         <div className='flex flex-col bg-[#ffff1] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden'>
@@ -58,6 +63,9 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     </p>
                     <p>
                         <span>Editors : </span> <span>{editors ? editors : 'Not found'}</span>
+                    </p>
+                    <p>
+                        <span>Edit</span> : <span>{edits}</span>
                     </p>
                 </div>
 

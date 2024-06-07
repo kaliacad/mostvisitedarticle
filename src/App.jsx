@@ -10,7 +10,6 @@ import TopVisited from './components/TopVisited.jsx';
 import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 import { Footer } from './components/footer.jsx';
 import ArticleCardSkeletton from './components/ArticleCardSkeletton.jsx';
-
 function App() {
     const titre = 'Pays';
     const handleClick = () => {};
