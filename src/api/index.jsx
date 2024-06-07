@@ -26,6 +26,7 @@ const BASE_URL = 'https://wikimedia.org/api/rest_v1/metrics/pageviews/top-per-co
 const fetchTopArticles = async (specification) => {
     const { countryCode = 'CD', access = 'all-access', year = todayYear, month = todayMonth, day = todayDay } = specification;
     const END_POINT = `${BASE_URL}/${countryCode}/${access}/${year}/${month}/${day}`;
+
     try {
         const response = await axios.get(END_POINT);
         return response.data;
