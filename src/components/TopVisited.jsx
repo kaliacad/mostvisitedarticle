@@ -4,6 +4,7 @@ import ArticleForm from './ArticleForm';
 import ArticleCard from './ArticleCard';
 import fetchArticles from '../helpers/fetchdata';
 import Pagination from './Pagination';
+import Loading from './loading';
 
 const TopVisited = () => {
     const [loading, setLoading] = useState(false);
@@ -144,7 +145,7 @@ const TopVisited = () => {
             )}
 
             <div className='articles'>
-                {articles?.length > 0 ? (
+                {articles && articles?.length > 0 ? (
                     <div>
                         <ul className='flex flex-wrap items-center justify-center pt-[2rem]'>
                             {paginatedItems?.length > 0 &&
@@ -168,6 +169,7 @@ const TopVisited = () => {
                 ) : (
                     <p className='noArticleMessage text-center text-2xl font-bold'>Please, Fill the form to get your desired articles from country</p>
                 )}
+                {loading && <Loading />}
             </div>
         </div>
     );
