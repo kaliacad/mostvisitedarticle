@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /*
@@ -12,13 +12,9 @@ Where:
 Testez la fonctionnalité avec la route "/exemple_pagination"
 */
 
-const Pagination = ({ items, itemsPerPage, onPageChange }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-
+const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, currentPage, totalPages }) => {
     useEffect(() => {
-        setTotalPages(Math.ceil(items.length / itemsPerPage));
-        setCurrentPage(1);
+        onCurrentChange(1);
     }, [items, itemsPerPage]);
 
     useEffect(() => {
@@ -28,13 +24,13 @@ const Pagination = ({ items, itemsPerPage, onPageChange }) => {
 
     const handlePrevious = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
+            onCurrentChange(currentPage - 1);
         }
     };
 
     const handleNext = () => {
         if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
+            onCurrentChange(currentPage + 1);
         }
     };
 
