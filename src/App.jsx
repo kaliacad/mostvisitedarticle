@@ -9,6 +9,9 @@ import { useState } from 'react';
 import ResultListArticles from './components/ResultListArticles.jsx';
 import TopVisited from './components/TopVisited.jsx';
 import ResultatGallery from './components/ResultatGallery.jsx';
+import NavBar from './components/NavBar.jsx';
+import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
+import { Footer } from './components/footer.jsx';
 
 function App() {
     const titre = 'Pays';
@@ -20,27 +23,15 @@ function App() {
     };
     return (
         <div>
-<<<<<<< HEAD
-            <ExportDropdownButton />
-            <button onClick={handleClicked}>Toggle Articles/Gallery</button>
-=======
             <NavBar />
             <div className='container mx-auto py-4'>
                 <div className='flex align-center justify-center'>
                     <ExportDropdownButton />
                     <button onClick={handleClicked}>Toggle Articles/Gallery</button>
                 </div>
->>>>>>> a97b5c1 (feat(home): article Card)
 
                 <div className='bg-slate-100 py-8 my-8 px-4 rounded-md'>{showArticles ? <ResultListArticles /> : <ResultatGallery />}</div>
 
-<<<<<<< HEAD
-            <TopVisited />
-            <SetDate />
-            <Menu data={datab} title={titre} />
-            <MostArticleByProject project='fr.wikipedia' />
-            <Button text='submit' event={handleClick}></Button>
-=======
                 <TopVisited />
                 <SetDate />
                 <Menu data={datab} title={titre} />
@@ -49,7 +40,6 @@ function App() {
                 <WikiAfricaTopArticles />
             </div>
             <Footer />
->>>>>>> a97b5c1 (feat(home): article Card)
         </div>
     );
 }
