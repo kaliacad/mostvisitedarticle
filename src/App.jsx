@@ -1,10 +1,7 @@
 import SetDate from './components/setdate/setdate';
 import MostArticleByProject from './components/MostArticleByProject';
 import Button from './components/Button.jsx';
-import WikiAfricaTopArticles from './components/africanArticlesList.jsx';
 import Metadata from './components/metadata/metadata.jsx';
-import { Footer } from './components/footer.jsx';
-import NavBar from './components/NavBar.jsx';
 import ExportDropdownButton from './components/DropdownExport.jsx';
 import { Menu } from './components/Menu';
 import { datab } from '../data';
@@ -28,7 +25,6 @@ function App() {
         <div>
             <Metadata />
             <h2>Most visited wikimedia articles</h2>
-            <NavBar />
             <ExportDropdownButton />
             <button onClick={handleClicked}>Toggle Articles/Gallery</button>
 
@@ -40,8 +36,6 @@ function App() {
             <Menu data={datab} title={titre} />
             <MostArticleByProject project='fr.wikipedia' />
             <Button text='submit' event={handleClick}></Button>
-            <WikiAfricaTopArticles />
-            <Footer />
         </div>
     );
 }

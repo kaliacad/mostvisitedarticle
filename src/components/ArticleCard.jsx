@@ -21,7 +21,7 @@ const ArticleCard = ({ article, project, views_ceil, rank }) => {
 
     return (
         <div className='article-card'>
-            <img src={url ? url : 'https://cdn-icons-png.flaticon.com/256/4598/4598489.png'} alt='nom article' className='article-image' />
+            <img src={url ? url : './article-placeholder.png'} alt='nom article' className='article-image' />
             <div className='article-content'>
                 <h3 className='article-title'>
                     <a href={getPageURL(article, project)} target='_blank'>
