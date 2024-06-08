@@ -90,7 +90,6 @@ const ArticleForm = ({ onSubmit, loading }) => {
 
                 <div className='inputs flex gap-[1rem]'>
                     <CountryPickList
-                        label={'Selectionner un pays'}
                         country={country}
                         onChangeCountry={(country) => {
                             setForm({ ...form, country });
@@ -104,7 +103,6 @@ const ArticleForm = ({ onSubmit, loading }) => {
 
                     <label htmlFor='' className='w-1/3 mt-12'>
                         <div className='flex flex-col w-full'>
-                            {/* <span className=''>Sélectionner une date</span> */}
                             <input
                                 id='fullDate'
                                 type='date'
