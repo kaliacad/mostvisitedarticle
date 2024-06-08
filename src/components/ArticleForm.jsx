@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import country from 'country-list-js';
 import CountryPickList from './CountryPickList';
 import axios from 'axios';
 
@@ -85,13 +84,12 @@ const ArticleForm = ({ onSubmit, loading }) => {
     return (
         <form onSubmit={handleSubmit} className='w-full'>
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
-                <div className='text-start'>
-                    <span className='date'>Fill all fields</span>
+                <div className='text-start mb-2'>
+                    <span className='date text-[20px] '>Veuillez remplir le formulaire pour obtenir les articles souhaités</span>
                 </div>
 
                 <div className='inputs flex gap-[1rem]'>
                     <CountryPickList
-                        label={'Select a Country'}
                         country={country}
                         onChangeCountry={(country) => {
                             setForm({ ...form, country });
@@ -103,9 +101,8 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         defaultContinent='Africa'
                     />
 
-                    <label htmlFor=' w-1/3'>
+                    <label htmlFor='' className='w-1/3 mt-12'>
                         <div className='flex flex-col w-full'>
-                            {/* <span>Sélectionner une date</span> */}
                             <input
                                 id='fullDate'
                                 type='date'
@@ -118,7 +115,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         {formErrors.date && <div className='text-red-500'>{formErrors.date}</div>}
                     </label>
 
-                    <div className=' w-1/3'>
+                    <div className=' w-1/3 mt-12'>
                         <select
                             className='access border border-slate-300 w-full  rounded py-2 px-1 bg-white'
                             name='access'
@@ -133,8 +130,8 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         {formErrors.access && <div className='error'>{formErrors.access}</div>}
                     </div>
                 </div>
-                <button type='submit' className=' py-[0.5rem] bg-green-500 text-white px-6 text-[18px] capitalize font-600 w-56'>
-                    {loading ? 'Submitting' : 'submit'}
+                <button type='submit' className=' py-[0.5rem] bg-green-500 text-white px-6 text-[18px] font-600 w-56'>
+                    {loading ? 'Envoie en cours...' : 'Envoyer'}
                 </button>
             </div>
             {locationError && <div className='error'>{locationError}</div>}
