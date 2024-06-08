@@ -40,7 +40,7 @@ export default function CountryPickList({ label, country, onChangeCountry, defau
                 />
 
                 <Menu
-                    label='Country'
+                    label='Pays'
                     className='country'
                     data={countries[continent ?? defaultContinent].map((el) => ({ value: el.code, label: el.name }))}
                     value={country}
