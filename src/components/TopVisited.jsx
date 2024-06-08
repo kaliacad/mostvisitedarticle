@@ -91,8 +91,12 @@ const TopVisited = () => {
                 <ArticleForm onSubmit={handleSubmit} loading={loading} />
             </div>
 
-            {loading && <p className='loading'>Loading...</p>}
-            {error && <p className='error'>Error: {error}</p>}
+            {loading && (
+                <div className='flex items-center justify-center mt-[1rem]'>
+                    <Loading />
+                </div>
+            )}
+            {error && <p className='error text-center my-3'>Error: {error}</p>}
 
             {articles.length > 0 && (
                 <div className='relative inline-block text-left'>
@@ -167,7 +171,7 @@ const TopVisited = () => {
                         </div>
                     </div>
                 ) : (
-                    <p className='noArticleMessage text-center text-2xl font-bold'>Please, Fill the form to get your desired articles from country</p>
+                    <p className='noArticleMessage text-center text-2xl font-bold'></p>
                 )}
                 {loading && <Loading />}
             </div>
