@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from 'react';
-import countries from '../helpers/countriesIsoCodes';
-import { Menu } from './Menu';
+import countries from '../../helpers/countriesIsoCodes';
+import { Menu } from '../Menu';
 
 export default function CountryPickList({ label, country, onChangeCountry, defaultCountry, continent, onChangeContinent, defaultContinent }) {
     const countryRef = useRef(null);

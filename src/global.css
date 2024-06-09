@@ -11,6 +11,15 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+.main-content {
+    min-height: 90vh;
+}
+
 .pays {
     width: 400px;
     height: 35px;
@@ -327,6 +336,9 @@ button {
     flex-wrap: wrap;
     gap: 20px;
 }
+.african .article-card {
+    @apply w-full  md:w-[49%] mlg:w-[30%];
+}
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -388,7 +400,6 @@ button {
     gap: 0.5rem;
 }
 
-
 .country_select .select_options {
     border: solid 1px #cccccc67;
     padding: 0.5rem;
@@ -396,9 +407,8 @@ button {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
- }
+}
 
- .formBorder {
+.formBorder {
     border: solid 1px #cccccc67;
- }
-
+}

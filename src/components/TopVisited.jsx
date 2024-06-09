@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import Papa from 'papaparse'; // Importer papaparse
-import ArticleForm from './ArticleForm';
-import ArticleCard from './ArticleCard';
+import Papa from 'papaparse';
+import ArticleForm from './ArticleForm/ArticleForm';
+import ArticleCard from './ArticleView/ArticleCard';
 import fetchArticles from '../helpers/fetchdata';
 import Pagination from './Pagination';
 import Loading from './loading';

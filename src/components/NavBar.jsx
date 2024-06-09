@@ -12,7 +12,7 @@ const NavBar = () => {
 
     return (
         <nav className='flex items-center justify-between bg-blue-800 h-16 px-6 py-2'>
-            <a href='/' target='_blank'>
+            <a href='/'>
                 <div className='text-white text-xl font-bold'>
                     Emi - <span className=' font-light'>articles les plus visités par pays</span>
                 </div>
@@ -21,12 +21,12 @@ const NavBar = () => {
             <div className='flex items-center justify-between'>
                 <ul className='flex items-center justify-center gap-4 text-white'>
                     <li>
-                        <a href='/page-views' className=' text-white underline' target='_blank'>
+                        <a href='/page-views' className=' text-white underline'>
                             Page views
                         </a>
                     </li>
                     <li>
-                        <a href='/top-africa' className=' text-white underline' target='_blank'>
+                        <a href='/top-africa' className=' text-white underline'>
                             Top Africa
                         </a>
                     </li>
