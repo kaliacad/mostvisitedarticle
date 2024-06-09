@@ -1,9 +1,9 @@
-import TopVisited from './components/TopVisited.jsx';
 import { Footer } from './components/footer.jsx';
+import TopVisited from './components/TopVisited.jsx';
 function App() {
     return (
         <div>
-            <div className='container mx-auto py-4'>
+            <div className='container mx-auto py-4 mb-8'>
                 <TopVisited />
             </div>
             <Footer />

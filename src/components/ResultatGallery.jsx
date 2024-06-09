@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
-import ArticleCard from './ArticleCard';
+import ArticleCard from './ArticleView/ArticleCard';
 // import TopVisited from '../components/TopVisited'
 
 export default function ResultatGallery() {

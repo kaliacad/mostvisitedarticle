@@ -11,6 +11,15 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+.main-content {
+    min-height: 90vh;
+}
+
 .pays {
     width: 400px;
     height: 35px;
@@ -326,6 +335,9 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+}
+.african .article-card {
+    @apply w-full  md:w-[49%] mlg:w-[30%];
 }
 @keyframes spin {
     0% {

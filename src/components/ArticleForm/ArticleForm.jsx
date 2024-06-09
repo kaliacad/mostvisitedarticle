@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CountryPickList from './CountryPickList';
+import CountryPickList from './CountryPicker';
 import axios from 'axios';
 
 const ArticleForm = ({ onSubmit, loading }) => {
