@@ -4,7 +4,12 @@ const AccessPicker = ({ access, onChange, error, label }) => {
     return (
         <div className='w-full'>
             <p className='label'>{label}</p>
-            <select className='access border border-slate-300 w-full rounded py-2 px-1 bg-white' name='access' value={access} onChange={onChange}>
+            <select
+                className='access my-2 border border-slate-300 w-full rounded py-2 px-1 bg-white'
+                name='access'
+                value={access}
+                onChange={onChange}
+            >
                 <option value='all-access'>All</option>
                 <option value='desktop'>Desktop</option>
                 <option value='mobile-app'>Mobile App</option>

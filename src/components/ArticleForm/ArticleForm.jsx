@@ -47,13 +47,13 @@ const ArticleForm = ({ onSubmit, loading }) => {
     return (
         <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
-                <div className='text-start'>
-                    <span className='date'>Fill all fields</span>
+                <div className='text-start mb-2'>
+                    <span className='date text-[20px] '>Veuillez remplir le formulaire pour obtenir les articles souhaités</span>
                 </div>
 
-                <div className='inputs flex gap-[1rem] items-center'>
+                <div className='inputs flex gap-[1rem] items-start'>
                     <CountryPicker
-                        label={'Select a Country'}
+                        label={'Choisir un pays'}
                         country={country}
                         onChangeCountry={(country) => {
                             setForm({ ...form, country });
@@ -65,13 +65,13 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         defaultContinent='Africa'
                     />
 
-                    <DatePicker label={'Select a Date'} date={form.date} onChange={handleChange} error={formErrors.date} />
+                    <DatePicker label={'Date'} date={form.date} onChange={handleChange} error={formErrors.date} />
 
-                    <AccessPicker label={'Select a Platform'} access={form.access} onChange={handleChange} error={formErrors.access} />
+                    <AccessPicker label={'Plateforme'} access={form.access} onChange={handleChange} error={formErrors.access} />
                 </div>
 
                 <button type='submit' className='py-[0.5rem] bg-green-500 text-white px-6 text-[18px] capitalize font-600 w-56'>
-                    {loading ? 'Submitting' : 'submit'}
+                    {loading ? 'Submitting' : 'Envoyer'}
                 </button>
             </div>
         </form>

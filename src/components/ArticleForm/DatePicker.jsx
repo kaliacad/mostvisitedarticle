@@ -8,7 +8,7 @@ const DatePicker = ({ date, onChange, error, label }) => {
                 id='fullDate'
                 type='date'
                 name='date'
-                className='text-sm outline-none w-full border py-2 px-1 rounded'
+                className='text-sm my-2 outline-none w-full border py-2 px-1 rounded'
                 value={date}
                 onChange={onChange}
             />
