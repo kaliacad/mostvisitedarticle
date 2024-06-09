@@ -349,6 +349,7 @@ button {
     color: #333;
     text-decoration: none;
     font-size: 1rem;
+    padding: 10px;
 }
 
 .footer-link:hover {
@@ -388,7 +389,6 @@ button {
     gap: 0.5rem;
 }
 
-
 .country_select .select_options {
     border: solid 1px #cccccc67;
     padding: 0.5rem;
@@ -396,9 +396,8 @@ button {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
- }
+}
 
- .formBorder {
+.formBorder {
     border: solid 1px #cccccc67;
- }
-
+}

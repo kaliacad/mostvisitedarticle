@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function Footer() {
     return (
-        <footer className='footer'>
+        <footer className='footer absolute bottom-0 w-full'>
             <a href='https://meta.wikimedia.org/wiki/Emi_Solution' className='footer-link' target='_blank'>
                 <FontAwesomeIcon icon={faBook} /> Documentation
             </a>

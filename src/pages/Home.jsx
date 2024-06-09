@@ -29,7 +29,7 @@ export default function Home() {
 
                 <TopVisited />
             </main>
-            <footer className='relative w-full bottom-0'>
+            <footer className='absolute w-full bottom-0'>
                 <Footer />
             </footer>
         </div>
