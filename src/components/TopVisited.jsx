@@ -87,7 +87,7 @@ const TopVisited = () => {
 
     return (
         <div className='container mx-auto flex_center'>
-            <div className='bg-slate-100 rounded-md py-10'>
+            <div className='bg-slate-100 rounded-xl'>
                 <ArticleForm onSubmit={handleSubmit} loading={loading} />
             </div>
 
@@ -173,7 +173,6 @@ const TopVisited = () => {
                 ) : (
                     <p className='noArticleMessage text-center text-2xl font-bold'></p>
                 )}
-                {loading && <Loading />}
             </div>
         </div>
     );

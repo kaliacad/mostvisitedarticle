@@ -82,9 +82,9 @@ const ArticleForm = ({ onSubmit, loading }) => {
     // const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='w-full'>
-            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
-                <div className='text-start mb-2'>
+        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl'>
+            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
+                <div className='text-start mb-2 py-5'>
                     <span className='date text-[20px] '>Veuillez remplir le formulaire pour obtenir les articles souhaités</span>
                 </div>
 
@@ -100,37 +100,33 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         onChangeContinent={(continent) => setContinent(continent)}
                         defaultContinent='Africa'
                     />
+                    <div className='select_container country_select'>
+                        <div>
+                            <label htmlFor='' className='select_label'>
+                                Date
+                            </label>
 
-                    <label htmlFor='' className='w-1/3 mt-12'>
-                        <div className='flex flex-col w-full'>
-                            <input
-                                id='fullDate'
-                                type='date'
-                                name='date'
-                                className='text-sm  outline-none w-full border py-2 px-1 rounded'
-                                value={form.date}
-                                onChange={handleChange}
-                            />
+                            <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
                         </div>
                         {formErrors.date && <div className='text-red-500'>{formErrors.date}</div>}
-                    </label>
+                    </div>
 
-                    <div className=' w-1/3 mt-12'>
-                        <select
-                            className='access border border-slate-300 w-full  rounded py-2 px-1 bg-white'
-                            name='access'
-                            value={form.access}
-                            onChange={handleChange}
-                        >
-                            <option value='all-access'>all-access</option>
-                            <option value='desktop'>desktop</option>
-                            <option value='mobile-app'>mobile-app</option>
-                            <option value='mobile-web'>mobile-web</option>
-                        </select>
-                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                    <div className='select_container country_select'>
+                        <div>
+                            <label htmlFor='' className='select_label'>
+                                Platform
+                            </label>
+                            <select className='select_options' name='access' value={form.access} onChange={handleChange}>
+                                <option value='all-access'>all-access</option>
+                                <option value='desktop'>desktop</option>
+                                <option value='mobile-app'>mobile-app</option>
+                                <option value='mobile-web'>mobile-web</option>
+                            </select>
+                            {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                        </div>
                     </div>
                 </div>
-                <button type='submit' className=' py-[0.5rem] bg-green-500 text-white px-6 text-[18px] font-600 w-56'>
+                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56'>
                     {loading ? 'Envoie en cours...' : 'Envoyer'}
                 </button>
             </div>
