@@ -36,7 +36,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
             <div className='article-content'>
                 <h3 className='article-title'>
                     <a href={getPageURL(article, project)} target='_blank'>
-                        {article}
+                        {article?.includes('_') ? article.replace(/_/g, ' ') : article}
                     </a>
                 </h3>
                 <div className='article-description flex flex-col gap-2'>
