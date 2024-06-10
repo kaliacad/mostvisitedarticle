@@ -82,7 +82,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
     // const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl'>
+        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
                 <div className='text-start mb-2 py-5'>
                     <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
@@ -124,7 +124,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         </div>
                     </div>
                 </div>
-                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56'>
+                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
                     {loading ? 'Envoie en cours...' : 'Envoyer'}
                 </button>
             </div>

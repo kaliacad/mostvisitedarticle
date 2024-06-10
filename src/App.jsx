@@ -1,4 +1,3 @@
-import { Footer } from './components/footer.jsx';
 import TopVisited from './components/TopVisited.jsx';
 function App() {
     return (
@@ -6,7 +5,6 @@ function App() {
             <div className='container mx-auto py-4 mb-8'>
                 <TopVisited />
             </div>
-            <Footer />
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../NavBar.css'; // Nous allons ajouter des styles pour la transition
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBug, faCode, faComment, faCopyright, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsUpToLine, faBook, faBug, faCode, faComment, faCopyright, faPager, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
     const [helpMenuOpen, setHelpMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ const NavBar = () => {
         <nav className='flex items-center justify-between bg-blue-800 h-16 px-6 py-2'>
             <a href='/'>
                 <div className='text-white text-xl font-bold'>
-                    Emi - <span className=' font-light'>articles les plus visités par pays</span>
+                    Emi <span className=' font-light max-md:hidden'>- articles les plus visités par pays</span>
                 </div>
             </a>
 
@@ -22,12 +22,18 @@ const NavBar = () => {
                 <ul className='flex items-center justify-center gap-4 text-white'>
                     <li>
                         <a href='/page-views' className=' text-white underline'>
-                            Page views
+                            <span className='max-md:hidden'>Page views</span>
+                            <span className='hidden max-md:block'>
+                                <FontAwesomeIcon icon={faPager} style={{ color: '#ffffff' }} />
+                            </span>
                         </a>
                     </li>
                     <li>
                         <a href='/top-africa' className=' text-white underline'>
-                            Top Africa
+                            <span className='max-md:hidden'>Top Africa</span>
+                            <span className='hidden max-md:block'>
+                                <FontAwesomeIcon icon={faArrowsUpToLine} style={{ color: '#ffffff' }} />
+                            </span>
                         </a>
                     </li>
                 </ul>
