@@ -85,10 +85,10 @@ const ArticleForm = ({ onSubmit, loading }) => {
         <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl'>
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
                 <div className='text-start mb-2 py-5'>
-                    <span className='date text-[20px] '>Veuillez remplir le formulaire pour obtenir les articles souhaités</span>
+                    <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
                 </div>
 
-                <div className='inputs flex gap-[1rem]'>
+                <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
                     <CountryPickList
                         country={country}
                         onChangeCountry={(country) => {

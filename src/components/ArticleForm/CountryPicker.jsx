@@ -27,7 +27,7 @@ export default function CountryPickList({ country, onChangeCountry, defaultCount
     };
 
     return (
-        <div className='country_select flex'>
+        <div className='country_select flex max-md:flex-col'>
             <Menu
                 label='Continent'
                 className='continent'
