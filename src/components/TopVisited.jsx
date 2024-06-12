@@ -172,7 +172,7 @@ const TopVisited = () => {
                         </div>
                     )}
                     <button className='ml-10' onClick={handleCopyUrl}>
-                        permanent share(Link)
+                        Lien permanent
                     </button>
                 </div>
             )}
