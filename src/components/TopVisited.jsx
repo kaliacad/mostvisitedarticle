@@ -87,7 +87,7 @@ const TopVisited = () => {
 
     return (
         <div className='container mx-auto flex_center'>
-            <div className='bg-slate-100 rounded-md py-10'>
+            <div className='bg-slate-100 rounded-xl max-md:flex max-md:justify-center'>
                 <ArticleForm onSubmit={handleSubmit} loading={loading} />
             </div>
 
@@ -103,7 +103,7 @@ const TopVisited = () => {
                     <div>
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
-                            className='inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                            className='inline-flex justify-center ml-2 w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                             id='options-menu'
                         >
                             Export
@@ -151,10 +151,10 @@ const TopVisited = () => {
             <div className='articles'>
                 {articles && articles?.length > 0 ? (
                     <div>
-                        <ul className='flex flex-wrap items-center justify-center pt-[2rem]'>
+                        <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
                             {paginatedItems?.length > 0 &&
                                 paginatedItems.map(({ article, project, rank, views_ceil }) => (
-                                    <div className='w-1/3 p-8 ' key={article}>
+                                    <div className='w-1/3 p-8  max-md:w-[90vw]' key={article}>
                                         <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
                                     </div>
                                 ))}
@@ -173,7 +173,6 @@ const TopVisited = () => {
                 ) : (
                     <p className='noArticleMessage text-center text-2xl font-bold'></p>
                 )}
-                {loading && <Loading />}
             </div>
         </div>
     );
