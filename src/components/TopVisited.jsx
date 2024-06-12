@@ -129,7 +129,7 @@ const TopVisited = () => {
             )}
             {error && <p className='error text-center my-3'>Error: {error}</p>}
             {articles.length > 0 && (
-                <div className='flex justify-between'>
+                <div className='flex justify-between max-md:flex-col-reverse'>
                     <div className='relative flex text-left'>
                         <div>
                             <button
