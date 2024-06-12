@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CountryPickList from './CountryPicker';
 import axios from 'axios';
 
-const ArticleForm = ({ onSubmit, loading }) => {
+const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
     const [form, setForm] = useState({
         country: '',
@@ -47,9 +47,20 @@ const ArticleForm = ({ onSubmit, loading }) => {
             setLocationError('Geolocation is not supported by this browser.');
         }
     }, []);
+
     const [country, setCountry] = useState('CD');
     const [continent, setContinent] = useState('Africa');
 
+    useEffect(() => {
+        (async () => {
+            if (countryUrl) {
+                setCountry(countryUrl);
+            }
+            if (continentUrl) {
+                setContinent(continentUrl);
+            }
+        })();
+    }, [countryUrl, continentUrl]);
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
@@ -92,7 +103,7 @@ const ArticleForm = ({ onSubmit, loading }) => {
                     <CountryPickList
                         country={country}
                         onChangeCountry={(country) => {
-                            setForm({ ...form, country });
+                            setForm({ ...form, country, continent });
                             setCountry(country);
                         }}
                         defaultCountry={'CD'}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import ArticleForm from './ArticleForm/ArticleForm';
 import ArticleCard from './ArticleView/ArticleCard';
@@ -11,11 +11,13 @@ const TopVisited = () => {
     const [articles, setArticles] = useState([]);
     const [error, setError] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
+    const [theUrl] = useState(window.location.origin + window.location.pathname);
+    const [newUrl, setNewUrl] = useState('');
     const [paginatedItems, setPaginatedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
-
+    const [countryFromUrl, setCountryFromUrl] = useState('');
+    const [continentFromUrl, setContinentFromUrl] = useState('');
     const handlePageChange = (currentPage, paginatedItems) => {
         setPaginatedItems(paginatedItems);
     };
@@ -35,6 +37,7 @@ const TopVisited = () => {
             if (response && response.data && response.data.items && response.data.items.length > 0) {
                 setArticles(response.data.items[0].articles);
                 setError(null);
+                setNewUrl(theUrl + 'permanent/' + formData.country + '_' + formData.access + '_' + formData.date + '_' + formData.continent);
             } else {
                 setArticles([]);
                 setError('No articles found for the given parameters.');
@@ -52,6 +55,28 @@ const TopVisited = () => {
             setLoading(false);
         }
     });
+    useEffect(() => {
+        if (theUrl.includes('permanent')) {
+            const params = theUrl.split('permanent')[1].slice(1).split('_');
+            setCountryFromUrl(params[0]);
+            setContinentFromUrl(params[3]);
+            const date = params[2].split('-');
+            const formData = {};
+            formData.country = params[0];
+            formData.access = params[1];
+            formData.year = date[0];
+            formData.month = date[1];
+            formData.day = date[2];
+
+            handleSubmit(formData);
+        }
+    }, []);
+
+    async function handleCopyUrl() {
+        alert('you have copied the link');
+
+        await navigator.clipboard.writeText(newUrl);
+    }
 
     const exportToCSV = () => {
         const csv = Papa.unparse(
@@ -88,7 +113,8 @@ const TopVisited = () => {
     return (
         <div className='container mx-auto flex_center'>
             <div className='bg-slate-100 rounded-xl max-md:flex max-md:justify-center'>
-                <ArticleForm onSubmit={handleSubmit} loading={loading} />
+                <ArticleForm onSubmit={handleSubmit} loading={loading} continentUrl={continentFromUrl} countryUrl={countryFromUrl} />
+                {/* <ArticleForm onSubmit={handleSubmit} loading={loading} /> */}
             </div>
 
             {loading && (
@@ -99,7 +125,7 @@ const TopVisited = () => {
             {error && <p className='error text-center my-3'>Error: {error}</p>}
 
             {articles.length > 0 && (
-                <div className='relative inline-block text-left'>
+                <div className='relative flex text-left'>
                     <div>
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -124,7 +150,7 @@ const TopVisited = () => {
                     </div>
 
                     {dropdownOpen && (
-                        <div className='origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                        <div className=' origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
                             <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                                 <a
                                     href='#'
@@ -145,6 +171,9 @@ const TopVisited = () => {
                             </div>
                         </div>
                     )}
+                    <button className='ml-10' onClick={handleCopyUrl}>
+                        Lien permanent
+                    </button>
                 </div>
             )}
 
