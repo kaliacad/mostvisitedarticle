@@ -16,6 +16,10 @@ const router = createBrowserRouter([
         element: <App />,
     },
     {
+        path: '/permanent/:id',
+        element: <App />,
+    },
+    {
         path: '/home',
         element: <Home />,
     },
