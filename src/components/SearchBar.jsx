@@ -16,9 +16,15 @@ const SearchBar = ({ articles, setFilteredArticles }) => {
         }
     };
     return (
-        <div className='flex items-center gap-[10px] py-2 px-5 border border-solid border-gray-700 rounded-full'>
-            <FontAwesomeIcon icon={faMagnifyingGlass} color='gray' />
-            <input className='outline-none' type='text' value={searchTerm} onChange={handleSearch} placeholder='Rechercher des articles...' />
+        <div className='flex items-center gap-[10px] py-2 px-5 border border-solid border-gray-300 rounded-full'>
+            <FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray-300 hover:cursor-pointer' />
+            <input
+                className='outline-none bg-transparent text-gray-300'
+                type='text'
+                value={searchTerm}
+                onChange={handleSearch}
+                placeholder='Rechercher des articles...'
+            />
         </div>
     );
 };

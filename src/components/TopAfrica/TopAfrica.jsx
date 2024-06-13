@@ -130,7 +130,7 @@ const TopAfrica = () => {
                 </div>
             )}
 
-            <div className='flex justify-center items-center gap-4 my-5'>
+            <div className='flex justify-center items-center gap-4 my-5 mb-12'>
                 <button
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}

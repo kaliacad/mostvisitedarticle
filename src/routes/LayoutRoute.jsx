@@ -1,8 +1,9 @@
+import { Outlet } from 'react-router-dom';
+import { Footer } from '../components/footer';
 import { useState, useEffect } from 'react';
-import NavBar from './NavBar';
-import { Footer } from './footer';
+import NavBar from '../components/NavBar';
 
-export default function Layout({ children }) {
+export default function LayoutRoute() {
     const [featuredImage, setFeaturedImage] = useState('');
     useEffect(() => {
         async function fetchFeaturedImages() {
@@ -21,19 +22,12 @@ export default function Layout({ children }) {
         }
         fetchFeaturedImages();
     }, []);
+
     return (
-        <main
-            role='main'
-            style={{
-                backgroundImage: `url(${featuredImage})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-            }}
-            className='layout'
-        >
+        <div role='main' style={{ backgroundImage: `url(${featuredImage})` }} className=''>
             <NavBar />
-            <div className='main-content'>{children}</div>
+            <Outlet />
             <Footer />
-        </main>
+        </div>
     );
 }
