@@ -2,6 +2,7 @@ import './articleview.css';
 import getPageURL from '../../helpers/getPageUrl';
 import fetchImageFromArticle from '../../api/fetchImageFromArticle';
 import fetchArticleEditor from '../../api/fetchArticleEditor';
+import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
@@ -36,7 +37,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
             <div className='article-content'>
                 <h3 className='article-title'>
                     <a href={getPageURL(article, project)} target='_blank'>
-                        {article?.includes('_') ? article.replace(/_/g, ' ') : article}
+                        {pageNameDecoder(article)}
                     </a>
                 </h3>
                 <div className='article-description flex flex-col gap-2'>

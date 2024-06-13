@@ -24,7 +24,11 @@
     margin-bottom: 5px;
     font-weight: bold;
 }
-
+.page-input[type='text'] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 .form-group input[type='text'],
 .form-group select {
     width: 100%;
