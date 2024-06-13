@@ -5,9 +5,11 @@ import axios from 'axios';
 
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
+    const today = new Date();
+    today.setDate(today.getDate() - 1);
     const [form, setForm] = useState({
         country: '',
-        date: '',
+        date: today.toISOString().split('T')[0],
         access: 'all-access',
     });
     const [locationError, setLocationError] = useState('');
@@ -82,11 +84,11 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
             setFormErrors({});
             const [year, month, day] = form.date.split('-');
             onSubmit({ ...form, year, month, day });
-            setForm({
-                country: '',
-                access: 'all-access',
-                date: '',
-            });
+            // setForm({
+            //     country: '',
+            //     access: 'all-access',
+            //     date: '',
+            // });
         }
     };
 
