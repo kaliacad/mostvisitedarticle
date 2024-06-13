@@ -6,7 +6,7 @@ import axios from 'axios';
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
     const today = new Date();
-    today.setDate(today.getDate());
+    today.setDate(today.getDate() - 1);
     const [form, setForm] = useState({
         country: '',
         date: today.toISOString().split('T')[0],
@@ -84,13 +84,15 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
             setFormErrors({});
             const [year, month, day] = form.date.split('-');
             onSubmit({ ...form, year, month, day });
-            setForm({
-                country: '',
-                access: 'all-access',
-                date: today.toISOString().split('T')[0],
-            });
+            // setForm({
+            //     country: '',
+            //     access: 'all-access',
+            //     date: '',
+            // });
         }
     };
+
+    // const countryData = Object.keys(country.all);
 
     return (
         <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
