@@ -1,8 +1,10 @@
 import TopVisited from './components/TopVisited.jsx';
 function App() {
     return (
-        <div className='container mx-auto py-4'>
-            <TopVisited />
+        <div>
+            <div className='container mx-auto py-4 mb-8'>
+                <TopVisited />
+            </div>
         </div>
     );
 }
