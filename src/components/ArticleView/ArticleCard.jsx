@@ -5,6 +5,7 @@ import fetchArticleEditor from '../../api/fetchArticleEditor';
 import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
+
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
     const [editors, setEditors] = useState(null);
@@ -32,7 +33,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     }, [article, project]);
 
     return (
-        <div className='article-card flex flex-col bg-[#ffff1] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden'>
+        <div className='article-card flex flex-col bg-[#fff] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden'>
             <img src={url ? url : './article-placeholder.png'} alt={article} className='article-image bg-gray-200 !object-cover' />
             <div className='article-content'>
                 <h3 className='article-title'>
