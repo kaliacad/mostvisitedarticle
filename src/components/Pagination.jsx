@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 /*
 This component needs some props as this one:
@@ -47,12 +46,6 @@ const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, curren
             </button>
         </div>
     );
-};
-
-Pagination.propTypes = {
-    items: PropTypes.array.isRequired,
-    itemsPerPage: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
 };
 
 export default Pagination;

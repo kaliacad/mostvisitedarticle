@@ -2,7 +2,7 @@ import getPageURL from '../../helpers/getPageUrl';
 
 export default function ListArticlesResult({ articlesData }) {
     return (
-        <div className='p-4'>
+        <div className='p-4 text-white'>
             <div className='overflow-x-auto'>
                 <table className='min-w-full'>
                     <thead>
@@ -32,7 +32,7 @@ export default function ListArticlesResult({ articlesData }) {
                                               <a
                                                   href={getPageURL(article.title, article.project)}
                                                   target='_blank'
-                                                  className='text-black hover:text-blue-500'
+                                                  className='text-blue-300 hover:text-blue-500'
                                               >
                                                   {article.title}
                                               </a>
