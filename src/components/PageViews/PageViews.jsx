@@ -3,27 +3,39 @@ import OptionsForm from './OptionsForm';
 import ArticlesGraph from './Graph';
 import { useState } from 'react';
 import PageViewsContext from './Context';
+import Pages from './Pages';
+import { todayDay, todayMonth, todayYear } from '../../helpers/dateNowSpliter';
+
 export default function PageViews() {
-    // const [dates, setDates] = useState('5/17/2024 - 6/6/2024');
+    const [dates, setDates] = useState({ start: `${todayYear}0101`, end: `${todayYear}${todayMonth}${todayDay}` });
+    const [pages, setPages] = useState([]);
     const [dateType, setDateType] = useState('Daily');
-    const [project, setProject] = useState('en.wikipedia.org');
-    const [article, setArticle] = useState('Julie_Gayet');
+    const [project, setProject] = useState('fr.wikipedia.org');
     const [platform, setPlatform] = useState('all-access');
     const [agent, setAgent] = useState('user');
     return (
-        <div className='page-views'>
+        <div className='page-views flex flex-wrap justify-center gap-4 w-full p-4 mr-10'>
             <PageViewsContext.Provider
-                value={[
-                    // [dates, setDates],
-                    [dateType, setDateType],
-                    [project, setProject],
-                    [article, setArticle],
-                    [platform, setPlatform],
-                    [agent, setAgent],
-                ]}
+                value={{
+                    dates,
+                    setDates,
+                    pages,
+                    setPages,
+                    dateType,
+                    setDateType,
+                    project,
+                    setProject,
+                    platform,
+                    setPlatform,
+                    agent,
+                    setAgent,
+                }}
             >
                 <OptionsForm />
-                <ArticlesGraph />
+                <div className='w-3/4'>
+                    <Pages />
+                    <ArticlesGraph />
+                </div>
             </PageViewsContext.Provider>
         </div>
     );

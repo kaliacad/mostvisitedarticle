@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 /*
 This component needs some props as this one:
@@ -12,13 +11,9 @@ Where:
 Testez la fonctionnalité avec la route "/exemple_pagination"
 */
 
-const Pagination = ({ items, itemsPerPage, onPageChange }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-
+const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, currentPage, totalPages }) => {
     useEffect(() => {
-        setTotalPages(Math.ceil(items.length / itemsPerPage));
-        setCurrentPage(1);
+        onCurrentChange(1);
     }, [items, itemsPerPage]);
 
     useEffect(() => {
@@ -28,35 +23,29 @@ const Pagination = ({ items, itemsPerPage, onPageChange }) => {
 
     const handlePrevious = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
+            onCurrentChange(currentPage - 1);
         }
     };
 
     const handleNext = () => {
         if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
+            onCurrentChange(currentPage + 1);
         }
     };
 
     return (
         <div className='pagination'>
-            <button onClick={handlePrevious} disabled={currentPage === 1}>
+            <button onClick={handlePrevious} disabled={currentPage === 1} className='bg-gray-300 hover:cursor-pointer'>
                 Previous
             </button>
-            <span>
+            <span className='mx-4 font-bold text-xl'>
                 Page {currentPage} of {totalPages}
             </span>
-            <button onClick={handleNext} disabled={currentPage === totalPages}>
+            <button onClick={handleNext} disabled={currentPage === totalPages} className='bg-gray-300 hover:cursor-pointer'>
                 Next
             </button>
         </div>
     );
-};
-
-Pagination.propTypes = {
-    items: PropTypes.array.isRequired,
-    itemsPerPage: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
 };
 
 export default Pagination;

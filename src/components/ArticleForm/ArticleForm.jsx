@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-// import country from 'country-list-js';
-import CountryPickList from './CountryPickList';
+import CountryPickList from './CountryPicker';
 import axios from 'axios';
 
-const ArticleForm = ({ onSubmit, loading }) => {
+const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
+    const today = new Date();
+    today.setDate(today.getDate() - 1);
     const [form, setForm] = useState({
         country: '',
-        date: '',
+        date: today.toISOString().split('T')[0],
         access: 'all-access',
     });
     const [locationError, setLocationError] = useState('');
@@ -48,9 +48,20 @@ const ArticleForm = ({ onSubmit, loading }) => {
             setLocationError('Geolocation is not supported by this browser.');
         }
     }, []);
+
     const [country, setCountry] = useState('CD');
     const [continent, setContinent] = useState('Africa');
 
+    useEffect(() => {
+        (async () => {
+            if (countryUrl) {
+                setCountry(countryUrl);
+            }
+            if (continentUrl) {
+                setContinent(continentUrl);
+            }
+        })();
+    }, [countryUrl, continentUrl]);
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
@@ -72,29 +83,28 @@ const ArticleForm = ({ onSubmit, loading }) => {
             setFormErrors({});
             const [year, month, day] = form.date.split('-');
             onSubmit({ ...form, year, month, day });
-            setForm({
-                country: '',
-                access: 'all-access',
-                date: '',
-            });
+            // setForm({
+            //     country: '',
+            //     access: 'all-access',
+            //     date: '',
+            // });
         }
     };
 
     // const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='w-full'>
-            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full py-3'>
-                <div className='text-start'>
-                    <span className='date'>Fill all fields</span>
+        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
+            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
+                <div className='text-start mb-2 py-5'>
+                    <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
                 </div>
 
-                <div className='inputs flex gap-[1rem]'>
+                <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
                     <CountryPickList
-                        label={'Select a Country'}
                         country={country}
                         onChangeCountry={(country) => {
-                            setForm({ ...form, country });
+                            setForm({ ...form, country, continent });
                             setCountry(country);
                         }}
                         defaultCountry={'CD'}
@@ -102,49 +112,37 @@ const ArticleForm = ({ onSubmit, loading }) => {
                         onChangeContinent={(continent) => setContinent(continent)}
                         defaultContinent='Africa'
                     />
+                    <div className='select_container country_select'>
+                        <div>
+                            <label className='select_label'>Date</label>
 
-                    <label htmlFor=' w-1/3'>
-                        <div className='flex flex-col w-full'>
-                            {/* <span>Sélectionner une date</span> */}
-                            <input
-                                id='fullDate'
-                                type='date'
-                                name='date'
-                                className='text-sm  outline-none w-full border py-2 px-1 rounded'
-                                value={form.date}
-                                onChange={handleChange}
-                            />
+                            <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
                         </div>
                         {formErrors.date && <div className='text-red-500'>{formErrors.date}</div>}
-                    </label>
+                    </div>
 
-                    <div className=' w-1/3'>
-                        <select
-                            className='access border border-slate-300 w-full  rounded py-2 px-1 bg-white'
-                            name='access'
-                            value={form.access}
-                            onChange={handleChange}
-                        >
-                            <option value='all-access'>all-access</option>
-                            <option value='desktop'>desktop</option>
-                            <option value='mobile-app'>mobile-app</option>
-                            <option value='mobile-web'>mobile-web</option>
-                        </select>
-                        {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                    <div className='select_container country_select'>
+                        <div>
+                            <label htmlFor='' className='select_label'>
+                                Platform
+                            </label>
+                            <select className='select_options' name='access' value={form.access} onChange={handleChange}>
+                                <option value='all-access'>all-access</option>
+                                <option value='desktop'>desktop</option>
+                                <option value='mobile-app'>mobile-app</option>
+                                <option value='mobile-web'>mobile-web</option>
+                            </select>
+                            {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                        </div>
                     </div>
                 </div>
-                <button type='submit' className=' py-[0.5rem] bg-green-500 text-white px-6 text-[18px] capitalize font-600 w-56'>
-                    {loading ? 'Submitting' : 'submit'}
+                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
+                    {loading ? 'Envoie en cours...' : 'Envoyer'}
                 </button>
             </div>
             {locationError && <div className='error'>{locationError}</div>}
         </form>
     );
-};
-
-ArticleForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
 };
 
 export default ArticleForm;

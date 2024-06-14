@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import '../NavBar.css'; // Nous allons ajouter des styles pour la transition
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBug, faCode, faComment, faCopyright, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsUpToLine, faBook, faBug, faCode, faComment, faCopyright, faPager, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
     const [helpMenuOpen, setHelpMenuOpen] = useState(false);
@@ -27,11 +27,32 @@ const NavBar = () => {
     }, [helpMenuOpen]);
 
     return (
-        <nav className='navbar'>
-            <div className='navbar-logo'>
-                Emi - <span className='font-normal'>articles les plus visités par pays</span>
-            </div>
-            <div className='navbar-help'>
+        <nav className='flex items-center justify-between bg-blue-800 h-16 px-6 py-2'>
+            <a href='/'>
+                <div className='text-white text-xl font-bold'>
+                    Emi <span className=' font-light max-md:hidden'>- articles les plus visités par pays</span>
+                </div>
+            </a>
+
+            <div className='flex items-center justify-between'>
+                <ul className='flex items-center justify-center gap-4 text-white'>
+                    <li>
+                        <a href='/page-views' className=' text-white underline'>
+                            <span className='max-md:hidden'>Page views</span>
+                            <span className='hidden max-md:block'>
+                                <FontAwesomeIcon icon={faPager} style={{ color: '#ffffff' }} />
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='/top-africa' className=' text-white underline'>
+                            <span className='max-md:hidden'>Top Africa</span>
+                            <span className='hidden max-md:block'>
+                                <FontAwesomeIcon icon={faArrowsUpToLine} style={{ color: '#ffffff' }} />
+                            </span>
+                        </a>
+                    </li>
+                </ul>
                 <button onClick={toggleHelpMenu} className='help-icon'>
                     Aide ▼
                 </button>
@@ -62,10 +83,6 @@ const NavBar = () => {
                     </div>
                 )}
             </div>
-            {/* <div className='navbar-search'>
-                <input type='text' className={`search-input`} placeholder='Search...' />
-                <button className='search-icon'>🔍</button>
-            </div> */}
         </nav>
     );
 };
