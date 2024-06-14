@@ -22,18 +22,12 @@ export default function Layout({ children }) {
         fetchFeaturedImages();
     }, []);
     return (
-        <main
-            role='main'
-            style={{
-                backgroundImage: `url(${featuredImage})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-            }}
-            className='layout'
-        >
+        <main role='main' className=' relative'>
             <NavBar />
             <div className='main-content'>{children}</div>
             <Footer />
+            <div className='bg-black opacity-60 -z-10  absolute top-0 left-0 w-full h-full'></div>
+            <img src={featuredImage} alt='background image' className='absolute w-full h-full top-0 left-0 -z-20' />
         </main>
     );
 }

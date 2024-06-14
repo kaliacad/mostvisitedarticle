@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import CountryPickList from './CountryPicker';
 import axios from 'axios';
 
@@ -144,11 +143,6 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
             {locationError && <div className='error'>{locationError}</div>}
         </form>
     );
-};
-
-ArticleForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
 };
 
 export default ArticleForm;

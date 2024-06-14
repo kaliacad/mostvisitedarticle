@@ -96,14 +96,19 @@ const TopAfrica = () => {
 
     return (
         <div className='african p-4'>
-            <h1 className='text-2xl font-bold text-center mb-4'>Top Wikimedia Articles in Africa</h1>
+            <h1 className='text-2xl text-white font-bold text-center mb-4'>Top Wikimedia Articles in Africa</h1>
 
             <div className='flex flex-wrap justify-center items-center gap-5 my-3'>
                 <button onClick={handleClicked} className='bg-blue-500 text-white px-4 py-2 rounded'>
                     Articles List/Article Gallery
                 </button>
                 <DatePicker onChange={handleChange} />
-                <h1>Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}</h1>
+                <h1
+                    className='text-white
+                '
+                >
+                    Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}
+                </h1>
             </div>
 
             {showCard ? (
@@ -125,7 +130,7 @@ const TopAfrica = () => {
                 </div>
             )}
             {data.length == 0 && (
-                <div className='w-full flex justify-center mb-3'>
+                <div className='w-full flex text-white justify-center mb-3'>
                     <p>No Article Post</p>
                 </div>
             )}
@@ -138,7 +143,7 @@ const TopAfrica = () => {
                 >
                     Previous
                 </button>
-                <span className='text-lg font-semibold'>
+                <span className='text-lg text-white font-semibold'>
                     Page {data.length == 0 ? 0 : currentPage} of {totalPages}
                 </span>
                 <button
