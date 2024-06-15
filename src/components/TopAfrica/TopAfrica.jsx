@@ -102,13 +102,8 @@ const TopAfrica = () => {
                 <button onClick={handleClicked} className='bg-blue-500 text-white px-4 py-2 rounded'>
                     Articles List/Article Gallery
                 </button>
-                <DatePicker onChange={handleChange} />
-                <h1
-                    className='text-white
-                '
-                >
-                    Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}
-                </h1>
+                <DatePicker onChange={handleChange} date={today.toISOString().split('T')[0]} />
+                <h1>Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}</h1>
             </div>
 
             {showCard ? (
