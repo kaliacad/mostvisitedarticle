@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 /*
 This component needs some props as this one:
@@ -36,23 +35,17 @@ const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, curren
 
     return (
         <div className='pagination'>
-            <button onClick={handlePrevious} disabled={currentPage === 1}>
+            <button onClick={handlePrevious} disabled={currentPage === 1} className='bg-gray-300 hover:cursor-pointer'>
                 Previous
             </button>
-            <span>
+            <span className='mx-4 font-bold text-xl'>
                 Page {currentPage} of {totalPages}
             </span>
-            <button onClick={handleNext} disabled={currentPage === totalPages}>
+            <button onClick={handleNext} disabled={currentPage === totalPages} className='bg-gray-300 hover:cursor-pointer'>
                 Next
             </button>
         </div>
     );
-};
-
-Pagination.propTypes = {
-    items: PropTypes.array.isRequired,
-    itemsPerPage: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
 };
 
 export default Pagination;

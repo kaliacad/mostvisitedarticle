@@ -121,15 +121,16 @@ const TopVisited = () => {
             <div className='bg-slate-100 rounded-xl max-md:flex max-md:justify-center'>
                 <ArticleForm onSubmit={handleSubmit} loading={loading} continentUrl={continentFromUrl} countryUrl={countryFromUrl} />
                 {/* <ArticleForm onSubmit={handleSubmit} loading={loading} /> */}
+                {error && <p className='error text-center my-3 text-red-500 py-2 pb-4'>Error: {error}</p>}
             </div>
             {loading && (
                 <div className='flex items-center justify-center mt-[1rem]'>
                     <Loading />
                 </div>
             )}
-            {error && <p className='error text-center my-3'>Error: {error}</p>}
+            {/* {error && <p className='error text-center my-3'>Error: {error}</p>} */}
             {articles.length > 0 && (
-                <div className='flex justify-between max-md:flex-col-reverse'>
+                <div className='flex justify-between max-md:flex-col-reverse pt-4'>
                     <div className='relative flex text-left'>
                         <div>
                             <button
@@ -155,7 +156,7 @@ const TopVisited = () => {
                         </div>
 
                         {dropdownOpen && (
-                            <div className=' origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                            <div className=' origin-top-right absolute right-0 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5'>
                                 <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                                     <a
                                         href='#'
@@ -168,7 +169,7 @@ const TopVisited = () => {
                                     <a
                                         href='#'
                                         onClick={exportToJSON}
-                                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                                        className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 mt-4'
                                         role='menuitem'
                                     >
                                         Export to JSON
@@ -176,7 +177,7 @@ const TopVisited = () => {
                                 </div>
                             </div>
                         )}
-                        <button className='ml-10' onClick={handleCopyUrl}>
+                        <button className='ml-10 bg-gray-300' onClick={handleCopyUrl}>
                             Lien permanent
                         </button>
                     </div>
@@ -195,7 +196,7 @@ const TopVisited = () => {
                                     </div>
                                 ))}
                         </ul>
-                        <div className='flex justify-center'>
+                        <div className='flex justify-center mb-10'>
                             <Pagination
                                 onCurrentChange={handleCurrentPage}
                                 totalPages={Math.ceil(filteredArticles.length / itemsPerPage)}

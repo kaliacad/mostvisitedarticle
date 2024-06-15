@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const DatePicker = ({ date, onChange, error, label }) => {
     return (
         <div className='flex flex-col'>
@@ -15,12 +13,6 @@ const DatePicker = ({ date, onChange, error, label }) => {
             {error && <div className='text-red-500'>{error}</div>}
         </div>
     );
-};
-
-DatePicker.propTypes = {
-    date: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    error: PropTypes.string,
 };
 
 export default DatePicker;
