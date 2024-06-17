@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../NavBar.css'; // Nous allons ajouter des styles pour la transition
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsUpToLine, faBook, faBug, faCode, faComment, faCopyright, faPager, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,20 @@ const NavBar = () => {
     const toggleHelpMenu = () => {
         setHelpMenuOpen(!helpMenuOpen);
     };
+
+    useEffect(() => {
+        const closeHelpMenu = (event) => {
+            if (helpMenuOpen && !event.target.closest('.help-menu')) {
+                setHelpMenuOpen(false);
+            }
+        };
+
+        window.addEventListener('mousedown', closeHelpMenu);
+
+        return () => {
+            window.removeEventListener('mousedown', closeHelpMenu);
+        };
+    }, [helpMenuOpen]);
 
     return (
         <nav className='flex items-center justify-between bg-blue-800 h-16 px-6 py-2'>
@@ -37,35 +51,37 @@ const NavBar = () => {
                         </a>
                     </li>
                 </ul>
-                <button onClick={toggleHelpMenu} className='help-icon'>
-                    Aide ▼
-                </button>
-                {helpMenuOpen && (
-                    <div className='help-menu'>
-                        <a href='https://meta.wikimedia.org/wiki/Emi_Solution' className='footer-link' target='_blank'>
-                            <FontAwesomeIcon icon={faBook} /> Documentation
-                        </a>
-                        <a href='https://github.com/kaliacad/mostvisitedarticle' className='footer-link' target='_blank'>
-                            <FontAwesomeIcon icon={faCode} /> View source
-                        </a>
-                        <a href='https://github.com/kaliacad/mostvisitedarticle/issues' className='footer-link' target='_blank'>
-                            <FontAwesomeIcon icon={faBug} /> Report an issue
-                        </a>
-                        <a
-                            href='https://meta.wikimedia.org/w/index.php?title=Talk:Emi_Solution&action=edit&redlink=1'
-                            className='footer-link'
-                            target='_blank'
-                        >
-                            <FontAwesomeIcon icon={faComment} /> Feedback
-                        </a>
-                        <a href='https://github.com/kaliacad.org/' className='footer-link' target='_blank'>
-                            <FontAwesomeIcon icon={faUsers} /> Developed by Kali Academy
-                        </a>
-                        <a href='https://kaliacademy.org/' className='footer-link' target='_blank'>
-                            <FontAwesomeIcon icon={faCopyright} /> Kali Academy
-                        </a>
-                    </div>
-                )}
+                <div>
+                    <button onClick={toggleHelpMenu} className='help-icon'>
+                        Aide ▼
+                    </button>
+                    {helpMenuOpen && (
+                        <div className='help-menu absolute shadow-2xl right-1 rounded-xl bg-white'>
+                            <a href='https://meta.wikimedia.org/wiki/Emi_Solution' className='footer-link' target='_blank'>
+                                <FontAwesomeIcon icon={faBook} /> Documentation
+                            </a>
+                            <a href='https://github.com/kaliacad/mostvisitedarticle' className='footer-link' target='_blank'>
+                                <FontAwesomeIcon icon={faCode} /> View source
+                            </a>
+                            <a href='https://github.com/kaliacad/mostvisitedarticle/issues' className='footer-link' target='_blank'>
+                                <FontAwesomeIcon icon={faBug} /> Report an issue
+                            </a>
+                            <a
+                                href='https://meta.wikimedia.org/w/index.php?title=Talk:Emi_Solution&action=edit&redlink=1'
+                                className='footer-link'
+                                target='_blank'
+                            >
+                                <FontAwesomeIcon icon={faComment} /> Feedback
+                            </a>
+                            <a href='https://github.com/kaliacad.org/' className='footer-link' target='_blank'>
+                                <FontAwesomeIcon icon={faUsers} /> Developed by Kali Academy
+                            </a>
+                            <a href='https://kaliacademy.org/' className='footer-link' target='_blank'>
+                                <FontAwesomeIcon icon={faCopyright} /> Kali Academy
+                            </a>
+                        </div>
+                    )}
+                </div>
             </div>
         </nav>
     );
