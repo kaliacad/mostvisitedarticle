@@ -6,7 +6,7 @@ import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
 
-const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
+const ArticleCard = ({ description, article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
     const [editors, setEditors] = useState(null);
     useEffect(() => {
@@ -42,6 +42,10 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     </a>
                 </h3>
                 <div className='article-description flex flex-col gap-2'>
+                    <p>
+                        <span>Description:</span>
+                        <span>{description ? description : 'Not found'}</span>
+                    </p>
                     <p>
                         <span>Country:</span> <span>{country ? country : 'N/A'}</span>
                     </p>
