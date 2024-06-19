@@ -53,7 +53,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                 </h3>
                 <div className='article-description flex flex-col gap-2'>
                     <p>
-                        <span>Description:</span>
+                        <span>Description: </span>
                         {description}
                         <span></span>
                     </p>
