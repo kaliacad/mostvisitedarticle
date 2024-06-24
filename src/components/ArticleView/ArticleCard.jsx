@@ -5,10 +5,13 @@ import fetchArticleEditor from '../../api/fetchArticleEditor';
 import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
+import fetchArticleDescription from '../../api/fetchArticleDescription';
 
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
     const [editors, setEditors] = useState(null);
+    const [description, setDescription] = useState(null);
+
     useEffect(() => {
         const fetchImages = async () => {
             try {
@@ -27,11 +30,18 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                 setEditors(null);
             }
         };
-
+        const fetchDescript = async () => {
+            try {
+                const smallDescript = await fetchArticleDescription(article);
+                setDescription(smallDescript);
+            } catch (error) {
+                setDescription(null);
+            }
+        };
         fetchEditors();
         fetchImages();
+        fetchDescript();
     }, [article, project]);
-
     return (
         <div className='article-card flex flex-col bg-[#fff] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden'>
             <img src={url ? url : './article-placeholder.png'} alt={article} className='article-image bg-gray-200 !object-cover' />
@@ -42,6 +52,11 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     </a>
                 </h3>
                 <div className='article-description flex flex-col gap-2'>
+                    <p>
+                        <span>Description: </span>
+                        {description ? description : 'pas de description'}
+                        <span></span>
+                    </p>
                     <p>
                         <span>Country:</span> <span>{country ? country : 'N/A'}</span>
                     </p>
