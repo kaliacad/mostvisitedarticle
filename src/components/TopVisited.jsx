@@ -6,6 +6,8 @@ import fetchArticles from '../helpers/fetchdata';
 import Pagination from './Pagination';
 import Loading from './loading';
 import SearchBar from './SearchBar';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TopVisited = () => {
     const [loading, setLoading] = useState(false);
@@ -75,9 +77,17 @@ const TopVisited = () => {
     }, []);
 
     async function handleCopyUrl() {
-        alert('you have copied the link');
-
-        await navigator.clipboard.writeText(newUrl);
+        await navigator.clipboard.writeText(newUrl).then(() =>
+            toast.success('Link copied to clipboard!', {
+                position: 'top-center',
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            }),
+        );
     }
 
     const exportToCSV = () => {
@@ -180,6 +190,7 @@ const TopVisited = () => {
                         <button className='ml-10 bg-gray-300' onClick={handleCopyUrl}>
                             Lien permanent
                         </button>
+                        <ToastContainer autoClose={1000} />
                     </div>
                     <SearchBar articles={articles} setFilteredArticles={setFilteredArticles} />
                 </div>
