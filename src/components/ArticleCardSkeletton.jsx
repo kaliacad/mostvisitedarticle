@@ -21,9 +21,9 @@ function afficheSkeletton(nombre) {
 
 const ArticleCardSkeletton = ({ nombre = 1 }) => {
     return (
-        <>
+        <div>
             <div className='articles-gallery'>{afficheSkeletton(nombre)}</div>
-        </>
+        </div>
     );
 };
 export default ArticleCardSkeletton;
