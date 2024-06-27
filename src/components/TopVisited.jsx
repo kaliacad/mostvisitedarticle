@@ -4,10 +4,10 @@ import ArticleForm from './ArticleForm/ArticleForm';
 import ArticleCard from './ArticleView/ArticleCard';
 import fetchArticles from '../helpers/fetchdata';
 import Pagination from './Pagination';
-import Loading from './loading';
 import SearchBar from './SearchBar';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ArticleCardSkeletton from './ArticleCardSkeletton';
 
 const TopVisited = () => {
     const [loading, setLoading] = useState(false);
@@ -134,8 +134,14 @@ const TopVisited = () => {
                 {error && <p className='error text-center my-3 text-red-500 py-2 pb-4'>Error: {error}</p>}
             </div>
             {loading && (
-                <div className='flex items-center justify-center mt-[1rem]'>
-                    <Loading />
+                <div>
+                    <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                        {[1, 2, 3].map((e, i) => (
+                            <div className='w-1/3 p-8  max-md:w-[90vw]' key={i}>
+                                <ArticleCardSkeletton element={e} />
+                            </div>
+                        ))}
+                    </ul>
                 </div>
             )}
             {/* {error && <p className='error text-center my-3'>Error: {error}</p>} */}
