@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetchTopArticles from '../api';
 import ArticleCard from './ArticleView/ArticleCard';
+import ArticleCardSkeletton from './ArticleCardSkeletton';
 // import TopVisited from '../components/TopVisited'
 
 export default function ResultatGallery() {
@@ -37,7 +38,9 @@ export default function ResultatGallery() {
             <div style={{ margin: '2rem' }}>
                 <div className='flex flex-wrap justify-center mx-auto  max-w-[50rem]'>
                     {isLoading ? (
-                        <div className='loading-spinner'></div>
+                        <div className='loading-spinner'>
+                            <ArticleCardSkeletton />
+                        </div>
                     ) : data ? (
                         data.map((art, i) => (
                             <div className='w-1/2 p-4' key={i}>
