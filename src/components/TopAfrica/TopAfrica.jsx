@@ -6,6 +6,7 @@ import countries from '../../helpers/countriesIsoCodes';
 import ListArticlesResult from '../ArticleView/ArticleList';
 import DatePicker from '../ArticleForm/DatePicker';
 import ArticleCardSkeletton from '../ArticleCardSkeletton';
+import getTrueArticles from '../../helpers/getTrueArticles';
 
 const africanCountries = countries.Africa;
 
@@ -69,8 +70,8 @@ const TopAfrica = () => {
                     }
                     return [];
                 });
-
-                setData(transformedData);
+                const trueArticles = await getTrueArticles(transformedData);
+                setData(trueArticles);
                 setLoading(false);
                 setLoadingCard(false);
             } catch (error) {
@@ -107,8 +108,13 @@ const TopAfrica = () => {
                 <button onClick={handleClicked} className='bg-blue-500 text-white px-4 py-2 rounded'>
                     Articles List/Article Gallery
                 </button>
-                <DatePicker onChange={handleChange} date={today.toISOString().split('T')[0]} />
-                <h1>Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}</h1>
+                <DatePicker onChange={handleChange} />
+                <h1
+                    className='text-white
+                '
+                >
+                    Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}
+                </h1>
             </div>
 
             {loadingCard && !showCard && (

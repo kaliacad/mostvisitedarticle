@@ -8,6 +8,13 @@ import SearchBar from './SearchBar';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ArticleCardSkeletton from './ArticleCardSkeletton';
+import getTrueArticles from '../helpers/getTrueArticles';
+import countries from '../helpers/countriesIsoCodes';
+
+const getCountryNameByCode = (continent, code) => {
+    const country = countries[continent].find((country) => country.code === code);
+    return country ? country.name : code;
+};
 
 const TopVisited = () => {
     const [loading, setLoading] = useState(false);
@@ -39,7 +46,12 @@ const TopVisited = () => {
             const response = await fetchArticles(formData);
 
             if (response && response.data && response.data.items && response.data.items.length > 0) {
-                setArticles(response.data.items[0].articles);
+                const trueArticles = await getTrueArticles(
+                    response.data.items[0].articles.map((art) => {
+                        return { ...art, title: art.article, country: getCountryNameByCode(formData.continent, response.data.items[0].country) };
+                    }),
+                );
+                setArticles(trueArticles);
                 setError(null);
                 setNewUrl(theUrl + 'permanent/' + formData.country + '_' + formData.access + '_' + formData.date + '_' + formData.continent);
             } else {
@@ -92,11 +104,12 @@ const TopVisited = () => {
 
     const exportToCSV = () => {
         const csv = Papa.unparse(
-            articles.map(({ article, project, rank, views_ceil }) => ({
+            articles.map(({ article, project, rank, views_ceil, country }) => ({
                 article,
                 project,
                 rank,
                 views_ceil,
+                country,
             })),
         );
 
@@ -172,7 +185,7 @@ const TopVisited = () => {
                         </div>
 
                         {dropdownOpen && (
-                            <div className=' origin-top-right absolute right-0 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5'>
+                            <div className='bg-slate-50 origin-top-right absolute right-0 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5'>
                                 <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
                                     <a
                                         href='#'
@@ -207,9 +220,16 @@ const TopVisited = () => {
                     <div>
                         <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
                             {paginatedItems?.length > 0 &&
-                                paginatedItems.map(({ article, project, rank, views_ceil }) => (
+                                paginatedItems.map(({ article, project, rank, views_ceil, country }) => (
                                     <div className='w-1/3 p-8  max-md:w-[90vw]' key={article}>
-                                        <ArticleCard key={article} article={article} project={project} rank={rank} views_ceil={views_ceil} />
+                                        <ArticleCard
+                                            key={article}
+                                            article={article}
+                                            project={project}
+                                            rank={rank}
+                                            views_ceil={views_ceil}
+                                            country={country}
+                                        />
                                     </div>
                                 ))}
                         </ul>
@@ -225,7 +245,7 @@ const TopVisited = () => {
                         </div>
                     </div>
                 ) : (
-                    <p className='noArticleMessage text-center text-2xl font-bold'></p>
+                    <p className='noArticleMessage text-center text-yellow-400 text-2xl font-bold'>{"Pas D'article Disponible"}</p>
                 )}
             </div>
         </div>
