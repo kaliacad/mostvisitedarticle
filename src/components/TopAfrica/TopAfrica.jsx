@@ -5,6 +5,7 @@ import Loading from '../loading';
 import countries from '../../helpers/countriesIsoCodes';
 import ListArticlesResult from '../ArticleView/ArticleList';
 import DatePicker from '../ArticleForm/DatePicker';
+import ArticleCardSkeletton from '../ArticleCardSkeletton';
 
 const africanCountries = countries.Africa;
 
@@ -25,6 +26,7 @@ const TopAfrica = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showCard, setShowCard] = useState(true);
+    const [loadingCard, setLoadingCard] = useState(false);
 
     // Pagination states
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,6 +37,7 @@ const TopAfrica = () => {
     };
 
     const handleChange = (e) => {
+        setLoadingCard(true);
         setDate(stringifyDate(e.target.value));
     };
 
@@ -69,9 +72,11 @@ const TopAfrica = () => {
 
                 setData(transformedData);
                 setLoading(false);
+                setLoadingCard(false);
             } catch (error) {
                 setError(error);
                 setLoading(false);
+                setLoadingCard(false);
             }
         };
 
@@ -106,24 +111,43 @@ const TopAfrica = () => {
                 <h1>Top Africa Atricle: {`${date.day}/${date.month}/${date.year}`}</h1>
             </div>
 
-            {showCard ? (
-                <div className='flex flex-wrap justify-center gap-4 my-9'>
-                    {currentArticles.map((article, index) => (
-                        <ArticleCard
-                            key={index}
-                            article={article.title}
-                            rank={article.rank}
-                            views_ceil={article.views}
-                            country={article.country}
-                            project={article.project}
-                        />
-                    ))}
-                </div>
-            ) : (
-                <div className='flex flex-col justify-center items-center'>
-                    <ListArticlesResult articlesData={currentArticles} />
+            {loadingCard && !showCard && (
+                <div className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                    <Loading />
                 </div>
             )}
+
+            {loadingCard && showCard && (
+                <div>
+                    <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                        {[1, 2, 3].map((e, i) => (
+                            <div className='w-1/3 p-8  max-md:w-[90vw]' key={i}>
+                                <ArticleCardSkeletton element={e} />
+                            </div>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {!loadingCard &&
+                (showCard ? (
+                    <div className='flex flex-wrap justify-center gap-4 my-9'>
+                        {currentArticles.map((article, index) => (
+                            <ArticleCard
+                                key={index}
+                                article={article.title}
+                                rank={article.rank}
+                                views_ceil={article.views}
+                                country={article.country}
+                                project={article.project}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <div className='flex flex-col justify-center items-center'>
+                        <ListArticlesResult articlesData={currentArticles} />
+                    </div>
+                ))}
             {data.length == 0 && (
                 <div className='w-full flex text-white justify-center mb-3'>
                     <p>No Article Post</p>
