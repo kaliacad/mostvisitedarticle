@@ -33,7 +33,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
         };
         const fetchDescript = async () => {
             try {
-                const smallDescript = await fetchArticleDescription(article);
+                const smallDescript = await fetchArticleDescription(project, article);
                 setDescription(smallDescript);
             } catch (error) {
                 setDescription(null);
