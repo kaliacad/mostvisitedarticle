@@ -6,6 +6,7 @@ import countries from '../../helpers/countriesIsoCodes';
 import ListArticlesResult from '../ArticleView/ArticleList';
 import DatePicker from '../ArticleForm/DatePicker';
 import ArticleCardSkeletton from '../ArticleCardSkeletton';
+import getTrueArticles from '../../helpers/getTrueArticles';
 
 const africanCountries = countries.Africa;
 
@@ -69,8 +70,8 @@ const TopAfrica = () => {
                     }
                     return [];
                 });
-
-                setData(transformedData);
+                const trueArticles = await getTrueArticles(transformedData);
+                setData(trueArticles);
                 setLoading(false);
                 setLoadingCard(false);
             } catch (error) {

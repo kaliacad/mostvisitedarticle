@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import CountryPickList from './CountryPicker';
-import axios from 'axios';
+import fetchLocation from '../../api/fetchLocation';
 
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -14,17 +14,10 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [locationError, setLocationError] = useState('');
 
     useEffect(() => {
-        const fetchLocation = async (lat, lon) => {
+        const getLocation = async (lat, lon) => {
             try {
-                const response = await axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {
-                    params: {
-                        latitude: lat,
-                        longitude: lon,
-                        localityLanguage: 'en',
-                    },
-                });
+                const countryCode = await fetchLocation(lat, lon);
 
-                const { countryCode } = response.data;
                 setForm((prevForm) => ({
                     ...prevForm,
                     country: countryCode,
@@ -38,7 +31,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const { latitude, longitude } = position.coords;
-                    fetchLocation(latitude, longitude);
+                    getLocation(latitude, longitude);
                 },
                 () => {
                     setLocationError('Error getting geolocation.');
@@ -95,6 +88,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
 
     return (
         <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
+            {locationError && <div className='error text-center text-red-500'>{locationError}</div>}
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
                 <div className='text-start mb-2 py-5'>
                     <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
@@ -140,7 +134,6 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     {loading ? 'Envoie en cours...' : 'Envoyer'}
                 </button>
             </div>
-            {locationError && <div className='error'>{locationError}</div>}
         </form>
     );
 };
