@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import CountryPickList from './CountryPicker';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -11,7 +12,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         date: today.toISOString().split('T')[0],
         access: 'all-access',
     });
-    const [locationError, setLocationError] = useState('');
+    // const [locationError, setLocationError] = useState('');
 
     useEffect(() => {
         const fetchLocation = async (lat, lon) => {
@@ -30,7 +31,13 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     country: countryCode,
                 }));
             } catch (error) {
-                setLocationError('Error fetching location data.');
+                toast.error(`Error fetching location data.`, {
+                    autoClose: false,
+                    position: 'top-right',
+                    hideProgressBar: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
         };
 
@@ -41,11 +48,23 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     fetchLocation(latitude, longitude);
                 },
                 () => {
-                    setLocationError('Error getting geolocation.');
+                    toast.error(`Error getting geolocation.`, {
+                        autoClose: false,
+                        position: 'top-right',
+                        hideProgressBar: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 },
             );
         } else {
-            setLocationError('Geolocation is not supported by this browser.');
+            toast.error(`Geolocation is not supported by this browser.`, {
+                autoClose: false,
+                position: 'top-right',
+                hideProgressBar: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }, []);
 
@@ -79,6 +98,11 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         const errors = validateForm();
         if (Object.keys(errors).length > 0) {
             setFormErrors(errors);
+            toast.error(errors.date, {
+                position: 'top-center',
+                draggable: true,
+                progress: undefined,
+            });
         } else {
             setFormErrors({});
             const [year, month, day] = form.date.split('-');
@@ -94,54 +118,57 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     // const countryData = Object.keys(country.all);
 
     return (
-        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
-            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
-                <div className='text-start mb-2 py-5'>
-                    <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
-                </div>
-
-                <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
-                    <CountryPickList
-                        country={country}
-                        onChangeCountry={(country) => {
-                            setForm({ ...form, country, continent });
-                            setCountry(country);
-                        }}
-                        defaultCountry={'CD'}
-                        continent={continent}
-                        onChangeContinent={(continent) => setContinent(continent)}
-                        defaultContinent='Africa'
-                    />
-                    <div className='select_container country_select'>
-                        <div>
-                            <label className='select_label'>Date</label>
-
-                            <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
-                        </div>
-                        {formErrors.date && <div className='text-red-500'>{formErrors.date}</div>}
+        <>
+            <ToastContainer />
+            <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
+                <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
+                    <div className='text-start mb-2 py-5'>
+                        <p className='date text-[20px] max-md:text-xs text-center'>
+                            Veuillez remplir le formulaire pour obtenir les articles souhaités
+                        </p>
                     </div>
 
-                    <div className='select_container country_select'>
-                        <div>
-                            <label htmlFor='' className='select_label'>
-                                Platform
-                            </label>
-                            <select className='select_options' name='access' value={form.access} onChange={handleChange}>
-                                <option value='all-access'>all-access</option>
-                                <option value='desktop'>desktop</option>
-                                <option value='mobile-app'>mobile-app</option>
-                                <option value='mobile-web'>mobile-web</option>
-                            </select>
-                            {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                    <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
+                        <CountryPickList
+                            country={country}
+                            onChangeCountry={(country) => {
+                                setForm({ ...form, country, continent });
+                                setCountry(country);
+                            }}
+                            defaultCountry={'CD'}
+                            continent={continent}
+                            onChangeContinent={(continent) => setContinent(continent)}
+                            defaultContinent='Africa'
+                        />
+                        <div className='select_container country_select'>
+                            <div>
+                                <label className='select_label'>Date</label>
+
+                                <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
+                            </div>
+                        </div>
+
+                        <div className='select_container country_select'>
+                            <div>
+                                <label htmlFor='' className='select_label'>
+                                    Platform
+                                </label>
+                                <select className='select_options' name='access' value={form.access} onChange={handleChange}>
+                                    <option value='all-access'>all-access</option>
+                                    <option value='desktop'>desktop</option>
+                                    <option value='mobile-app'>mobile-app</option>
+                                    <option value='mobile-web'>mobile-web</option>
+                                </select>
+                                {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                            </div>
                         </div>
                     </div>
+                    <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
+                        {loading ? 'Envoie en cours...' : 'Envoyer'}
+                    </button>
                 </div>
-                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
-                    {loading ? 'Envoie en cours...' : 'Envoyer'}
-                </button>
-            </div>
-            {locationError && <div className='error'>{locationError}</div>}
-        </form>
+            </form>
+        </>
     );
 };
 
