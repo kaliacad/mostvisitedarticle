@@ -33,7 +33,6 @@ export default function Layout({ children }) {
     }, []);
     return (
         <>
-            <ToastContainer />
             <main role='main' className=' relative'>
                 <NavBar />
                 <div className='main-content'>{children}</div>
@@ -41,6 +40,7 @@ export default function Layout({ children }) {
                 <div className='bg-black opacity-60 -z-10  absolute top-0 left-0 w-full h-full'></div>
                 <img src={featuredImage} alt='background image' className='absolute w-full h-full top-0 left-0 -z-20' />
             </main>
+            <ToastContainer />
         </>
     );
 }

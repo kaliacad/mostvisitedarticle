@@ -5,7 +5,7 @@ import ArticleCard from './ArticleView/ArticleCard';
 import fetchArticles from '../helpers/fetchdata';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import ArticleCardSkeletton from './ArticleCardSkeletton';
 
 const TopVisited = () => {
@@ -43,19 +43,11 @@ const TopVisited = () => {
                 setNewUrl(theUrl + 'permanent/' + formData.country + '_' + formData.access + '_' + formData.date + '_' + formData.continent);
             } else {
                 setArticles([]);
-                toast.error('No articles found for the given parameters.', {
-                    position: 'bottom-center',
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'light',
-                });
             }
         } catch (error) {
             if (typeof error === 'string') {
                 toast.error(error, {
+                    autoClose: 1000,
                     position: 'bottom-center',
                     hideProgressBar: true,
                     closeOnClick: true,
@@ -74,6 +66,7 @@ const TopVisited = () => {
                 });
             } else {
                 toast.error(error.response ? error.response.data : error.message, {
+                    autoClose: 1000,
                     position: 'bottom-center',
                     hideProgressBar: true,
                     closeOnClick: true,
@@ -226,7 +219,6 @@ const TopVisited = () => {
                             <button className='ml-10 bg-gray-300' onClick={handleCopyUrl}>
                                 Lien permanent
                             </button>
-                            <ToastContainer autoClose={1000} />
                         </div>
                         <SearchBar articles={articles} setFilteredArticles={setFilteredArticles} />
                     </div>

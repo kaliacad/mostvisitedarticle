@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import CountryPickList from './CountryPicker';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -119,7 +119,6 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
 
     return (
         <>
-            <ToastContainer />
             <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
                 <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
                     <div className='text-start mb-2 py-5'>
