@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import { Footer } from './footer';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function Layout({ children }) {
     const [featuredImage, setFeaturedImage] = useState('');
@@ -16,18 +17,30 @@ export default function Layout({ children }) {
                 const randomImage = images[Math.floor(Math.random() * images.length)];
                 setFeaturedImage(randomImage);
             } catch (error) {
-                window.alert('Error fetching the featured images:', error);
+                toast.error('Error fetching the featured images', {
+                    position: 'top-right',
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                    autoClose: false,
+                });
             }
         }
         fetchFeaturedImages();
     }, []);
     return (
-        <main role='main' className=' relative'>
-            <NavBar />
-            <div className='main-content'>{children}</div>
-            <Footer />
-            <div className='bg-black opacity-60 -z-10  absolute top-0 left-0 w-full h-full'></div>
-            <img src={featuredImage} alt='background image' className='absolute w-full h-full top-0 left-0 -z-20' />
-        </main>
+        <>
+            <main role='main' className=' relative'>
+                <NavBar />
+                <div className='main-content'>{children}</div>
+                <Footer />
+                <div className='bg-black opacity-60 -z-10  absolute top-0 left-0 w-full h-full'></div>
+                <img src={featuredImage} alt='background image' className='absolute w-full h-full top-0 left-0 -z-20' />
+            </main>
+            <ToastContainer />
+        </>
     );
 }

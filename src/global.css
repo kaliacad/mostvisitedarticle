@@ -17,6 +17,7 @@ body {
     margin: 0;
 }
 .main-content {
+    margin-top: 4rem;
     min-height: 90vh;
 }
 

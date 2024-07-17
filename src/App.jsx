@@ -1,4 +1,5 @@
 import TopVisited from './components/TopVisited.jsx';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <div>
