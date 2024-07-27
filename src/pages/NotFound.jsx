@@ -11,22 +11,30 @@ const NotFound = () => {
                 marginTop: '50px',
             }}
         >
-            <h1
+            <div
                 style={{
-                    fontSize: '36px',
-                    marginBottom: '20px',
+                    display: 'inline-block',
+                    padding: '20px',
+                    backgroundColor: 'rgb(256, 256,256, 0.3)',
                 }}
             >
-                404 - Page non trouvée
-            </h1>
-            <p
-                style={{
-                    fontSize: '18px',
-                }}
-            >
-                {"Désolé, la page que vous recherchez n'existe pas."}
-            </p>
-            <Button text={'Go to home'} event={handleClick} />
+                <h1
+                    style={{
+                        fontSize: '36px',
+                        marginBottom: '20px',
+                    }}
+                >
+                    404 - Page non trouvée
+                </h1>
+                <p
+                    style={{
+                        fontSize: '18px',
+                    }}
+                >
+                    {"Désolé, la page que vous recherchez n'existe pas."}
+                </p>
+                <Button text={'Go to home'} event={handleClick} />
+            </div>
         </div>
     );
 };
