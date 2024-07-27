@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import fetchTopArticles from '../../api';
-import ArticleCard from '../ArticleView/ArticleCard';
-import Loading from '../loading';
-import countries from '../../helpers/countriesIsoCodes';
-import ListArticlesResult from '../ArticleView/ArticleList';
-import DatePicker from '../ArticleForm/DatePicker';
-import ArticleCardSkeletton from '../ArticleCardSkeletton';
-import getTrueArticles from '../../helpers/getTrueArticles';
+import { fetchTopArticles } from '../api';
+import ArticleCard from '../components/ArticleView/ArticleCard';
+import Loading from '../components/common/loading';
+import countries from '../helpers/countriesIsoCodes';
+import ListArticlesResult from '../components/ArticleView/ArticleList';
+import DatePicker from '../components/ArticleForm/DatePicker';
+import ArticleCardSkeletton from '../components/ArticleView/ArticleCardSkeletton';
+import getTrueArticles from '../helpers/getTrueArticles';
 
 const africanCountries = countries.Africa;
 
@@ -20,7 +20,7 @@ const stringifyDate = (date) => {
     return { year, month, day };
 };
 
-const TopAfrica = () => {
+export default function Africa() {
     const today = new Date();
     const [data, setData] = useState([]);
     const [date, setDate] = useState(stringifyDate(today.toISOString().split('T')[0]));
@@ -118,81 +118,80 @@ const TopAfrica = () => {
             </div>
         );
     if (error) return <p>Error: {error.message}</p>;
-
     return (
-        <div className='african p-4'>
-            <h1 className='text-2xl text-white font-bold text-center mb-4'>Top Wikimedia Articles in Africa</h1>
+        <main>
+            <div className='african p-4'>
+                <h1 className='text-2xl text-white font-bold text-center mb-4'>Top Wikimedia Articles in Africa</h1>
 
-            <div className='flex flex-wrap justify-center items-center gap-5 my-3'>
-                <button onClick={handleClicked} className='bg-blue-500 text-white px-4 py-2 rounded'>
-                    Articles List/Article Gallery
-                </button>
-                <DatePicker onChange={handleChange} />
-                <h1 className='text-white'>Top Africa Article: {`${date.day}/${date.month}/${date.year}`}</h1>
-            </div>
-
-            {loadingCard && !showCard && (
-                <div className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
-                    <Loading />
+                <div className='flex flex-wrap justify-center items-center gap-5 my-3'>
+                    <button onClick={handleClicked} className='bg-blue-500 text-white px-4 py-2 rounded'>
+                        Articles List/Article Gallery
+                    </button>
+                    <DatePicker onChange={handleChange} />
+                    <h1 className='text-white'>Top Africa Article: {`${date.day}/${date.month}/${date.year}`}</h1>
                 </div>
-            )}
 
-            {loadingCard && showCard && (
-                <div>
-                    <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
-                        {[1, 2, 3].map((e, i) => (
-                            <div className='w-1/3 p-8  max-md:w-[90vw]' key={i}>
-                                <ArticleCardSkeletton element={e} />
-                            </div>
-                        ))}
-                    </ul>
-                </div>
-            )}
-
-            {!loadingCard &&
-                (showCard ? (
-                    <div className='flex flex-wrap justify-center gap-4 my-9'>
-                        {currentArticles.map((article, index) => (
-                            <ArticleCard
-                                key={index}
-                                article={article.title}
-                                rank={article.rank}
-                                views_ceil={article.views}
-                                country={article.country}
-                                project={article.project}
-                            />
-                        ))}
+                {loadingCard && !showCard && (
+                    <div className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                        <Loading />
                     </div>
-                ) : (
-                    <div className='flex flex-col justify-center items-center'>
-                        <ListArticlesResult articlesData={currentArticles} />
-                    </div>
-                ))}
-            {data.length == 0 && (
-                <div className='w-full flex text-white justify-center mb-3'>
-                    <p>No Article Post</p>
-                </div>
-            )}
+                )}
 
-            <div className='flex justify-center items-center gap-4 my-5 mb-12'>
-                <button
-                    onClick={() => paginate(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
-                >
-                    &larr;
-                </button>
-                <div className='flex'>{renderPageNumbers()}</div>
-                <button
-                    onClick={() => paginate(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
-                >
-                    &rarr;
-                </button>
+                {loadingCard && showCard && (
+                    <div>
+                        <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                            {[1, 2, 3].map((e, i) => (
+                                <div className='w-1/3 p-8  max-md:w-[90vw]' key={i}>
+                                    <ArticleCardSkeletton element={e} />
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {!loadingCard &&
+                    (showCard ? (
+                        <div className='flex flex-wrap justify-center gap-4 my-9'>
+                            {currentArticles.map((article, index) => (
+                                <ArticleCard
+                                    key={index}
+                                    article={article.title}
+                                    rank={article.rank}
+                                    views_ceil={article.views}
+                                    country={article.country}
+                                    project={article.project}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='flex flex-col justify-center items-center'>
+                            <ListArticlesResult articlesData={currentArticles} />
+                        </div>
+                    ))}
+                {data.length == 0 && (
+                    <div className='w-full flex text-white justify-center mb-3'>
+                        <p>No Article Post</p>
+                    </div>
+                )}
+
+                <div className='flex justify-center items-center gap-4 my-5 mb-12'>
+                    <button
+                        onClick={() => paginate(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
+                    >
+                        &larr;
+                    </button>
+                    <div className='flex'>{renderPageNumbers()}</div>
+                    <button
+                        onClick={() => paginate(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
+                    >
+                        &rarr;
+                    </button>
+                </div>
             </div>
-        </div>
+        </main>
     );
-};
-
-export default TopAfrica;
+}

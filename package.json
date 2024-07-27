@@ -9,25 +9,17 @@
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "format": "prettier src/**/*.{js,jsx} --write",
         "preview": "vite preview",
-        "prepare": "husky"
+        "prepare": "husky",
+        "check:unused-modules": "npx unimported"
     },
     "dependencies": {
-        "@babel/core": "^7.24.7",
-        "@babel/preset-env": "^7.24.7",
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "autoprefixer": "^10.4.19",
         "axios": "^1.7.2",
         "chart.js": "^4.4.3",
-        "core-js": "^3.37.1",
-        "country-list-js": "^3.1.8",
-        "file-saver": "^2.0.5",
-        "html2canvas": "^1.4.1",
-        "jspdf": "^2.5.1",
         "papaparse": "^5.4.1",
-        "postcss": "^8.4.38",
-        "postcss-loader": "^8.1.1",
+
         "react": "^18.3.1",
         "react-chartjs-2": "^5.2.0",
         "react-dom": "^18.2.0",
@@ -48,7 +40,9 @@
         "lint-staged": "^15.2.5",
         "prettier": "3.2.5",
         "tailwindcss": "^3.4.4",
-        "vite": "^5.2.0"
+        "vite": "^5.2.0",
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx}": [

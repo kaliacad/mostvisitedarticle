@@ -1,10 +1,10 @@
-import './pageviews.css';
-import OptionsForm from './OptionsForm';
-import ArticlesGraph from './Graph';
+import '../styles/pageviews.css';
+import OptionsForm from '../components/PageViews/OptionsForm';
+import ArticlesGraph from '../components/PageViews/Graph';
 import { useState } from 'react';
-import PageViewsContext from './Context';
-import Pages from './Pages';
-import { todayDay, todayMonth, todayYear } from '../../helpers/dateNowSpliter';
+import PageViewsContext from '../components/PageViews/Context';
+import Pages from '../components/PageViews/Pages';
+import { todayDay, todayMonth, todayYear } from '../helpers/dateNowSpliter';
 
 export default function PageViews() {
     const [dates, setDates] = useState({ start: `${todayYear}0101`, end: `${todayYear}${todayMonth}${todayDay}` });

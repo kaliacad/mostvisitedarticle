@@ -5,7 +5,7 @@ import fetchArticleImage from '../../api/fetchArticleImage';
 import fetchArticleEditor from '../../api/fetchArticleEditor';
 import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
-import Button from '../Button';
+import Button from '../common/Button';
 import fetchArticleDescription from '../../api/fetchArticleDescription';
 
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {

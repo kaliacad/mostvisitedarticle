@@ -1,4 +1,4 @@
-import './articleCardSkeletton.css';
+import '../../styles/articleCardSkeletton.css';
 
 // Documentatin d'utilisation de skeletton
 // Ce composant prend un props qui est le nombre de fois où nous souhaiter afficher le skeletton

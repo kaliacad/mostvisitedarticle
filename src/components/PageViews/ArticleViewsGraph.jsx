@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import fetchPageViewsCount from '../../api/fetchPageViewsCount';
 import { Line } from 'react-chartjs-2';
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import Loading from '../loading';
+import Loading from '../common/loading';
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 

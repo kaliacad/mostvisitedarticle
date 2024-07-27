@@ -1,0 +1,9 @@
+export { default as fetchArticleDescription } from './fetchArticleDescription';
+export { default as fetchArticleEditor } from './fetchArticleEditor';
+export { default as fetchArticleImage } from './fetchArticleImage';
+export { default as fetchImageFromArticle } from './fetchImageFromArticle';
+export { default as fetchLocation } from './fetchLocation';
+export { default as fetchPageViewsCount } from './fetchPageViewsCount';
+export { default as fetchTopAfricaArticle } from './fetchTopAfricaArticle';
+export { default as fetchTopArticles } from './getArticleListPerCountry';
+export { default as getWikiInfo } from './getWikiInfo';

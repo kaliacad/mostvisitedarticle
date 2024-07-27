@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../NavBar.css'; // Nous allons ajouter des styles pour la transition
+import '../../styles/NavBar.css'; // Nous allons ajouter des styles pour la transition
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsUpToLine, faBook, faBug, faCode, faComment, faCopyright, faPager, faUsers } from '@fortawesome/free-solid-svg-icons';
 
