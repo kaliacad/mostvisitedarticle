@@ -1,39 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/common/Button';
 
 const NotFound = () => {
     const navigation = useNavigate();
     const handleClick = () => navigation('/');
     return (
-        <div
-            style={{
-                textAlign: 'center',
-                marginTop: '50px',
-            }}
-        >
-            <div
-                style={{
-                    display: 'inline-block',
-                    padding: '20px',
-                    backgroundColor: 'rgb(256, 256,256, 0.3)',
-                }}
-            >
-                <h1
-                    style={{
-                        fontSize: '36px',
-                        marginBottom: '20px',
-                    }}
-                >
-                    404 - Page non trouvée
-                </h1>
-                <p
-                    style={{
-                        fontSize: '18px',
-                    }}
-                >
-                    {"Désolé, la page que vous recherchez n'existe pas."}
-                </p>
-                <Button text={'Go to home'} event={handleClick} />
+        <div className='text-center flex items-center justify-center p-[25vh]'>
+            <div className='bg-white/45 p-5'>
+                <h1 className='text-4xl mb-2.5'>404 - Page non trouvée</h1>
+                <p className='text-lg'>{"Désolé, la page que vous recherchez n'existe pas."}</p>
+                <button className='py-1 my-1.5 text-base bg-gray-300' onClick={handleClick}>
+                    Go to home
+                </button>
             </div>
         </div>
     );
