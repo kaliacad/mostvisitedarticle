@@ -60,8 +60,8 @@ const ArticleViewsGraph = ({ articles }) => {
     }, [articles]);
 
     return (
-        <div className='graph w-full flex flex-col items-center'>
-            <h2 className='font-bold text-white text-xl self-start'>Views for Multiple Articles</h2>
+        <div className='graph w-full flex flex-col items-center p-4 bg-white border border-gray-300 rounded-md'>
+            <h2 className='font-bold text-black text-xl self-start'>Views for Multiple Articles</h2>
             {loading ? (
                 <Loading />
             ) : viewData.labels ? (
