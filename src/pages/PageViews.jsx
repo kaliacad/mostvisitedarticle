@@ -34,7 +34,7 @@ export default function PageViews() {
                 <OptionsForm />
                 <div className='w-3/4'>
                     <Pages />
-                    <ArticlesGraph />
+                    {pages.length === 0 ? <></> : <ArticlesGraph />}
                 </div>
             </PageViewsContext.Provider>
         </div>
