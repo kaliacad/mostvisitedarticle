@@ -64,14 +64,12 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [continent, setContinent] = useState('Africa');
 
     useEffect(() => {
-        (async () => {
-            if (countryUrl) {
-                setCountry(countryUrl);
-            }
-            if (continentUrl) {
-                setContinent(continentUrl);
-            }
-        })();
+        if (countryUrl) {
+            setCountry(countryUrl);
+        }
+        if (continentUrl) {
+            setContinent(continentUrl);
+        }
     }, [countryUrl, continentUrl]);
 
     const handleChange = (event) => {
@@ -104,52 +102,66 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
-            <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
-                <div className='text-start mb-2 py-5'>
-                    <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
-                </div>
+        <div className='w-full p-4 md:p-6'>
+            <form onSubmit={handleSubmit} className='w-full max-w-full p-6 bg-white rounded-lg shadow-lg'>
+                <h2 className='mb-6 text-2xl font-semibold text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</h2>
 
-                <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
-                    <CountryPickList
-                        country={country}
-                        onChangeCountry={(country) => {
-                            setForm({ ...form, country, continent });
-                            setCountry(country);
-                        }}
-                        defaultCountry={'CD'}
-                        continent={continent}
-                        onChangeContinent={(continent) => setContinent(continent)}
-                        defaultContinent='Africa'
-                    />
-                    <div className='select_container country_select'>
-                        <div>
-                            <label className='select_label'>Date</label>
-
-                            <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
-                        </div>
+                <div className='space-y-4'>
+                    <div className='mb-6'>
+                        <CountryPickList
+                            country={country}
+                            onChangeCountry={(country) => {
+                                setForm({ ...form, country, continent });
+                                setCountry(country);
+                            }}
+                            defaultCountry={'CD'}
+                            continent={continent}
+                            onChangeContinent={(continent) => setContinent(continent)}
+                            defaultContinent='Africa'
+                        />
                     </div>
 
-                    <div className='select_container country_select'>
-                        <div>
-                            <label htmlFor='' className='select_label'>
+                    <div className='flex flex-col gap-4 md:flex-row md:gap-6'>
+                        <div className='flex-1'>
+                            <label htmlFor='fullDate' className='block mb-2 text-sm font-medium'>
+                                Date
+                            </label>
+                            <input
+                                id='fullDate'
+                                type='date'
+                                name='date'
+                                className='w-full p-2 border border-gray-300 rounded-lg'
+                                value={form.date}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className='flex-1'>
+                            <label htmlFor='access' className='block mb-2 text-sm font-medium'>
                                 Platform
                             </label>
-                            <select className='select_options' name='access' value={form.access} onChange={handleChange}>
+                            <select
+                                id='access'
+                                name='access'
+                                className='w-full p-2 border border-gray-300 rounded-lg'
+                                value={form.access}
+                                onChange={handleChange}
+                            >
                                 <option value='all-access'>all-access</option>
                                 <option value='desktop'>desktop</option>
                                 <option value='mobile-app'>mobile-app</option>
                                 <option value='mobile-web'>mobile-web</option>
                             </select>
-                            {formErrors.access && <div className='error'>{formErrors.access}</div>}
+                            {formErrors.access && <div className='mt-1 text-sm text-red-500'>{formErrors.access}</div>}
                         </div>
                     </div>
+
+                    <button type='submit' className='w-full py-3 mt-4 text-lg font-semibold text-white bg-green-500 rounded-lg'>
+                        {loading ? 'Envoie en cours...' : 'Envoyer'}
+                    </button>
                 </div>
-                <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
-                    {loading ? 'Envoie en cours...' : 'Envoyer'}
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 };
 

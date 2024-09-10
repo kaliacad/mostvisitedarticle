@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 /**
  * @typedef {Object} MenuItem
@@ -17,9 +18,9 @@ import React from 'react';
  *
  * @returns {JSX.Element} The rendered menu component.
  */
-export const Menu = React.forwardRef(({ data, label, value, defaultValue, onChange }, ref) => {
+export const Menu = React.forwardRef(({ data, label, value, defaultValue, onChange, className }, ref) => {
     return (
-        <div className='select_container'>
+        <div className={classNames('select_container', className)}>
             <label htmlFor={`select_option${label}`} className='select_label'>
                 {label}
             </label>

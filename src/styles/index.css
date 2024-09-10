@@ -404,11 +404,11 @@ button {
     padding: 0.5rem;
     border-radius: 0.25rem;
     display: flex;
-    width: 18vw;
+    /* width: 18vw; */
     justify-content: space-between;
     gap: 1rem;
 
-    @apply max-md:w-[60vw];
+    /* @apply max-md:w-[60vw]; */
 }
 
 .formBorder {

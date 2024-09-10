@@ -30,7 +30,7 @@ export default function CountryPickList({ country, onChangeCountry, defaultCount
         <div className='country_select flex max-md:flex-col'>
             <Menu
                 label='Continent'
-                className='continent'
+                className='flex-1'
                 data={Object.keys(countries).map((el) => ({ value: el, label: el }))}
                 value={continent}
                 onChange={handleChangeContinent}
@@ -39,7 +39,7 @@ export default function CountryPickList({ country, onChangeCountry, defaultCount
 
             <Menu
                 label='Pays'
-                className='country'
+                className='flex-1'
                 data={countries[continent ?? defaultContinent].map((el) => ({ value: el.code, label: el.name }))}
                 value={country}
                 onChange={handleChangeCountry}
