@@ -1,72 +1,64 @@
 {
-    "name": "mostvisitedarticle",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-        "format": "prettier src/**/*.{js,jsx} --write",
-        "preview": "vite preview",
-        "prepare": "husky",
-        "check:unused-modules": "npx unimported",
-        "preinstall": "npx only-allow pnpm"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^6.5.2",
-        "@fortawesome/free-solid-svg-icons": "^6.5.2",
-        "@fortawesome/react-fontawesome": "^0.2.2",
-        "axios": "^1.7.2",
-<<<<<<< HEAD
-        "chart.js": "^4.4.8",
-        "country-list-js": "^3.1.8",
-        "file-saver": "^2.0.5",
-        "html2canvas": "^1.4.1",
-        "jspdf": "^2.5.1",
-        "postcss": "^8.4.38",
-        "prop-types": "^15.8.1",
-=======
-        "chart.js": "^4.4.3",
-        "papaparse": "^5.4.1",
->>>>>>> dc7a60568712f14e88429ea88f8a3897d7fdb5b4
-        "react": "^18.3.1",
-        "react-chartjs-2": "^5.2.0",
-        "react-dom": "^18.2.0",
-        "react-router-dom": "^6.23.1",
-<<<<<<< HEAD
-        "react-toastify": "^11.0.5"
-=======
-        "react-toastify": "^10.0.5"
->>>>>>> dc7a60568712f14e88429ea88f8a3897d7fdb5b4
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^19.3.0",
-        "@commitlint/config-conventional": "^19.2.2",
-        "@types/react": "^18.2.66",
-        "@types/react-dom": "^18.2.22",
-        "@vitejs/plugin-react": "^4.2.1",
-        "eslint": "^8.57.0",
-        "eslint-plugin-react": "^7.34.1",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-react-refresh": "^0.4.6",
-        "husky": "^9.0.11",
-        "lint-staged": "^15.2.5",
-        "prettier": "3.2.5",
-        "tailwindcss": "^3.4.4",
-        "vite": "^5.2.0",
-        "autoprefixer": "^10.4.19",
-        "postcss": "^8.4.38"
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx}": [
-            "eslint --quiet --fix",
-            "prettier --write"
-        ]
-    },
-    "commitlint": {
-        "extends": [
-            "@commitlint/config-conventional"
-        ]
-    }
+  "name": "mostvisitedarticle",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier src/**/*.{js,jsx} --write",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "check:unused-modules": "npx unimported",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.7.2",
+    "chart.js": "^4.4.8",
+    "country-list-js": "^3.1.8",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "postcss": "^8.4.38",
+    "prop-types": "^15.8.1",
+    "papaparse": "^5.4.1",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "3.2.5",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix",
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }
