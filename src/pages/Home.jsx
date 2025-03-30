@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import ArticleCardSkeletton from '../components/ArticleView/ArticleCardSkeletton';
 import getTrueArticles from '../helpers/getTrueArticles';
 import countries from '../helpers/countriesIsoCodes';
+import ListArticlesResult from '../components/ArticleView/ArticleList';
 
 const getCountryNameByCode = (continent, code) => {
     const country = countries[continent].find((country) => country.code === code);
@@ -28,6 +29,8 @@ function App() {
     const [countryFromUrl, setCountryFromUrl] = useState('');
     const [continentFromUrl, setContinentFromUrl] = useState('');
     const [filteredArticles, setFilteredArticles] = useState(articles);
+
+    const [view, setView] = useState('card');
     const handlePageChange = (currentPage, paginatedItems) => {
         setPaginatedItems(paginatedItems);
     };
@@ -168,17 +171,19 @@ function App() {
                     <div className='bg-slate-100 rounded-xl max-md:flex max-md:justify-center'>
                         <ArticleForm onSubmit={handleSubmit} loading={loading} continentUrl={continentFromUrl} countryUrl={countryFromUrl} />
                     </div>
+
                     {loading && (
                         <div>
-                            <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
+                            <ul className='flex flex-wrap items-center justify-center pt-4 gap-2 max-md:flex-col'>
                                 {[1, 2, 3].map((e, i) => (
-                                    <div className='w-1/3 p-8  max-md:w-[90vw]' key={i}>
+                                    <div className=' max-md:w-[90vw]' key={i}>
                                         <ArticleCardSkeletton element={e} />
                                     </div>
                                 ))}
                             </ul>
                         </div>
                     )}
+
                     {articles.length > 0 && (
                         <div className='flex justify-between max-md:flex-col-reverse pt-4'>
                             <div className='relative flex text-left'>
@@ -233,24 +238,80 @@ function App() {
                             <SearchBar articles={articles} setFilteredArticles={setFilteredArticles} />
                         </div>
                     )}
+
+                    {articles.length > 0 && (
+                        <div className='py-4 flex items-center gap-3 rounded-lg border'>
+                            <button
+                                onClick={() => {
+                                    setView('card');
+                                }}
+                                className={view == 'card' ? 'bg-white' : 'text-white'}
+                            >
+                                <svg
+                                    aria-hidden='true'
+                                    focusable='false'
+                                    data-prefix='fas'
+                                    data-icon='grid-2'
+                                    role='img'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    viewBox='0 0 512 512'
+                                    className='svg-inline--fa fa-grid-2 fa-lg'
+                                >
+                                    <path
+                                        fill='currentColor'
+                                        d='M224 80c0-26.5-21.5-48-48-48L80 32C53.5 32 32 53.5 32 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zm0 256c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96zM288 80l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48zM480 336c0-26.5-21.5-48-48-48l-96 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l96 0c26.5 0 48-21.5 48-48l0-96z'
+                                        className=''
+                                    ></path>
+                                </svg>
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setView('list');
+                                }}
+                                className={view == 'list' ? 'bg-white' : 'text-white'}
+                            >
+                                <svg
+                                    aria-hidden='true'
+                                    focusable='false'
+                                    data-prefix='fas'
+                                    data-icon='list-ul'
+                                    role='img'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    viewBox='0 0 512 512'
+                                    className='svg-inline--fa fa-list-ul fa-lg'
+                                >
+                                    <path
+                                        fill='currentColor'
+                                        d='M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z'
+                                        className=''
+                                    ></path>
+                                </svg>
+                            </button>
+                        </div>
+                    )}
                     <div className='articles'>
                         {filteredArticles && filteredArticles?.length > 0 ? (
                             <div>
-                                <ul className='flex flex-wrap items-center justify-center pt-[2rem] max-md:flex-col'>
-                                    {paginatedItems?.length > 0 &&
-                                        paginatedItems.map(({ article, project, rank, views_ceil, country }) => (
-                                            <div className='w-1/3 p-8  max-md:w-[90vw]' key={article}>
-                                                <ArticleCard
-                                                    key={article}
-                                                    article={article}
-                                                    project={project}
-                                                    rank={rank}
-                                                    views_ceil={views_ceil}
-                                                    country={country}
-                                                />
-                                            </div>
-                                        ))}
-                                </ul>
+                                {view == 'card' && (
+                                    <ul className='flex flex-wrap items-center justify-between gap-4 p-3  max-md:flex-col'>
+                                        {paginatedItems?.length > 0 &&
+                                            paginatedItems.map(({ article, project, rank, views_ceil, country }) => {
+                                                return (
+                                                    <ArticleCard
+                                                        key={article}
+                                                        article={article}
+                                                        project={project}
+                                                        rank={rank}
+                                                        views_ceil={views_ceil}
+                                                        country={country}
+                                                    />
+                                                );
+                                            })}
+                                    </ul>
+                                )}
+
+                                {view == 'list' && paginatedItems?.length > 0 && <ListArticlesResult articlesData={paginatedItems} />}
+
                                 <div className='flex justify-center mb-10'>
                                     <Pagination
                                         onCurrentChange={handleCurrentPage}

@@ -44,7 +44,7 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
         fetchDescript();
     }, [article, project]);
     return (
-        <div className='article-card flex flex-col bg-[#ffff] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden'>
+        <div className='article-card flex flex-col bg-[#ffff] hover:shadow-[0px_0px_15px_0px_#718096b8] shadow-[0px_0px_7px_0px_#a9a9a9] duration-500 rounded-md w-full overflow-hidden max-w-[400px]'>
             <div className='card-image-container'>
                 <img src={url ? url : './article-placeholder.png'} alt={article} className='article-image bg-gray-200 !object-cover' />
             </div>
