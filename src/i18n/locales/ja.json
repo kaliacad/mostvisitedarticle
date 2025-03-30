@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "topAfrica": "アフリカトップ",
+    "pageViews": "ページビュー",
+    "subtitle": "- 国別の最も訪問された記事"
+  },
+  "home": {
+    "title": "最も訪問された記事",
+    "description": "様々な地域で最も訪問された記事を発見",
+    "searchPlaceholder": "記事を検索..."
+  },
+  "topAfrica": {
+    "title": "アフリカのトップ記事",
+    "description": "アフリカ諸国で最も訪問された記事"
+  },
+  "pageViews": {
+    "title": "記事ページビュー",
+    "description": "記事ページの閲覧を追跡・分析",
+    "selectCountry": "国を選択",
+    "selectArticle": "記事を選択",
+    "selectInterval": "間隔を選択",
+    "viewGraph": "グラフを表示"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "noData": "データがありません",
+    "help": "ヘルプ",
+    "documentation": "ドキュメント",
+    "viewSource": "ソースコードを表示",
+    "reportIssue": "問題を報告",
+    "feedback": "フィードバック",
+    "developedBy": "Kali Academy 開発",
+    "kaliAcademy": "Kali Academy",
+    "export": "エクスポート",
+    "exportToCSV": "CSVにエクスポート",
+    "exportToJSON": "JSONにエクスポート",
+    "permanentLink": "永続リンク",
+    "linkCopied": "リンクをクリップボードにコピーしました！",
+    "requestTimeout": "リクエストがタイムアウトしました。もう一度お試しください。"
+  },
+  "article": {
+    "description": "説明",
+    "noDescription": "説明がありません",
+    "country": "国",
+    "notAvailable": "利用不可",
+    "project": "プロジェクト",
+    "rank": "ランク",
+    "views": "閲覧数",
+    "editors": "編集者",
+    "notFound": "見つかりません",
+    "readArticle": "記事を読む"
+  },
+  "form": {
+    "fillForm": "必要な記事を取得するにはフォームに記入してください",
+    "date": "日付",
+    "platform": "プラットフォーム",
+    "allAccess": "すべてのアクセス",
+    "desktop": "デスクトップ",
+    "mobileApp": "モバイルアプリ",
+    "mobileWeb": "モバイルウェブ",
+    "sending": "送信中...",
+    "submit": "送信",
+    "continent": "大陸",
+    "country": "国",
+    "countryRequired": "国は必須です",
+    "dateRequired": "日付は必須です",
+    "errorLocation": "位置情報の取得中にエラーが発生しました",
+    "errorGeolocation": "位置情報の取得中にエラーが発生しました",
+    "geolocationNotSupported": "このブラウザは位置情報をサポートしていません"
+  },
+  "table": {
+    "rank": "ランク",
+    "country": "国",
+    "articles": "記事",
+    "project": "プロジェクト",
+    "views": "閲覧数"
+  },
+  "footer": {
+    "documentation": "ドキュメント",
+    "viewSource": "ソースコードを表示",
+    "reportIssue": "問題を報告",
+    "feedback": "フィードバック",
+    "developedBy": "Kali Academy 開発",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "このボタンにはイベントが必要です",
+    "textRequired": "'text' プロパティを追加する必要があります"
+  }
+} 

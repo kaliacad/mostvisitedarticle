@@ -7,11 +7,13 @@ import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
 // import Button from '../common/Button';
 import fetchArticleDescription from '../../api/fetchArticleDescription';
+import { useTranslation } from 'react-i18next';
 
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
     const [url, setUrl] = useState(null);
     const [editors, setEditors] = useState(null);
     const [description, setDescription] = useState(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -57,24 +59,24 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                 </h3>
                 <div className='article-description flex flex-col gap-2'>
                     <p>
-                        <span>Description: </span>
-                        {description ? description : 'pas de description'}
+                        <span>{t('article.description')}: </span>
+                        {description ? description : t('article.noDescription')}
                         <span></span>
                     </p>
                     <p>
-                        <span>Country:</span> <span>{country ? country : 'N/A'}</span>
+                        <span>{t('article.country')}:</span> <span>{country ? country : t('article.notAvailable')}</span>
                     </p>
                     <p>
-                        <span>Project: </span> <span>{project}</span>
+                        <span>{t('article.project')}: </span> <span>{project}</span>
                     </p>
                     <p>
-                        <span>Rank: </span> <span>{rank}</span>
+                        <span>{t('article.rank')}: </span> <span>{rank}</span>
                     </p>
                     <p>
-                        <span>Views : </span> <span>{views_ceil}</span>
+                        <span>{t('article.views')}: </span> <span>{views_ceil}</span>
                     </p>
                     <p>
-                        <span>Editors : </span> <span>{editors ? editors : 'Not found'}</span>
+                        <span>{t('article.editors')}: </span> <span>{editors ? editors : t('article.notFound')}</span>
                     </p>
                 </div>
 

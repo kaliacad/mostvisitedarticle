@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Home",
+    "topAfrica": "Top Afrika",
+    "pageViews": "Paginaweergaven",
+    "subtitle": "- meest bezochte artikelen per land"
+  },
+  "home": {
+    "title": "Meest Bezochte Artikelen",
+    "description": "Ontdek de meest bezochte artikelen in verschillende regio's",
+    "searchPlaceholder": "Zoek artikelen..."
+  },
+  "topAfrica": {
+    "title": "Top Artikelen in Afrika",
+    "description": "Meest bezochte artikelen in Afrikaanse landen"
+  },
+  "pageViews": {
+    "title": "Artikel Paginaweergaven",
+    "description": "Volg en analyseer artikel paginaweergaven",
+    "selectCountry": "Selecteer Land",
+    "selectArticle": "Selecteer Artikel",
+    "selectInterval": "Selecteer Interval",
+    "viewGraph": "Bekijk Grafiek"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fout",
+    "noData": "Geen gegevens beschikbaar",
+    "help": "Help",
+    "documentation": "Documentatie",
+    "viewSource": "Bekijk broncode",
+    "reportIssue": "Rapporteer een probleem",
+    "feedback": "Feedback",
+    "developedBy": "Ontwikkeld door Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Exporteren",
+    "exportToCSV": "Exporteren naar CSV",
+    "exportToJSON": "Exporteren naar JSON",
+    "permanentLink": "Permanente link",
+    "linkCopied": "Link gekopieerd naar klembord!",
+    "requestTimeout": "Verzoek is verlopen. Probeer het opnieuw."
+  },
+  "article": {
+    "description": "Beschrijving",
+    "noDescription": "Geen beschrijving beschikbaar",
+    "country": "Land",
+    "notAvailable": "N/A",
+    "project": "Project",
+    "rank": "Rang",
+    "views": "Weergaven",
+    "editors": "Redacteuren",
+    "notFound": "Niet gevonden",
+    "readArticle": "Artikel lezen"
+  },
+  "form": {
+    "fillForm": "Vul het formulier in om de gewenste artikelen te krijgen",
+    "date": "Datum",
+    "platform": "Platform",
+    "allAccess": "Alle toegang",
+    "desktop": "Desktop",
+    "mobileApp": "Mobiele app",
+    "mobileWeb": "Mobiele web",
+    "sending": "Verzenden...",
+    "submit": "Verzenden",
+    "continent": "Continent",
+    "country": "Land",
+    "countryRequired": "Land is verplicht",
+    "dateRequired": "Datum is verplicht",
+    "errorLocation": "Fout bij ophalen locatiedata",
+    "errorGeolocation": "Fout bij ophalen geolocatie",
+    "geolocationNotSupported": "Geolocatie wordt niet ondersteund door deze browser"
+  },
+  "table": {
+    "rank": "Rang",
+    "country": "Land",
+    "articles": "Artikelen",
+    "project": "Project",
+    "views": "Weergaven"
+  },
+  "footer": {
+    "documentation": "Documentatie",
+    "viewSource": "Bekijk broncode",
+    "reportIssue": "Rapporteer een probleem",
+    "feedback": "Feedback",
+    "developedBy": "Ontwikkeld door Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Je hebt een event nodig op deze knop",
+    "textRequired": "Je moet een 'text' prop toevoegen"
+  }
+} 
