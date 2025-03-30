@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Início",
+    "topAfrica": "Top África",
+    "pageViews": "Visualizações de Páginas",
+    "subtitle": "- artigos mais visitados por país"
+  },
+  "home": {
+    "title": "Artigos Mais Visitados",
+    "description": "Descubra os artigos mais visitados em diferentes regiões",
+    "searchPlaceholder": "Pesquisar artigos..."
+  },
+  "topAfrica": {
+    "title": "Artigos em Destaque na África",
+    "description": "Artigos mais visitados em países africanos"
+  },
+  "pageViews": {
+    "title": "Visualizações de Páginas de Artigos",
+    "description": "Acompanhe e analise as visualizações de páginas de artigos",
+    "selectCountry": "Selecionar País",
+    "selectArticle": "Selecionar Artigo",
+    "selectInterval": "Selecionar Intervalo",
+    "viewGraph": "Ver Gráfico"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "noData": "Nenhum dado disponível",
+    "help": "Ajuda",
+    "documentation": "Documentação",
+    "viewSource": "Ver código fonte",
+    "reportIssue": "Reportar um problema",
+    "feedback": "Feedback",
+    "developedBy": "Desenvolvido por Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Exportar",
+    "exportToCSV": "Exportar para CSV",
+    "exportToJSON": "Exportar para JSON",
+    "permanentLink": "Link permanente",
+    "linkCopied": "Link copiado para a área de transferência!",
+    "requestTimeout": "A solicitação expirou. Por favor, tente novamente."
+  },
+  "article": {
+    "description": "Descrição",
+    "noDescription": "Sem descrição disponível",
+    "country": "País",
+    "notAvailable": "N/A",
+    "project": "Projeto",
+    "rank": "Posição",
+    "views": "Visualizações",
+    "editors": "Editores",
+    "notFound": "Não encontrado",
+    "readArticle": "Ler artigo"
+  },
+  "form": {
+    "fillForm": "Por favor, preencha o formulário para obter os artigos desejados",
+    "date": "Data",
+    "platform": "Plataforma",
+    "allAccess": "Todos os acessos",
+    "desktop": "Desktop",
+    "mobileApp": "Aplicativo móvel",
+    "mobileWeb": "Web móvel",
+    "sending": "Enviando...",
+    "submit": "Enviar",
+    "continent": "Continente",
+    "country": "País",
+    "countryRequired": "O país é obrigatório",
+    "dateRequired": "A data é obrigatória",
+    "errorLocation": "Erro ao obter dados de localização",
+    "errorGeolocation": "Erro ao obter geolocalização",
+    "geolocationNotSupported": "Geolocalização não é suportada por este navegador"
+  },
+  "table": {
+    "rank": "Posição",
+    "country": "País",
+    "articles": "Artigos",
+    "project": "Projeto",
+    "views": "Visualizações"
+  },
+  "footer": {
+    "documentation": "Documentação",
+    "viewSource": "Ver código fonte",
+    "reportIssue": "Reportar um problema",
+    "feedback": "Feedback",
+    "developedBy": "Desenvolvido por Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Você precisa de um evento neste botão",
+    "textRequired": "Você precisa adicionar uma prop 'text'"
+  }
+} 

@@ -11,6 +11,7 @@ import ArticleCardSkeletton from '../components/ArticleView/ArticleCardSkeletton
 import getTrueArticles from '../helpers/getTrueArticles';
 import countries from '../helpers/countriesIsoCodes';
 import ListArticlesResult from '../components/ArticleView/ArticleList';
+import { useTranslation } from 'react-i18next';
 
 const getCountryNameByCode = (continent, code) => {
     const country = countries[continent].find((country) => country.code === code);
@@ -18,6 +19,7 @@ const getCountryNameByCode = (continent, code) => {
 };
 
 function App() {
+    const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
     const [articles, setArticles] = useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -69,7 +71,7 @@ function App() {
                         theme: 'light',
                     });
                 } else if (error.code === 'ECONNABORTED') {
-                    toast.error('Request timed out. Please try again.', {
+                    toast.error(t('common.requestTimeout'), {
                         autoClose: false,
                         position: 'bottom-center',
                         hideProgressBar: true,
@@ -93,7 +95,7 @@ function App() {
                 setLoading(false);
             }
         },
-        [theUrl],
+        [theUrl, t],
     );
 
     useEffect(() => {
@@ -115,7 +117,7 @@ function App() {
 
     async function handleCopyUrl() {
         await navigator.clipboard.writeText(newUrl).then(() =>
-            toast.success('Link copied to clipboard!', {
+            toast.success(t('common.linkCopied'), {
                 position: 'top-center',
                 hideProgressBar: true,
                 closeOnClick: true,
@@ -193,7 +195,7 @@ function App() {
                                         className='inline-flex justify-center ml-2 w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                                         id='options-menu'
                                     >
-                                        Export
+                                        {t('common.export')}
                                         <svg
                                             className='-mr-1 ml-2 h-5 w-5'
                                             xmlns='http://www.w3.org/2000/svg'
@@ -218,7 +220,7 @@ function App() {
                                                 className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
                                                 role='menuitem'
                                             >
-                                                Export to CSV
+                                                {t('common.exportToCSV')}
                                             </a>
                                             <a
                                                 href='#'
@@ -226,13 +228,13 @@ function App() {
                                                 className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 mt-4'
                                                 role='menuitem'
                                             >
-                                                Export to JSON
+                                                {t('common.exportToJSON')}
                                             </a>
                                         </div>
                                     </div>
                                 )}
                                 <button className='ml-10 bg-gray-300' onClick={handleCopyUrl}>
-                                    Lien permanent
+                                    {t('common.permanentLink')}
                                 </button>
                             </div>
                             <SearchBar articles={articles} setFilteredArticles={setFilteredArticles} />
@@ -324,7 +326,7 @@ function App() {
                                 </div>
                             </div>
                         ) : (
-                            <p className='noArticleMessage text-center text-2xl font-bold'></p>
+                            <div className='text-center text-gray-500 mt-8'>{t('common.noData')}</div>
                         )}
                     </div>
                 </div>
