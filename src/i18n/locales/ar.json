@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "topAfrica": "أعلى أفريقيا",
+    "pageViews": "عرض الصفحات",
+    "subtitle": "- المقالات الأكثر زيارة حسب البلد"
+  },
+  "home": {
+    "title": "المقالات الأكثر زيارة",
+    "description": "اكتشف المقالات الأكثر زيارة في مناطق مختلفة",
+    "searchPlaceholder": "البحث عن المقالات..."
+  },
+  "topAfrica": {
+    "title": "أعلى المقالات في أفريقيا",
+    "description": "المقالات الأكثر زيارة في الدول الأفريقية"
+  },
+  "pageViews": {
+    "title": "عرض صفحات المقالات",
+    "description": "تتبع وتحليل عرض صفحات المقالات",
+    "selectCountry": "اختر الدولة",
+    "selectArticle": "اختر المقال",
+    "selectInterval": "اختر الفاصل الزمني",
+    "viewGraph": "عرض الرسم البياني"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "noData": "لا توجد بيانات متاحة",
+    "help": "مساعدة",
+    "documentation": "التوثيق",
+    "viewSource": "عرض الكود المصدري",
+    "reportIssue": "الإبلاغ عن مشكلة",
+    "feedback": "التغذية الراجعة",
+    "developedBy": "تم التطوير بواسطة Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "تصدير",
+    "exportToCSV": "تصدير إلى CSV",
+    "exportToJSON": "تصدير إلى JSON",
+    "permanentLink": "رابط دائم",
+    "linkCopied": "تم نسخ الرابط إلى الحافظة!",
+    "requestTimeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى."
+  },
+  "article": {
+    "description": "الوصف",
+    "noDescription": "لا يوجد وصف متاح",
+    "country": "الدولة",
+    "notAvailable": "غير متوفر",
+    "project": "المشروع",
+    "rank": "الترتيب",
+    "views": "المشاهدات",
+    "editors": "المحررون",
+    "notFound": "غير موجود",
+    "readArticle": "قراءة المقال"
+  },
+  "form": {
+    "fillForm": "يرجى ملء النموذج للحصول على المقالات المطلوبة",
+    "date": "التاريخ",
+    "platform": "المنصة",
+    "allAccess": "جميع الوصول",
+    "desktop": "سطح المكتب",
+    "mobileApp": "تطبيق الجوال",
+    "mobileWeb": "ويب الجوال",
+    "sending": "جاري الإرسال...",
+    "submit": "إرسال",
+    "continent": "القارة",
+    "country": "الدولة",
+    "countryRequired": "الدولة مطلوبة",
+    "dateRequired": "التاريخ مطلوب",
+    "errorLocation": "خطأ في جلب بيانات الموقع",
+    "errorGeolocation": "خطأ في الحصول على الموقع الجغرافي",
+    "geolocationNotSupported": "الموقع الجغرافي غير مدعوم في هذا المتصفح"
+  },
+  "table": {
+    "rank": "الترتيب",
+    "country": "الدولة",
+    "articles": "المقالات",
+    "project": "المشروع",
+    "views": "المشاهدات"
+  },
+  "footer": {
+    "documentation": "التوثيق",
+    "viewSource": "عرض الكود المصدري",
+    "reportIssue": "الإبلاغ عن مشكلة",
+    "feedback": "التغذية الراجعة",
+    "developedBy": "تم التطوير بواسطة Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "تحتاج إلى حدث على هذا الزر",
+    "textRequired": "يجب إضافة خاصية 'text'"
+  }
+} 

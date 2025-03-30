@@ -1,4 +1,5 @@
 import { useContext, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import PageViewsContext from './Context';
 import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +7,9 @@ import { faAdd, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default function Pages() {
     const { pages, setPages } = useContext(PageViewsContext);
+    const { t } = useTranslation();
     const inputRef = useRef('');
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setPages([...pages, inputRef.current.value]);
@@ -27,7 +30,7 @@ export default function Pages() {
     return (
         <div className='flex my-3 gap-4 flex-wrap'>
             <form onSubmit={handleSubmit} method='POST' className='flex gap-3 flex-wrap'>
-                <input type='text' className='page-input' name='page' ref={inputRef} />
+                <input type='text' className='page-input' name='page' ref={inputRef} placeholder={t('pageViews.selectArticle')} />
                 <button type='submit' className='bg-blue-500 text-white px-4 py-2 rounded'>
                     <FontAwesomeIcon icon={faAdd} />
                 </button>
@@ -45,6 +48,7 @@ export default function Pages() {
                     </span>
                 ))}
             </div>
+            {pages.length === 0 && <div className='text-gray-500'>{t('common.noData')}</div>}
         </div>
     );
 }

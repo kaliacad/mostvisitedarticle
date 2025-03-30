@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "होम",
+    "topAfrica": "टॉप अफ्रीका",
+    "pageViews": "पेज व्यू",
+    "subtitle": "- देश के अनुसार सबसे ज्यादा देखे गए लेख"
+  },
+  "home": {
+    "title": "सबसे ज्यादा देखे गए लेख",
+    "description": "विभिन्न क्षेत्रों में सबसे ज्यादा देखे गए लेखों की खोज करें",
+    "searchPlaceholder": "लेख खोजें..."
+  },
+  "topAfrica": {
+    "title": "अफ्रीका में टॉप लेख",
+    "description": "अफ्रीकी देशों में सबसे ज्यादा देखे गए लेख"
+  },
+  "pageViews": {
+    "title": "लेख पेज व्यू",
+    "description": "लेख पेज व्यू को ट्रैक और विश्लेषण करें",
+    "selectCountry": "देश चुनें",
+    "selectArticle": "लेख चुनें",
+    "selectInterval": "अंतराल चुनें",
+    "viewGraph": "ग्राफ देखें"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "noData": "कोई डेटा उपलब्ध नहीं है",
+    "help": "सहायता",
+    "documentation": "दस्तावेज़ीकरण",
+    "viewSource": "स्रोत कोड देखें",
+    "reportIssue": "समस्या रिपोर्ट करें",
+    "feedback": "प्रतिक्रिया",
+    "developedBy": "Kali Academy द्वारा विकसित",
+    "kaliAcademy": "Kali Academy",
+    "export": "निर्यात",
+    "exportToCSV": "CSV में निर्यात",
+    "exportToJSON": "JSON में निर्यात",
+    "permanentLink": "स्थायी लिंक",
+    "linkCopied": "लिंक क्लिपबोर्ड पर कॉपी किया गया!",
+    "requestTimeout": "अनुरोध समय समाप्त। कृपया पुनः प्रयास करें।"
+  },
+  "article": {
+    "description": "विवरण",
+    "noDescription": "कोई विवरण उपलब्ध नहीं है",
+    "country": "देश",
+    "notAvailable": "उपलब्ध नहीं",
+    "project": "प्रोजेक्ट",
+    "rank": "रैंक",
+    "views": "व्यू",
+    "editors": "संपादक",
+    "notFound": "नहीं मिला",
+    "readArticle": "लेख पढ़ें"
+  },
+  "form": {
+    "fillForm": "कृपया वांछित लेख प्राप्त करने के लिए फॉर्म भरें",
+    "date": "तारीख",
+    "platform": "प्लेटफॉर्म",
+    "allAccess": "सभी एक्सेस",
+    "desktop": "डेस्कटॉप",
+    "mobileApp": "मोबाइल ऐप",
+    "mobileWeb": "मोबाइल वेब",
+    "sending": "भेज रहा है...",
+    "submit": "जमा करें",
+    "continent": "महाद्वीप",
+    "country": "देश",
+    "countryRequired": "देश आवश्यक है",
+    "dateRequired": "तारीख आवश्यक है",
+    "errorLocation": "स्थान डेटा प्राप्त करने में त्रुटि",
+    "errorGeolocation": "जियोलोकेशन प्राप्त करने में त्रुटि",
+    "geolocationNotSupported": "जियोलोकेशन इस ब्राउज़र में समर्थित नहीं है"
+  },
+  "table": {
+    "rank": "रैंक",
+    "country": "देश",
+    "articles": "लेख",
+    "project": "प्रोजेक्ट",
+    "views": "व्यू"
+  },
+  "footer": {
+    "documentation": "दस्तावेज़ीकरण",
+    "viewSource": "स्रोत कोड देखें",
+    "reportIssue": "समस्या रिपोर्ट करें",
+    "feedback": "प्रतिक्रिया",
+    "developedBy": "Kali Academy द्वारा विकसित",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "आपको इस बटन पर एक इवेंट की आवश्यकता है",
+    "textRequired": "आपको एक 'text' प्रॉप जोड़नी होगी"
+  }
+} 

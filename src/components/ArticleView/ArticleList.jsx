@@ -1,17 +1,20 @@
 import getPageURL from '../../helpers/getPageUrl';
+import { useTranslation } from 'react-i18next';
 
 export default function ListArticlesResult({ articlesData }) {
+    const { t } = useTranslation();
+
     return (
         <div className='p-4 text-white'>
             <div className='overflow-x-auto'>
                 <table className='min-w-full'>
                     <thead>
                         <tr>
-                            <th className='border-b border-solid border-black px-4 py-2 text-center'>Rank</th>
-                            <th className='border-b border-solid border-black px-4 py-2 text-center'>Country</th>
-                            <th className='border-b border-solid border-black px-4 py-2 text-left'>Articles</th>
-                            <th className='border-b border-solid border-black px-4 py-2 text-left'>Project</th>
-                            <th className='border-b border-solid border-black px-4 py-2 text-left'>Views</th>
+                            <th className='border-b border-solid border-black px-4 py-2 text-center'>{t('table.rank')}</th>
+                            <th className='border-b border-solid border-black px-4 py-2 text-center'>{t('table.country')}</th>
+                            <th className='border-b border-solid border-black px-4 py-2 text-left'>{t('table.articles')}</th>
+                            <th className='border-b border-solid border-black px-4 py-2 text-left'>{t('table.project')}</th>
+                            <th className='border-b border-solid border-black px-4 py-2 text-left'>{t('table.views')}</th>
                         </tr>
                     </thead>
                     <tbody>
