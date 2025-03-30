@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "topAfrica": "Top Afrique",
+    "pageViews": "Vues de Pages",
+    "subtitle": "- articles les plus visités par pays"
+  },
+  "home": {
+    "title": "Articles les Plus Visités",
+    "description": "Découvrez les articles les plus visités dans différentes régions",
+    "searchPlaceholder": "Rechercher des articles..."
+  },
+  "topAfrica": {
+    "title": "Articles en Vedette en Afrique",
+    "description": "Articles les plus visités dans les pays africains"
+  },
+  "pageViews": {
+    "title": "Vues de Pages d'Articles",
+    "description": "Suivez et analysez les vues de pages d'articles",
+    "selectCountry": "Sélectionner le Pays",
+    "selectArticle": "Sélectionner l'Article",
+    "selectInterval": "Sélectionner l'Intervalle",
+    "viewGraph": "Voir le Graphique"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "noData": "Aucune donnée disponible",
+    "help": "Aide",
+    "documentation": "Documentation",
+    "viewSource": "Voir le code source",
+    "reportIssue": "Signaler un problème",
+    "feedback": "Retour d'expérience",
+    "developedBy": "Développé par Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Exporter",
+    "exportToCSV": "Exporter en CSV",
+    "exportToJSON": "Exporter en JSON",
+    "permanentLink": "Lien permanent",
+    "linkCopied": "Lien copié dans le presse-papiers !",
+    "requestTimeout": "La requête a expiré. Veuillez réessayer."
+  },
+  "article": {
+    "description": "Description",
+    "noDescription": "Aucune description disponible",
+    "country": "Pays",
+    "notAvailable": "N/A",
+    "project": "Projet",
+    "rank": "Rang",
+    "views": "Vues",
+    "editors": "Éditeurs",
+    "notFound": "Non trouvé",
+    "readArticle": "Lire l'article"
+  },
+  "form": {
+    "fillForm": "Veuillez remplir le formulaire pour obtenir les articles souhaités",
+    "date": "Date",
+    "platform": "Plateforme",
+    "allAccess": "Tous les accès",
+    "desktop": "Ordinateur",
+    "mobileApp": "Application mobile",
+    "mobileWeb": "Web mobile",
+    "sending": "Envoi en cours...",
+    "submit": "Envoyer",
+    "continent": "Continent",
+    "country": "Pays",
+    "countryRequired": "Le pays est requis",
+    "dateRequired": "La date est requise",
+    "errorLocation": "Erreur lors de la récupération des données de localisation",
+    "errorGeolocation": "Erreur lors de l'obtention de la géolocalisation",
+    "geolocationNotSupported": "La géolocalisation n'est pas prise en charge par ce navigateur"
+  },
+  "table": {
+    "rank": "Rang",
+    "country": "Pays",
+    "articles": "Articles",
+    "project": "Projet",
+    "views": "Vues"
+  },
+  "footer": {
+    "documentation": "Documentation",
+    "viewSource": "Voir le code source",
+    "reportIssue": "Signaler un problème",
+    "feedback": "Retour d'expérience",
+    "developedBy": "Développé par Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Vous devez ajouter un événement à ce bouton",
+    "textRequired": "Vous devez ajouter une prop 'text'"
+  }
+} 

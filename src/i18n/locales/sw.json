@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Nyumbani",
+    "topAfrica": "Bora Afrika",
+    "pageViews": "Macho ya Ukurasa",
+    "subtitle": "- makala zinazotembelewa zaidi kwa nchi"
+  },
+  "home": {
+    "title": "Makala Zinazotembelewa Zaidi",
+    "description": "Gundua makala zinazotembelewa zaidi katika maeneo tofauti",
+    "searchPlaceholder": "Tafuta makala..."
+  },
+  "topAfrica": {
+    "title": "Makala Bora za Afrika",
+    "description": "Makala zinazotembelewa zaidi katika nchi za Kiafrika"
+  },
+  "pageViews": {
+    "title": "Macho ya Ukurasa wa Makala",
+    "description": "Fuatilia na chambua macho ya ukurasa wa makala",
+    "selectCountry": "Chagua Nchi",
+    "selectArticle": "Chagua Makala",
+    "selectInterval": "Chagua Muda",
+    "viewGraph": "Tazama Grafu"
+  },
+  "common": {
+    "loading": "Inapakia...",
+    "error": "Hitilafu",
+    "noData": "Hakuna data inayopatikana",
+    "help": "Msaada",
+    "documentation": "Nyaraka",
+    "viewSource": "Tazama chanzo cha msimbo",
+    "reportIssue": "Ripoti tatizo",
+    "feedback": "Maoni",
+    "developedBy": "Imetengenezwa na Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Hamisha",
+    "exportToCSV": "Hamisha kwa CSV",
+    "exportToJSON": "Hamisha kwa JSON",
+    "permanentLink": "Kiungo cha kudumu",
+    "linkCopied": "Kiungo kimekiliwa kwenye clipboard!",
+    "requestTimeout": "Ombi limeisha. Tafadhali jaribu tena."
+  },
+  "article": {
+    "description": "Maelezo",
+    "noDescription": "Hakuna maelezo yanayopatikana",
+    "country": "Nchi",
+    "notAvailable": "Haipatikani",
+    "project": "Mradi",
+    "rank": "Cheo",
+    "views": "Macho",
+    "editors": "Wahariri",
+    "notFound": "Haipatikani",
+    "readArticle": "Soma makala"
+  },
+  "form": {
+    "fillForm": "Tafadhali jaza fomu kupata makala zinazohitajika",
+    "date": "Tarehe",
+    "platform": "Jukwaa",
+    "allAccess": "Ufikiaji wote",
+    "desktop": "Dawati",
+    "mobileApp": "Programu ya rununu",
+    "mobileWeb": "Wavuti ya rununu",
+    "sending": "Inatuma...",
+    "submit": "Wasilisha",
+    "continent": "Bara",
+    "country": "Nchi",
+    "countryRequired": "Nchi inahitajika",
+    "dateRequired": "Tarehe inahitajika",
+    "errorLocation": "Hitilafu katika kupata data ya eneo",
+    "errorGeolocation": "Hitilafu katika kupata eneo",
+    "geolocationNotSupported": "Eneo halina mkono na kivinjari hiki"
+  },
+  "table": {
+    "rank": "Cheo",
+    "country": "Nchi",
+    "articles": "Makala",
+    "project": "Mradi",
+    "views": "Macho"
+  },
+  "footer": {
+    "documentation": "Nyaraka",
+    "viewSource": "Tazama chanzo cha msimbo",
+    "reportIssue": "Ripoti tatizo",
+    "feedback": "Maoni",
+    "developedBy": "Imetengenezwa na Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Unahitaji tukio kwenye kitufe hiki",
+    "textRequired": "Unahitaji kuongeza 'text' prop"
+  }
+} 

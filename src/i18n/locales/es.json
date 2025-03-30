@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "topAfrica": "Top África",
+    "pageViews": "Vistas de Páginas",
+    "subtitle": "- artículos más visitados por país"
+  },
+  "home": {
+    "title": "Artículos Más Visitados",
+    "description": "Descubre los artículos más visitados en diferentes regiones",
+    "searchPlaceholder": "Buscar artículos..."
+  },
+  "topAfrica": {
+    "title": "Artículos Destacados en África",
+    "description": "Artículos más visitados en países africanos"
+  },
+  "pageViews": {
+    "title": "Vistas de Páginas de Artículos",
+    "description": "Seguimiento y análisis de vistas de páginas de artículos",
+    "selectCountry": "Seleccionar País",
+    "selectArticle": "Seleccionar Artículo",
+    "selectInterval": "Seleccionar Intervalo",
+    "viewGraph": "Ver Gráfico"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "noData": "No hay datos disponibles",
+    "help": "Ayuda",
+    "documentation": "Documentación",
+    "viewSource": "Ver código fuente",
+    "reportIssue": "Reportar un problema",
+    "feedback": "Comentarios",
+    "developedBy": "Desarrollado por Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Exportar",
+    "exportToCSV": "Exportar a CSV",
+    "exportToJSON": "Exportar a JSON",
+    "permanentLink": "Enlace permanente",
+    "linkCopied": "¡Enlace copiado al portapapeles!",
+    "requestTimeout": "La solicitud ha expirado. Por favor, inténtelo de nuevo."
+  },
+  "article": {
+    "description": "Descripción",
+    "noDescription": "Sin descripción disponible",
+    "country": "País",
+    "notAvailable": "N/A",
+    "project": "Proyecto",
+    "rank": "Rango",
+    "views": "Vistas",
+    "editors": "Editores",
+    "notFound": "No encontrado",
+    "readArticle": "Leer artículo"
+  },
+  "form": {
+    "fillForm": "Por favor, complete el formulario para obtener los artículos deseados",
+    "date": "Fecha",
+    "platform": "Plataforma",
+    "allAccess": "Todos los accesos",
+    "desktop": "Escritorio",
+    "mobileApp": "Aplicación móvil",
+    "mobileWeb": "Web móvil",
+    "sending": "Enviando...",
+    "submit": "Enviar",
+    "continent": "Continente",
+    "country": "País",
+    "countryRequired": "El país es requerido",
+    "dateRequired": "La fecha es requerida",
+    "errorLocation": "Error al obtener datos de ubicación",
+    "errorGeolocation": "Error al obtener la geolocalización",
+    "geolocationNotSupported": "La geolocalización no es compatible con este navegador"
+  },
+  "table": {
+    "rank": "Rango",
+    "country": "País",
+    "articles": "Artículos",
+    "project": "Proyecto",
+    "views": "Vistas"
+  },
+  "footer": {
+    "documentation": "Documentación",
+    "viewSource": "Ver código fuente",
+    "reportIssue": "Reportar un problema",
+    "feedback": "Comentarios",
+    "developedBy": "Desarrollado por Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Necesitas un evento en este botón",
+    "textRequired": "Debes agregar una prop 'text'"
+  }
+} 

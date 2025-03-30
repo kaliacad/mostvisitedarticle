@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "首页",
+    "topAfrica": "非洲热门",
+    "pageViews": "页面浏览量",
+    "subtitle": "- 按国家的最受欢迎文章"
+  },
+  "home": {
+    "title": "最受欢迎文章",
+    "description": "发现不同地区最受欢迎的文章",
+    "searchPlaceholder": "搜索文章..."
+  },
+  "topAfrica": {
+    "title": "非洲热门文章",
+    "description": "非洲国家最受欢迎的文章"
+  },
+  "pageViews": {
+    "title": "文章页面浏览量",
+    "description": "跟踪和分析文章页面浏览量",
+    "selectCountry": "选择国家",
+    "selectArticle": "选择文章",
+    "selectInterval": "选择时间间隔",
+    "viewGraph": "查看图表"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "noData": "暂无数据",
+    "help": "帮助",
+    "documentation": "文档",
+    "viewSource": "查看源代码",
+    "reportIssue": "报告问题",
+    "feedback": "反馈",
+    "developedBy": "由 Kali Academy 开发",
+    "kaliAcademy": "Kali Academy",
+    "export": "导出",
+    "exportToCSV": "导出为 CSV",
+    "exportToJSON": "导出为 JSON",
+    "permanentLink": "永久链接",
+    "linkCopied": "链接已复制到剪贴板！",
+    "requestTimeout": "请求超时。请重试。"
+  },
+  "article": {
+    "description": "描述",
+    "noDescription": "暂无描述",
+    "country": "国家",
+    "notAvailable": "不可用",
+    "project": "项目",
+    "rank": "排名",
+    "views": "浏览量",
+    "editors": "编辑者",
+    "notFound": "未找到",
+    "readArticle": "阅读文章"
+  },
+  "form": {
+    "fillForm": "请填写表单以获取所需文章",
+    "date": "日期",
+    "platform": "平台",
+    "allAccess": "所有访问",
+    "desktop": "桌面版",
+    "mobileApp": "移动应用",
+    "mobileWeb": "移动网页",
+    "sending": "发送中...",
+    "submit": "提交",
+    "continent": "大洲",
+    "country": "国家",
+    "countryRequired": "国家为必填项",
+    "dateRequired": "日期为必填项",
+    "errorLocation": "获取位置数据时出错",
+    "errorGeolocation": "获取地理位置时出错",
+    "geolocationNotSupported": "此浏览器不支持地理位置"
+  },
+  "table": {
+    "rank": "排名",
+    "country": "国家",
+    "articles": "文章",
+    "project": "项目",
+    "views": "浏览量"
+  },
+  "footer": {
+    "documentation": "文档",
+    "viewSource": "查看源代码",
+    "reportIssue": "报告问题",
+    "feedback": "反馈",
+    "developedBy": "由 Kali Academy 开发",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "此按钮需要一个事件处理程序",
+    "textRequired": "您需要添加 'text' 属性"
+  }
+} 

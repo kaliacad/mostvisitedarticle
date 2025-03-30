@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Главная",
+    "topAfrica": "Топ Африки",
+    "pageViews": "Просмотры Страниц",
+    "subtitle": "- самые посещаемые статьи по странам"
+  },
+  "home": {
+    "title": "Самые Посещаемые Статьи",
+    "description": "Откройте для себя самые посещаемые статьи в разных регионах",
+    "searchPlaceholder": "Поиск статей..."
+  },
+  "topAfrica": {
+    "title": "Лучшие Статьи в Африке",
+    "description": "Самые посещаемые статьи в африканских странах"
+  },
+  "pageViews": {
+    "title": "Просмотры Страниц Статей",
+    "description": "Отслеживайте и анализируйте просмотры страниц статей",
+    "selectCountry": "Выберите Страну",
+    "selectArticle": "Выберите Статью",
+    "selectInterval": "Выберите Интервал",
+    "viewGraph": "Показать График"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "noData": "Нет доступных данных",
+    "help": "Помощь",
+    "documentation": "Документация",
+    "viewSource": "Просмотр исходного кода",
+    "reportIssue": "Сообщить о проблеме",
+    "feedback": "Обратная связь",
+    "developedBy": "Разработано Kali Academy",
+    "kaliAcademy": "Kali Academy",
+    "export": "Экспорт",
+    "exportToCSV": "Экспорт в CSV",
+    "exportToJSON": "Экспорт в JSON",
+    "permanentLink": "Постоянная ссылка",
+    "linkCopied": "Ссылка скопирована в буфер обмена!",
+    "requestTimeout": "Время запроса истекло. Пожалуйста, попробуйте снова."
+  },
+  "article": {
+    "description": "Описание",
+    "noDescription": "Нет доступного описания",
+    "country": "Страна",
+    "notAvailable": "Н/Д",
+    "project": "Проект",
+    "rank": "Ранг",
+    "views": "Просмотры",
+    "editors": "Редакторы",
+    "notFound": "Не найдено",
+    "readArticle": "Читать статью"
+  },
+  "form": {
+    "fillForm": "Пожалуйста, заполните форму для получения желаемых статей",
+    "date": "Дата",
+    "platform": "Платформа",
+    "allAccess": "Все доступы",
+    "desktop": "Десктоп",
+    "mobileApp": "Мобильное приложение",
+    "mobileWeb": "Мобильный веб",
+    "sending": "Отправка...",
+    "submit": "Отправить",
+    "continent": "Континент",
+    "country": "Страна",
+    "countryRequired": "Страна обязательна",
+    "dateRequired": "Дата обязательна",
+    "errorLocation": "Ошибка при получении данных о местоположении",
+    "errorGeolocation": "Ошибка при получении геолокации",
+    "geolocationNotSupported": "Геолокация не поддерживается этим браузером"
+  },
+  "table": {
+    "rank": "Ранг",
+    "country": "Страна",
+    "articles": "Статьи",
+    "project": "Проект",
+    "views": "Просмотры"
+  },
+  "footer": {
+    "documentation": "Документация",
+    "viewSource": "Просмотр исходного кода",
+    "reportIssue": "Сообщить о проблеме",
+    "feedback": "Обратная связь",
+    "developedBy": "Разработано Kali Academy",
+    "kaliAcademy": "Kali Academy"
+  },
+  "button": {
+    "eventRequired": "Вам нужен обработчик события для этой кнопки",
+    "textRequired": "Вы должны добавить свойство 'text'"
+  }
+} 

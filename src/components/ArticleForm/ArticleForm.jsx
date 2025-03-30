@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CountryPickList from './CountryPicker';
 import fetchLocation from '../../api/fetchLocation';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
@@ -12,6 +13,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         date: today.toISOString().split('T')[0],
         access: 'all-access',
     });
+    const { t } = useTranslation();
 
     useEffect(() => {
         const getLocation = async (lat, lon) => {
@@ -23,7 +25,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     country: countryCode,
                 }));
             } catch (error) {
-                toast.error(`Error fetching location data.`, {
+                toast.error(t('form.errorLocation'), {
                     autoClose: false,
                     position: 'top-right',
                     hideProgressBar: true,
@@ -40,7 +42,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     getLocation(latitude, longitude);
                 },
                 () => {
-                    toast.error(`Error getting geolocation.`, {
+                    toast.error(t('form.errorGeolocation'), {
                         autoClose: false,
                         position: 'top-right',
                         hideProgressBar: true,
@@ -50,7 +52,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                 },
             );
         } else {
-            toast.error(`Geolocation is not supported by this browser.`, {
+            toast.error(t('form.geolocationNotSupported'), {
                 autoClose: false,
                 position: 'top-right',
                 hideProgressBar: true,
@@ -58,7 +60,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                 progress: undefined,
             });
         }
-    }, []);
+    }, [t]);
 
     const [country, setCountry] = useState('CD');
     const [continent, setContinent] = useState('Africa');
@@ -81,8 +83,8 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
 
     const validateForm = () => {
         const errors = {};
-        if (!form.country) errors.country = 'Country is required';
-        if (!form.date) errors.date = 'La date est requise';
+        if (!form.country) errors.country = t('form.countryRequired');
+        if (!form.date) errors.date = t('form.dateRequired');
         return errors;
     };
 
@@ -107,7 +109,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         <form onSubmit={handleSubmit} className='w-full formBorder py-5 rounded-xl max-md:w-[95vw]'>
             <div className='flex flex-col gap-[0.5rem] justify-between items-center w-full'>
                 <div className='text-start mb-2 py-5'>
-                    <p className='date text-[20px] max-md:text-xs text-center'>Veuillez remplir le formulaire pour obtenir les articles souhaités</p>
+                    <p className='date text-[20px] max-md:text-xs text-center'>{t('form.fillForm')}</p>
                 </div>
 
                 <div className='inputs flex gap-[1rem] max-md:flex-col max-md:text-xs'>
@@ -124,8 +126,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     />
                     <div className='select_container country_select'>
                         <div>
-                            <label className='select_label'>Date</label>
-
+                            <label className='select_label'>{t('form.date')}</label>
                             <input id='fullDate' type='date' name='date' className='select_options' value={form.date} onChange={handleChange} />
                         </div>
                     </div>
@@ -133,20 +134,20 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     <div className='select_container country_select'>
                         <div>
                             <label htmlFor='' className='select_label'>
-                                Platform
+                                {t('form.platform')}
                             </label>
                             <select className='select_options' name='access' value={form.access} onChange={handleChange}>
-                                <option value='all-access'>all-access</option>
-                                <option value='desktop'>desktop</option>
-                                <option value='mobile-app'>mobile-app</option>
-                                <option value='mobile-web'>mobile-web</option>
+                                <option value='all-access'>{t('form.allAccess')}</option>
+                                <option value='desktop'>{t('form.desktop')}</option>
+                                <option value='mobile-app'>{t('form.mobileApp')}</option>
+                                <option value='mobile-web'>{t('form.mobileWeb')}</option>
                             </select>
                             {formErrors.access && <div className='error'>{formErrors.access}</div>}
                         </div>
                     </div>
                 </div>
                 <button type='submit' className=' py-[0.7rem] my-5 bg-green-500 text-white px-6 text-[18px] font-600 w-56 max-md:text-xs'>
-                    {loading ? 'Envoie en cours...' : 'Envoyer'}
+                    {loading ? t('form.sending') : t('form.submit')}
                 </button>
             </div>
         </form>
