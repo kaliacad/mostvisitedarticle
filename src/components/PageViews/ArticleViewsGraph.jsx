@@ -65,7 +65,17 @@ const ArticleViewsGraph = ({ articles }) => {
             {loading ? (
                 <Loading />
             ) : viewData.labels ? (
-                <Line data={viewData} />
+                <Line data={viewData} options={{ responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        }
+                    }
+                }} />
             ) : (
                 <p className='text-white text-2xl absolute top-1/2 right-1/4 transform -translate-x-1/2 -translate-y-1/2'>No data available.</p>
             )}
