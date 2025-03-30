@@ -5,7 +5,7 @@ import fetchArticleImage from '../../api/fetchArticleImage';
 import fetchArticleEditor from '../../api/fetchArticleEditor';
 import pageNameDecoder from '../../helpers/pageNameDecoder';
 import { useEffect, useState } from 'react';
-import Button from '../common/Button';
+// import Button from '../common/Button';
 import fetchArticleDescription from '../../api/fetchArticleDescription';
 
 const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
@@ -78,7 +78,14 @@ const ArticleCard = ({ article, project, views_ceil, rank, country }) => {
                     </p>
                 </div>
 
-                <Button event={() => (window.location.href = getPageURL(article, project))} text="Lire l'article" className='article-link' />
+                <a
+                    href={getPageURL(article, project)} // URL du lien
+                    target='_blank' // Ouvrir dans un nouvel onglet
+                    rel='noopener noreferrer' // Sécurité
+                    className='article-link' // Classe CSS
+                >
+                    Lire l&apos;article
+                </a>
             </div>
         </div>
     );
