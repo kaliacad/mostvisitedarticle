@@ -9,14 +9,16 @@
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "format": "prettier src/**/*.{js,jsx} --write",
         "preview": "vite preview",
-        "prepare": "husky"
+        "prepare": "husky",
+        "check:unused-modules": "npx unimported",
+        "preinstall": "npx only-allow pnpm"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "autoprefixer": "^10.4.19",
         "axios": "^1.7.2",
+<<<<<<< HEAD
         "chart.js": "^4.4.8",
         "country-list-js": "^3.1.8",
         "file-saver": "^2.0.5",
@@ -24,11 +26,19 @@
         "jspdf": "^2.5.1",
         "postcss": "^8.4.38",
         "prop-types": "^15.8.1",
+=======
+        "chart.js": "^4.4.3",
+        "papaparse": "^5.4.1",
+>>>>>>> dc7a60568712f14e88429ea88f8a3897d7fdb5b4
         "react": "^18.3.1",
         "react-chartjs-2": "^5.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.23.1",
+<<<<<<< HEAD
         "react-toastify": "^11.0.5"
+=======
+        "react-toastify": "^10.0.5"
+>>>>>>> dc7a60568712f14e88429ea88f8a3897d7fdb5b4
     },
     "devDependencies": {
         "@commitlint/cli": "^19.3.0",
@@ -44,7 +54,9 @@
         "lint-staged": "^15.2.5",
         "prettier": "3.2.5",
         "tailwindcss": "^3.4.4",
-        "vite": "^5.2.0"
+        "vite": "^5.2.0",
+        "autoprefixer": "^10.4.19",
+        "postcss": "^8.4.38"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx}": [

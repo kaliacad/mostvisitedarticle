@@ -2,16 +2,16 @@ import ArticleViewsGraph from './ArticleViewsGraph';
 import { useContext } from 'react';
 import PageViewsContext from './Context';
 export default function ArticlesGraph() {
-    const [[dateType], [project], [article], [platform], [agent]] = useContext(PageViewsContext);
-    const articleData = {
+    const { pages, dateType, project, platform, agent, dates } = useContext(PageViewsContext);
+    const articlesData = pages.map((article) => ({
         article: encodeURIComponent(article),
         project: encodeURIComponent(project),
         acess: encodeURIComponent(platform),
         agents: encodeURIComponent(agent),
         dateType: encodeURIComponent(dateType),
-        // start:`${todayYear}0101`,
-        // end:`${todayYear}${todayMonth}${todayDay}`,
-    };
+        start: dates.start,
+        end: dates.end,
+    }));
 
-    return <ArticleViewsGraph article={articleData} />;
+    return <ArticleViewsGraph articles={articlesData} />;
 }

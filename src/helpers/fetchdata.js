@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const axiosInstance = axios.create({
     headers: {
@@ -14,7 +15,16 @@ const fetchMostVisitedArticlesData = async ({ country, access, year, month, day 
 
         return await axiosInstance.get(apiUrl);
     } catch (error) {
-        throw new Error('Aucune donnée trouvée pour les paramètres passées');
+        toast.error('Aucune donnée trouvée pour les paramètres passées', {
+            autoClose: 5000,
+            position: 'bottom-center',
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        });
     }
 };
 
