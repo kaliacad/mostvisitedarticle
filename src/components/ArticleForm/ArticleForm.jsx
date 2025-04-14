@@ -7,13 +7,20 @@ import { useTranslation } from 'react-i18next';
 const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
     const today = new Date();
-    today.setDate(today.getDate() - 1);
+
     const [form, setForm] = useState({
         country: '',
-        date: today.toISOString().split('T')[0],
+        date: getStartDayOftheWeek(today),
         access: 'all-access',
     });
     const { t } = useTranslation();
+
+    function getStartDayOftheWeek(date) {
+        const diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+
+        const startOfWeek = new Date(date.setDate(diff));
+        return startOfWeek.toISOString().split('T')[0];
+    }
 
     useEffect(() => {
         const getLocation = async (lat, lon) => {
