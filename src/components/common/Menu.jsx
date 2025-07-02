@@ -27,8 +27,7 @@ export const Menu = React.forwardRef(({ data, label, value, defaultValue, onChan
                 ref={ref}
                 id={`select_option${label}`}
                 className='select_options'
-                defaultValue={defaultValue ? defaultValue : data[0]}
-                value={value}
+                value={value || defaultValue || (data[0] && data[0].value)}
                 onChange={(e) => onChange(e.target.value)}
             >
                 {data.map((el, i) => (

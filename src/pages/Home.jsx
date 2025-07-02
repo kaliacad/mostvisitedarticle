@@ -33,12 +33,12 @@ function App() {
     const [filteredArticles, setFilteredArticles] = useState(articles);
 
     const [view, setView] = useState('card');
-    const handlePageChange = (currentPage, paginatedItems) => {
+    const handlePageChange = useCallback((currentPage, paginatedItems) => {
         setPaginatedItems(paginatedItems);
-    };
-    const handleCurrentPage = (page) => {
+    }, []);
+    const handleCurrentPage = useCallback((page) => {
         setCurrentPage(page);
-    };
+    }, []);
 
     const handleSubmit = useCallback(
         async (formData) => {
@@ -164,6 +164,7 @@ function App() {
 
     useEffect(() => {
         setFilteredArticles(articles);
+        setCurrentPage(1); // Reset to first page when articles change
     }, [articles]);
 
     return (
