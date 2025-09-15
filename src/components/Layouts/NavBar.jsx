@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../common/LanguageSelector';
 
 const NavBar = () => {
+    const pathname = window.location.pathname.replace('/', '');
     const [helpMenuOpen, setHelpMenuOpen] = useState(false);
     const { t } = useTranslation();
 
@@ -39,7 +40,7 @@ const NavBar = () => {
                 <div className='flex items-center justify-between gap-4'>
                     <ul className='flex items-center justify-center gap-4 text-white'>
                         <li>
-                            <a href='/page-views' className=' text-white underline'>
+                            <a href='/page-views' className={`text-white ${pathname == "page-views" ? "underline" : ""}`}>
                                 <span className='max-md:hidden'>{t('nav.pageViews')}</span>
                                 <span className='hidden max-md:block'>
                                     <FontAwesomeIcon icon={faPager} style={{ color: '#ffffff' }} />
@@ -47,7 +48,7 @@ const NavBar = () => {
                             </a>
                         </li>
                         <li>
-                            <a href='/top-africa' className=' text-white underline'>
+                            <a href='/top-africa' className={`text-white ${pathname == "top-africa" ? "underline" : ""}`}>
                                 <span className='max-md:hidden'>{t('nav.topAfrica')}</span>
                                 <span className='hidden max-md:block'>
                                     <FontAwesomeIcon icon={faArrowsUpToLine} style={{ color: '#ffffff' }} />
