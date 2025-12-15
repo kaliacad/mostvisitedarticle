@@ -28,31 +28,33 @@ export default function ArticleViewsGraph() {
         try {
             const results = await Promise.all(
                 pages.map(async (page) => {
-                    const response = await fetchPageViewsCount({
-                        article: page,
-                        project,
-                        acess: platform,
-                        agents: agent,
-                        dateType: dateType?.toLowerCase(),
-                        start: dates.start,
-                        end: dates.end,
-                    });
+                    try {
+                        const response = await fetchPageViewsCount({
+                            article: page,
+                            project,
+                            acess: platform,
+                            agents: agent,
+                            dateType: dateType?.toLowerCase(),
+                            start: dates.start,
+                            end: dates.end,
+                        });
 
-                    if (!response?.items) {
-                        throw new Error('Invalid response format');
+                        const views = Array.isArray(response?.items) ? response.items : [];
+
+                        const viewDates = views.map((view) => {
+                            const year = view.timestamp.substring(0, 4);
+                            const month = view.timestamp.substring(4, 6);
+                            const day = view.timestamp.substring(6, 8);
+                            return `${year}-${month}-${day}`;
+                        });
+                        const counts = views.map((view) => view.views);
+                        return { article: page, dates: viewDates, counts };
+                    } catch (e) {
+                        return { article: page, dates: [], counts: [] };
                     }
-
-                    const views = response.items;
-                    const dates = views.map((view) => {
-                        const year = view.timestamp.substring(0, 4);
-                        const month = view.timestamp.substring(4, 6);
-                        const day = view.timestamp.substring(6, 8);
-                        return `${year}-${month}-${day}`;
-                    });
-                    const counts = views.map((view) => view.views);
-                    return { article: page, dates, counts };
                 }),
             );
+
 
             const combinedDates = [...new Set(results.flatMap((data) => data.dates))].sort();
             const datasets = results.map((data, index) => ({

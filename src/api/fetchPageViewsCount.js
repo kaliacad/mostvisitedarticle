@@ -12,12 +12,14 @@ const fetchPageViewsCount = async (specification) => {
         end = `${todayYear}${todayMonth}${todayDay}`,
     } = specification;
     try {
-        const response = await axios.get(
-            `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/${project}/${acess}/${agents}/${article}/${dateType}/${start}/${end}`,
-        );
+        const encodedArticle = encodeURIComponent((article || '').replace(/\s+/g, '_'));
+        const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/${project}/${acess}/${agents}/${encodedArticle}/${dateType}/${start}/${end}`;
+        const response = await axios.get(url);
         return response.data;
     } catch (error) {
-        return;
+        // On error (404 or network), return an empty items array so callers can
+        // treat it as "no data" instead of triggering a fetch error UI.
+        return { items: [] };
     }
 };
 
