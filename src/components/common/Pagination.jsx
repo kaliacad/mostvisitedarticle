@@ -14,12 +14,14 @@ Testez la fonctionnalité avec la route "/exemple_pagination"
 const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, currentPage, totalPages }) => {
     useEffect(() => {
         onCurrentChange(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [items, itemsPerPage]);
 
     useEffect(() => {
         const paginatedItems = items.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
         onPageChange(currentPage, paginatedItems);
-    }, [currentPage, items, itemsPerPage, onPageChange]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentPage, items, itemsPerPage]);
 
     const handlePrevious = () => {
         if (currentPage > 1) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import CountryPickList from './CountryPicker';
 import fetchLocation from '../../api/fetchLocation';
 import { toast } from 'react-toastify';
@@ -8,12 +8,15 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [formErrors, setFormErrors] = useState({});
     const today = new Date();
     today.setDate(today.getDate() - 1);
+    const yesterdayDate = today.toISOString().split('T')[0];
     const [form, setForm] = useState({
         country: '',
-        date: today.toISOString().split('T')[0],
+        date: yesterdayDate,
         access: 'all-access',
     });
     const { t } = useTranslation();
+    const isInitialMount = useRef(true);
+
 
     useEffect(() => {
         const getLocation = async (lat, lon) => {
@@ -65,10 +68,18 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const [country, setCountry] = useState('CD');
     const [continent, setContinent] = useState('Africa');
 
+    // Initialize form with default country when component mounts
+    useEffect(() => {
+        if (!form.country && country) {
+            setForm(prevForm => ({ ...prevForm, country }));
+        }
+    }, [country, form.country]);
+
     useEffect(() => {
         (async () => {
             if (countryUrl) {
                 setCountry(countryUrl);
+                setForm(prevForm => ({ ...prevForm, country: countryUrl }));
             }
             if (continentUrl) {
                 setContinent(continentUrl);
@@ -76,17 +87,37 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         })();
     }, [countryUrl, continentUrl]);
 
+    // Auto-submit when form fields change
+    useEffect(() => {
+        // Skip auto-submit on initial mount to avoid duplicate calls
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            return;
+        }
+
+        // Only auto-submit if we have required fields and they are valid strings
+        if (form.country && typeof form.country === 'string' && form.country.length > 0 && 
+            form.date && continent && typeof continent === 'string' && continent.length > 0) {
+            const errors = validateForm();
+            if (Object.keys(errors).length === 0) {
+                const [year, month, day] = form.date.split('-');
+                onSubmit({ ...form, year, month, day, continent });
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [form.country, form.date, form.access, continent]);
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
     };
 
-    const validateForm = () => {
+    const validateForm = useCallback(() => {
         const errors = {};
         if (!form.country) errors.country = t('form.countryRequired');
         if (!form.date) errors.date = t('form.dateRequired');
         return errors;
-    };
+    }, [form.country, form.date, t]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -101,7 +132,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         } else {
             setFormErrors({});
             const [year, month, day] = form.date.split('-');
-            onSubmit({ ...form, year, month, day });
+            onSubmit({ ...form, year, month, day, continent });
         }
     };
 
@@ -116,7 +147,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
                     <CountryPickList
                         country={country}
                         onChangeCountry={(country) => {
-                            setForm({ ...form, country, continent });
+                            setForm({ ...form, country });
                             setCountry(country);
                         }}
                         defaultCountry={'CD'}
