@@ -1,20 +1,14 @@
 import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next';
 
 const defaultEvent = () => {
-    const { t } = useTranslation();
-    toast.info(t('button.eventRequired'));
+    toast.info('You need an event on this button');
 };
-
-export default function Button({ text, event, className }) {
-    const { t } = useTranslation();
-    const text2 = t('button.textRequired');
+export default function Button({ text, event }) {
+    const text2 = "You have to add a prop 'text'";
 
     return (
         <>
-            <button onClick={event || defaultEvent} className={className}>
-                {text || text2}
-            </button>
+            <button onClick={event || defaultEvent}>{text || text2}</button>;
         </>
     );
 }

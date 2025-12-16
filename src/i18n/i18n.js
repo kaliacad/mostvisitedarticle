@@ -16,55 +16,54 @@ import hiTranslations from './locales/hi.json';
 import nlTranslations from './locales/nl.json';
 import swTranslations from './locales/sw.json';
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: enTranslations,
-      },
-      fr: {
-        translation: frTranslations,
-      },
-      es: {
-        translation: esTranslations,
-      },
-      de: {
-        translation: deTranslations,
-      },
-      it: {
-        translation: itTranslations,
-      },
-      pt: {
-        translation: ptTranslations,
-      },
-      ru: {
-        translation: ruTranslations,
-      },
-      ja: {
-        translation: jaTranslations,
-      },
-      zh: {
-        translation: zhTranslations,
-      },
-      ar: {
-        translation: arTranslations,
-      },
-      hi: {
-        translation: hiTranslations,
-      },
-      nl: {
-        translation: nlTranslations,
-      },
-      sw: {
-        translation: swTranslations,
-      },
-    },
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+i18n.use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        resources: {
+            en: {
+                translation: enTranslations,
+            },
+            fr: {
+                translation: frTranslations,
+            },
+            es: {
+                translation: esTranslations,
+            },
+            de: {
+                translation: deTranslations,
+            },
+            it: {
+                translation: itTranslations,
+            },
+            pt: {
+                translation: ptTranslations,
+            },
+            ru: {
+                translation: ruTranslations,
+            },
+            ja: {
+                translation: jaTranslations,
+            },
+            zh: {
+                translation: zhTranslations,
+            },
+            ar: {
+                translation: arTranslations,
+            },
+            hi: {
+                translation: hiTranslations,
+            },
+            nl: {
+                translation: nlTranslations,
+            },
+            sw: {
+                translation: swTranslations,
+            },
+        },
+        fallbackLng: 'en',
+        interpolation: {
+            escapeValue: false,
+        },
+    });
 
-export default i18n; 
+export default i18n;
