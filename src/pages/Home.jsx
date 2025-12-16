@@ -107,6 +107,7 @@ function App() {
             const formData = {};
             formData.country = params[0];
             formData.access = params[1];
+            formData.continent = params[3];
             formData.year = date[0];
             formData.month = date[1];
             formData.day = date[2];
