@@ -38,7 +38,8 @@
     "exportToJSON": "Export to JSON",
     "permanentLink": "Permanent Link",
     "linkCopied": "Link copied to clipboard!",
-    "requestTimeout": "Request timed out. Please try again."
+    "requestTimeout": "Request timed out. Please try again.",
+    "noResultsForFilters": "No results found for the selected filters."
   },
   "article": {
     "description": "Description",

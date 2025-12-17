@@ -45,7 +45,7 @@ function App() {
             setLoading(true);
 
             try {
-                const response = await fetchArticles(formData);
+                const response = await fetchArticles({ ...formData, t });
 
                 if (response && response.data && response.data.items && response.data.items.length > 0) {
                     const trueArticles = await getTrueArticles(
