@@ -17,7 +17,6 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     const { t } = useTranslation();
     const isInitialMount = useRef(true);
 
-
     useEffect(() => {
         const getLocation = async (lat, lon) => {
             try {
@@ -71,7 +70,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
     // Initialize form with default country when component mounts
     useEffect(() => {
         if (!form.country && country) {
-            setForm(prevForm => ({ ...prevForm, country }));
+            setForm((prevForm) => ({ ...prevForm, country }));
         }
     }, [country, form.country]);
 
@@ -79,7 +78,7 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         (async () => {
             if (countryUrl) {
                 setCountry(countryUrl);
-                setForm(prevForm => ({ ...prevForm, country: countryUrl }));
+                setForm((prevForm) => ({ ...prevForm, country: countryUrl }));
             }
             if (continentUrl) {
                 setContinent(continentUrl);
@@ -96,8 +95,15 @@ const ArticleForm = ({ onSubmit, loading, countryUrl, continentUrl }) => {
         }
 
         // Only auto-submit if we have required fields and they are valid strings
-        if (form.country && typeof form.country === 'string' && form.country.length > 0 && 
-            form.date && continent && typeof continent === 'string' && continent.length > 0) {
+        if (
+            form.country &&
+            typeof form.country === 'string' &&
+            form.country.length > 0 &&
+            form.date &&
+            continent &&
+            typeof continent === 'string' &&
+            continent.length > 0
+        ) {
             const errors = validateForm();
             if (Object.keys(errors).length === 0) {
                 const [year, month, day] = form.date.split('-');

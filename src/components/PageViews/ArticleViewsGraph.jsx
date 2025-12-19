@@ -55,7 +55,6 @@ export default function ArticleViewsGraph() {
                 }),
             );
 
-
             const combinedDates = [...new Set(results.flatMap((data) => data.dates))].sort();
             const datasets = results.map((data, index) => ({
                 label: decodeURIComponent(data.article),

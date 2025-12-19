@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../../styles/NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faBug, faCode, faComment, faCopyright, faUsers, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,8 @@ const NavBar = () => {
     const [helpMenuOpen, setHelpMenuOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { t } = useTranslation();
+    const location = useLocation();
+    const pathname = location.pathname.replace(/^\//, '');
 
     useEffect(() => {
         const closeMenus = (event) => {
@@ -35,10 +38,10 @@ const NavBar = () => {
 
                 {/* Desktop Menu */}
                 <div className='hidden md:flex items-center gap-4'>
-                    <a href='/page-views' className='text-white underline'>
+                    <a href='/page-views' className={`text-white ${pathname === 'page-views' ? 'underline' : ''}`}>
                         {t('nav.pageViews')}
                     </a>
-                    <a href='/top-africa' className='text-white underline'>
+                    <a href='/top-africa' className={`text-white ${pathname === 'top-africa' ? 'underline' : ''}`}>
                         {t('nav.topAfrica')}
                     </a>
                     <LanguageSelector />
@@ -56,10 +59,10 @@ const NavBar = () => {
             {/* Mobile Menu */}
             {mobileMenuOpen && (
                 <div className='mobile-menu md:hidden bg-blue-700 px-4 py-3 space-y-3 text-white'>
-                    <a href='/page-views' className='block underline'>
+                    <a href='/page-views' className={`block ${pathname === 'page-views' ? 'underline' : ''}`}>
                         {t('nav.pageViews')}
                     </a>
-                    <a href='/top-africa' className='block underline'>
+                    <a href='/top-africa' className={`block ${pathname === 'top-africa' ? 'underline' : ''}`}>
                         {t('nav.topAfrica')}
                     </a>
 

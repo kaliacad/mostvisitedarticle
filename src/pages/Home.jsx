@@ -191,7 +191,7 @@ function App() {
                     {articles.length > 0 && (
                         <div className='flex justify-between max-md:flex-col-reverse pt-4'>
                             <div className='relative flex text-left'>
-                                <div>
+                                <div className='relative inline-block text-left'>
                                     <button
                                         onClick={() => setDropdownOpen(!dropdownOpen)}
                                         className='inline-flex justify-center ml-2 w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
@@ -203,7 +203,6 @@ function App() {
                                             xmlns='http://www.w3.org/2000/svg'
                                             viewBox='0 0 20 20'
                                             fill='currentColor'
-                                            aria-hidden='true'
                                         >
                                             <path
                                                 fillRule='evenodd'
@@ -212,29 +211,42 @@ function App() {
                                             />
                                         </svg>
                                     </button>
-                                </div>
-                                {dropdownOpen && (
-                                    <div className=' origin-top-right absolute right-0 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5'>
-                                        <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
-                                            <a
-                                                href='#'
-                                                onClick={exportToCSV}
-                                                className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                                                role='menuitem'
-                                            >
-                                                {t('common.exportToCSV')}
-                                            </a>
-                                            <a
-                                                href='#'
-                                                onClick={exportToJSON}
-                                                className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 mt-4'
-                                                role='menuitem'
-                                            >
-                                                {t('common.exportToJSON')}
-                                            </a>
+
+                                    {dropdownOpen && (
+                                        <div
+                                            id='export-dropdown'
+                                            className='origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'
+                                            style={{
+                                                zIndex: 1000,
+                                                marginTop: '0.5rem',
+                                            }}
+                                        >
+                                            <div className='py-1' role='menu' aria-orientation='vertical' aria-labelledby='options-menu'>
+                                                <button
+                                                    onClick={() => {
+                                                        exportToCSV();
+                                                        setDropdownOpen(false);
+                                                    }}
+                                                    className='block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                                                    role='menuitem'
+                                                >
+                                                    {t('common.exportToCSV')}
+                                                </button>
+                                                <div className='border-t border-gray-200'></div>
+                                                <button
+                                                    onClick={() => {
+                                                        exportToJSON();
+                                                        setDropdownOpen(false);
+                                                    }}
+                                                    className='block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                                                    role='menuitem'
+                                                >
+                                                    {t('common.exportToJSON')}
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                                 <button className='ml-10 bg-gray-300' onClick={handleCopyUrl}>
                                     {t('common.permanentLink')}
                                 </button>
