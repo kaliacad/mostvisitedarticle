@@ -7,6 +7,7 @@ import ListArticlesResult from '../components/ArticleView/ArticleList';
 import DatePicker from '../components/ArticleForm/DatePicker';
 import ArticleCardSkeletton from '../components/ArticleView/ArticleCardSkeletton';
 import getTrueArticles from '../helpers/getTrueArticles';
+import Pagination from '../components/common/Pagination';
 
 const africanCountries = countries.Africa;
 
@@ -31,7 +32,8 @@ export default function Africa() {
 
     // Pagination states
     const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = showCard ? 12 : 18; // Display 9 or 12 items per page
+    const [currentArticles, setCurrentArticles] = useState([]);
+    const articlesPerPage = showCard ? 12 : 18;
 
     const handleClicked = () => {
         setShowCard(!showCard);
@@ -84,30 +86,19 @@ export default function Africa() {
         fetchDataForAllCountries();
     }, [date]);
 
-    // Calculate pagination values
-    const indexOfLastArticle = currentPage * articlesPerPage;
-    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-    const currentArticles = data.slice(indexOfFirstArticle, indexOfLastArticle);
+    // Compute total pages
     const totalPages = Math.ceil(data.length / articlesPerPage);
 
-    // Handle  pagination changes
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    // Keep a local slice of current page articles; Pagination component will call onPageChange
+    useEffect(() => {
+        const initial = data.slice(0, articlesPerPage);
+        setCurrentArticles(initial);
+        setCurrentPage(1);
+    }, [data, articlesPerPage]);
 
-    // Render page numbers for pagination
-    const renderPageNumbers = () => {
-        const pageNumbers = [];
-        for (let i = 1; i <= totalPages; i++) {
-            pageNumbers.push(
-                <button
-                    key={i}
-                    onClick={() => paginate(i)}
-                    className={`px-2 py-1 mx-1 ${currentPage === i ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
-                >
-                    {i}
-                </button>,
-            );
-        }
-        return pageNumbers;
+    const handlePageChange = (page, paginatedItems) => {
+        setCurrentPage(page);
+        setCurrentArticles(paginatedItems);
     };
 
     // Display loading component if data is loading
@@ -175,21 +166,14 @@ export default function Africa() {
                 )}
 
                 <div className='flex items-center justify-center gap-4 my-5 mb-12'>
-                    <button
-                        onClick={() => paginate(currentPage - 1)}
-                        disabled={currentPage === 1}
-                        className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
-                    >
-                        &larr;
-                    </button>
-                    <div className='flex'>{renderPageNumbers()}</div>
-                    <button
-                        onClick={() => paginate(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                        className='px-4 py-2 bg-gray-300 rounded disabled:opacity-50'
-                    >
-                        &rarr;
-                    </button>
+                    <Pagination
+                        items={data}
+                        itemsPerPage={articlesPerPage}
+                        onPageChange={handlePageChange}
+                        onCurrentChange={setCurrentPage}
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                    />
                 </div>
             </div>
         </main>

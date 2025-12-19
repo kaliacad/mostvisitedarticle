@@ -38,7 +38,8 @@
     "exportToJSON": "Hamisha kwa JSON",
     "permanentLink": "Kiungo cha kudumu",
     "linkCopied": "Kiungo kimekiliwa kwenye clipboard!",
-    "requestTimeout": "Ombi limeisha. Tafadhali jaribu tena."
+    "requestTimeout": "Ombi limeisha. Tafadhali jaribu tena.",
+    "noResultsForFilters": "Hakuna matokeo yaliyopatikana kwa vichungi vilivyochaguliwa."
   },
   "article": {
     "description": "Maelezo",

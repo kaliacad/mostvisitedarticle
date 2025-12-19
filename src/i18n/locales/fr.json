@@ -38,7 +38,8 @@
     "exportToJSON": "Exporter en JSON",
     "permanentLink": "Lien permanent",
     "linkCopied": "Lien copié dans le presse-papiers !",
-    "requestTimeout": "La requête a expiré. Veuillez réessayer."
+    "requestTimeout": "La requête a expiré. Veuillez réessayer.",
+    "noResultsForFilters": "Aucun résultat trouvé pour les filtres sélectionnés."
   },
   "article": {
     "description": "Description",
