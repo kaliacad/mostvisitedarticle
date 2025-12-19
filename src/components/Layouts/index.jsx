@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import NavBar from './NavBar';
 import { Footer } from './footer';
 import { toast, ToastContainer } from 'react-toastify';
 
-export default function Layout({ children }) {
+export default function Layout() {
     const [featuredImage, setFeaturedImage] = useState('');
     useEffect(() => {
         async function fetchFeaturedImages() {
@@ -35,7 +36,9 @@ export default function Layout({ children }) {
         <>
             <main role='main' className=' relative'>
                 <NavBar />
-                <div className='main-content'>{children}</div>
+                <div className='main-content'>
+                    <Outlet />
+                </div>
                 <Footer />
                 <div className='bg-black opacity-60 -z-10  absolute top-0 left-0 w-full h-full'></div>
                 <img src={featuredImage} alt='background image' className='absolute w-full h-full top-0 left-0 -z-20' />
