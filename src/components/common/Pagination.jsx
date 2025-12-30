@@ -36,11 +36,11 @@ const Pagination = ({ items, itemsPerPage, onPageChange, onCurrentChange, curren
     };
 
     return (
-        <div className='pagination'>
+        <div className='pagination flex items-center justify-center gap-4 my-4'>
             <button onClick={handlePrevious} disabled={currentPage === 1} className='bg-gray-300 hover:cursor-pointer'>
                 Previous
             </button>
-            <span className='mx-4 font-bold text-xl'>
+            <span className='mx-4 font-bold text-xl text-white'>
                 Page {currentPage} of {totalPages}
             </span>
             <button onClick={handleNext} disabled={currentPage === totalPages} className='bg-gray-300 hover:cursor-pointer'>
